@@ -1,4 +1,4 @@
-{ pkgs, inputs, lib, system, ... }:
+{ pkgs, inputs, lib, system, stateVersion, ... }:
 let
   user = "yuna";
 in
@@ -13,7 +13,7 @@ in
   home-manager.useGlobalPkgs = true;
   # home-manager.useUserPackages = true;
   home-manager.extraSpecialArgs = {
-    inherit inputs system;
+    inherit inputs system stateVersion;
   };
   home-manager.sharedModules = [
     ./apps.nix

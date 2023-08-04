@@ -41,6 +41,7 @@
   outputs = { darwin, home-manager, ... } @ inputs:
     let
       system = "x86_64-darwin";
+      stateVersion = "23.05";
       pkgs = import inputs.nixpkgs {
         inherit system;
         overlays = import ./overlays;
@@ -59,10 +60,10 @@
         inherit system;
 
         specialArgs = {
-          inherit inputs system;
+          inherit inputs system stateVersion;
         };
 
-        modules = (import ./modules) { inherit home-manager; };
+        modules = (import ./modules) { inherit home-manager stateVersion; };
       };
     };
 }

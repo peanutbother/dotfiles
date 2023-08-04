@@ -1,8 +1,7 @@
-{ pkgs, ... }:
+{ pkgs, stateVersion, ... }:
 {
   home = {
-    # Don't change this when you change package input. Leave it alone.
-    stateVersion = "23.05";
+    inherit stateVersion;
 
     packages = with pkgs; [
       bclm
