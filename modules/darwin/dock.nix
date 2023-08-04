@@ -1,5 +1,5 @@
 {
-  system.defaults = {
-    dock.autohide = true;
+  system.defaults.dock = {
+    autohide = true;
   };
 }

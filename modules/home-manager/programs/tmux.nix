@@ -8,7 +8,7 @@
     shortcut = "y";
     terminal = "xterm-256color";
     plugins = with pkgs; [
-      # tmuxPlugins.battery
+      # tmuxPlugins.battery # currently broken
       # tmuxPlugins.cpu # needs fixup, see `extraConfig`
       tmuxPlugins.urlview
       tmuxPlugins.logging

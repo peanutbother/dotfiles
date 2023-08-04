@@ -13,27 +13,27 @@
     ];
 
     sessionVariables = {
-      PAGER = "less";
-      COLOR = 1;
-      CLICOLOR = 1;
-      EDITOR = "code";
+      PAGER = "less"; # use less instead of more
+      COLOR = 1; # force cli color
+      CLICOLOR = 1; # force cli color
+      EDITOR = "code"; # requires alias `code` from below
     };
 
     sessionPath = [
-      "$HOME/.spicetify"
+      "$HOME/.spicetify" # needs to be manually installed as of now (incompatible with macos)
     ];
 
     shellAliases = {
-      nixswitch = "nix run nix-darwin -- switch --flake ~/.nix/.#";
-      nixup = "pushd ~/.nix; nix flake update; nixswitch; popd";
-      cls = "clear";
-      code = "env VSCODE_CWD=\"$PWD\" open -n -b \"com.microsoft.VSCode\" --args $*";
-      # get_idf = ". $HOME/esp/esp-idf/export.sh"
+      nixswitch = "nix run nix-darwin -- switch --flake ~/.nix/.#"; # refresh nix env after config changes
+      nixup = "pushd ~/.nix; nix flake update; nixswitch; popd"; # update nix env and refresh
+      cls = "clear"; # shorthand and alias to win's cls
+      code = "env VSCODE_CWD=\"$PWD\" open -n -b \"com.microsoft.VSCode\" --args $*"; # create a shell alias for vs code
+      # get_idf = ". $HOME/esp/esp-idf/export.sh"                                     # TODO install esp-idf somehow
     };
   };
 
   imports = [
-    ./dotfiles
-    ./programs
+    ./dotfiles # copy dotfiles into home
+    ./programs # install and configure applications using home-manager
   ];
 }

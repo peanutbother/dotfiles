@@ -4,13 +4,10 @@
     enableZshIntegration = true;
     settings = {
       format = "[](#9A348E)$os$username[](bg:#DA627D fg:#9A348E)$directory[](fg:#DA627D bg:#FCA17D)$git_branch$git_status[](fg:#FCA17D bg:#86BBD8)$c$elixir$elm$golang$gradle$haskell$java$julia$nodejs$nim$rust$scala[](fg:#86BBD8 bg:#06969A)$docker_context[](fg:#06969A bg:#33658A)$time$custom[ ](fg:#33658A)";
-      # right_format = "[](#33658A)$custom[](#33658A)";
-      # right_format = "$custom";
+
 
       custom.direnv = {
         format = "[ ](bg:#33658A)";
-        # format = "[direnv](bg:#33658A)";
-        # format = "[](#33658A)[](bg:#33658A)[](#33658A)";
         when = "printenv DIRENV_FILE";
       };
 

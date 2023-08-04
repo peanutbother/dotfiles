@@ -1,6 +1,6 @@
 { pkgs, ... }: {
   environment = {
-    shells = with pkgs; [ bash zsh ];
+    shells = [ pkgs.zsh ];
     loginShell = pkgs.zsh;
     systemPackages = [ pkgs.coreutils ];
     systemPath = [ "/usr/local/Homebrew/bin" ];
