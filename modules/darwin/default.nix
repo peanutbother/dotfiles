@@ -9,5 +9,6 @@
     ./keyboard.nix # settings for key repeat etc
     ./nix.nix # configure nix itself (use flakes, etc)
     ./screen.nix # configure display of fonts etc
+    ./trackpad.nix # configure trackpad (e.g. force feedback) 
   ];
 }
