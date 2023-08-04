@@ -1,0 +1,14 @@
+[net]
+git-fetch-with-cli = true
+
+# [source.crates-io]
+# registry = "git://github.com/rust-lang/crates.io-index.git"
+
+[registries.crates-io]
+protocol = "sparse"
+
+[term]
+color = "always"
+
+[profile.rust-analyzer]
+inherits = "dev"
