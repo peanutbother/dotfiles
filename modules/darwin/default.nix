@@ -1,4 +1,5 @@
 {
+  system.stateVersion = 4;
   imports = [
     ./dock.nix # configure dock
     ./env.nix # configure environment (e.g default shell)
