@@ -6,6 +6,7 @@
     ./finder.nix # configure finder
     ./fonts.nix # install fonts (e.g. NerdFonts)
     ./homebrew.nix # install homebrew apps and configure homebrew itsef
+    ./networking.nix # configure networking (e.g. hostname, dns, etc)
     ./keyboard.nix # settings for key repeat etc
     ./nix.nix # configure nix itself (use flakes, etc)
     ./screen.nix # configure display of fonts etc
