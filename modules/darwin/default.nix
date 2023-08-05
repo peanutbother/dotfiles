@@ -10,6 +10,7 @@
     ./networking.nix # configure networking (e.g. hostname, dns, etc)
     ./nix.nix # configure nix itself (use flakes, etc)
     ./screen.nix # configure display of fonts etc
+    ./system.nix # configure system settings
     ./trackpad.nix # configure trackpad (e.g. force feedback) 
   ];
 }
