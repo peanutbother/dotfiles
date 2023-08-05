@@ -4,14 +4,12 @@
       AppleShowAllExtensions = true;
       AppleShowAllFiles = true;
       FXEnableExtensionChangeWarning = false;
-      _FXShowPosixPathInTitle = true;
+      _FXShowPosixPathInTitle = true; # show full path in finder title
+      FXPreferredViewStyle = "Nlsv"; # default to list view
     };
     NSGlobalDomain = {
       AppleShowAllExtensions = true;
       AppleShowAllFiles = true;
-      "com.apple.keyboard.fnState" = false;
-      "com.apple.mouse.tapBehavior" = 1;
-      "com.apple.sound.beep.feedback" = 0;
     };
   };
 }
