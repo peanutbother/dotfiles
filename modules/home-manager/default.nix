@@ -3,7 +3,6 @@ let
   user = "yuna";
 in
 {
-  nixpkgs.overlays = import ../../overlays;
 
   users.users.${user} = {
     name = user;
