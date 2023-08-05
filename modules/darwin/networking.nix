@@ -1,4 +1,6 @@
 {
+  system.defaults.alf.globalstate = 1; # enable firewall
+
   networking = {
     computerName = "yubook";
     hostName = "yubook";
