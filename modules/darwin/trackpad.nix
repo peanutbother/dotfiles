@@ -2,6 +2,7 @@
   system.defaults = {
     trackpad = {
       Clicking = true;
+      TrackpadRightClick = true;
       ActuationStrength = 0; # force feedback
       FirstClickThreshold = 1; # force feedback
       SecondClickThreshold = 1; # force feedback
