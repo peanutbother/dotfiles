@@ -9,7 +9,7 @@
       continuation_prompt = "[](fg:#9A348E)[…](bg:#9A348E)[█](fg:#9A348E) ";
 
       custom.direnv = {
-        format = "[ ](bg:#33658A)";
+        format = "[  ](bg:#33658A)";
         when = "printenv DIRENV_FILE";
       };
 
