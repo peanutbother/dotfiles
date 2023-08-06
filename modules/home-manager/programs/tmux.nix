@@ -1,4 +1,20 @@
 { pkgs, ... }:
+let
+  fetchFromGitHub = pkgs.fetchFromGitHub;
+  mkTmuxPlugin = pkgs.tmuxPlugins.mkTmuxPlugin;
+
+  tmux-notify = mkTmuxPlugin {
+    pluginName = "tmux-notify";
+    version = "2.1.0";
+    rtpFilePath = "tnotify.tmux";
+    src = fetchFromGitHub {
+      owner = "rickstaa";
+      repo = "tmux-notify";
+      rev = "6f965c291358c15ed1d38ba18d10a630325ee75f";
+      hash = "sha256-nfhHR1Nwlfy+Hsqal2p8szrD2IQ1kPqQxZYK8stFrxA=";
+    };
+  };
+in
 {
   programs.tmux = {
     enable = true;
@@ -8,10 +24,26 @@
     shortcut = "y";
     terminal = "xterm-256color";
     plugins = with pkgs.tmuxPlugins; [
+      better-mouse-mode
+      {
+        plugin = catppuccin;
+        extraConfig = ''
+          set -g @catppuccin_flavour 'macchiato'
+          set -g @catppuccin_pill_theme_enabled on
+          set -g @catppuccin_window_tabs_enabled on
+          set -g @catppuccin_host "on"
+        '';
+      }
       logging
       pain-control
-      prefix-highlight
-      tmux-colors-solarized
+      {
+        plugin = prefix-highlight;
+        extraConfig = ''
+          # set prefix-highlight color to solarized color scheme
+          set -g @prefix_highlight_bg colour136
+        '';
+      }
+      tmux-notify
       urlview
     ];
     extraConfig = ''
@@ -24,21 +56,10 @@
       unbind r
       bind r source-file ~/.config/tmux/tmux.conf
 
-      set -g status on
-
       # set status bar to top
       set-option -g status-position top
 
-      # show prefix, cpu & battery usage 
-      set -g status-right '#{prefix_highlight}  #{cpu_percentage} 󱐋 #{battery_percentage} '
-
-      # set prefix-highlight color to solarized color scheme
-      set -g @prefix_highlight_bg colour136
-
-      # load status plugins after to fix display
-      run-shell ${pkgs.tmuxPlugins.prefix-highlight}/share/tmux-plugins/prefix-highlight/prefix_highlight.tmux
-      run-shell ${pkgs.tmuxPlugins.cpu}/share/tmux-plugins/cpu/cpu.tmux
-      run-shell ${pkgs.tmuxPlugins.battery}/share/tmux-plugins/battery/battery.tmux
+      bind S run-shell "tmux popup -y 10 -w 100 -h 20 -E ${pkgs.cht-sh}/tmux.sh"
     '';
   };
 }

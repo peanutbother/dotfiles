@@ -1,4 +1,4 @@
-{ lib, fetchFromGitHub, fetchzip, stdenv, swift }: stdenv.mkDerivation rec {
+{ lib, fetchzip, stdenv }: stdenv.mkDerivation rec {
   pname = "bclm";
   version = "0.0.4";
 
