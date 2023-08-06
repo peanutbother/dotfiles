@@ -18,6 +18,7 @@
       hook = ''
         deno -V
         echo "node $(node --version)"
+        rustc --version
       '';
     }
   );
