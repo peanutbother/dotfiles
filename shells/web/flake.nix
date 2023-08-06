@@ -13,12 +13,14 @@
         deno
         nodejs
         rustup
+        wasmtime
         yarn
       ];
       hook = ''
         deno -V
         echo "node $(node --version)"
         rustc --version
+        wasmtime --version
       '';
     }
   );
