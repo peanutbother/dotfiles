@@ -2,9 +2,11 @@
   programs.starship = {
     enable = true;
     enableZshIntegration = true;
+    enableBashIntegration = true;
     settings = {
-      format = "[](#9A348E)$os$username[](bg:#DA627D fg:#9A348E)$directory[](fg:#DA627D bg:#FCA17D)$git_branch$git_status[](fg:#FCA17D bg:#86BBD8)$c$elixir$elm$golang$gradle$haskell$java$julia$nodejs$nim$rust$scala[](fg:#86BBD8 bg:#06969A)$docker_context[](fg:#06969A bg:#33658A)$time$custom[ ](fg:#33658A)";
+      format = "[](#9A348E)$os$username[](bg:#DA627D fg:#9A348E)$directory[](fg:#DA627D bg:#FCA17D)$git_branch$git_status[](fg:#FCA17D bg:#86BBD8)$c$elixir$elm$golang$gradle$haskell$java$julia$nodejs$nim$rust$scala[](fg:#86BBD8 bg:#06969A)$docker_context[](fg:#06969A bg:#33658A)$custom[ ](fg:#33658A)";
 
+      continuation_prompt = "[](fg:#9A348E)[…](bg:#9A348E)[█](fg:#9A348E) ";
 
       custom.direnv = {
         format = "[ ](bg:#33658A)";
@@ -138,13 +140,6 @@
         symbol = " ";
         style = "bg:#86BBD8";
         format = "[ $symbol ($version) ]($style)";
-      };
-
-      time = {
-        disabled = false;
-        time_format = "%R"; # Hour:Minute Format
-        style = "bg:#33658A";
-        format = "[ $time ]($style)";
       };
     };
   };
