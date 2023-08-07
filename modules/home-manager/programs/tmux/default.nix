@@ -28,7 +28,7 @@ in
       urlview
     ];
     extraConfig = ''
-      # Hack Terminfo to force 24 bit color support flags for my favority terminal(s)
+      # Hack Terminfo to force 24 bit color support flags for my favourite terminal
       set-option -sa terminal-overrides ",xterm-256color:Tc"
       set-option -sa terminal-overrides ",tmux-256color:RGB"
       set-option -sa terminal-overrides ",alacritty:RGB"
