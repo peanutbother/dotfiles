@@ -1,6 +1,6 @@
 { lib, fetchzip, stdenv, pkgs }: stdenv.mkDerivation rec {
   pname = "cht-sh";
-  version = "0.0.3";
+  version = "0.0.4";
 
   meta = with lib; {
     description = "Access cheatsheets easily in a popup in tmux!";
@@ -12,10 +12,11 @@
 
   src = ./src;
 
+  nativeBuildInputs = [ pkgs.makeWrapper ];
   installPhase = ''
     mkdir --parents "$out"
     cp * $out
-    cp ${pkgs.fzf}/bin/fzf $out
     chmod +x $out/*.sh
+    wrapProgram $out/tmux.sh --prefix PATH : ${lib.makeBinPath [ pkgs.fzf ]}
   '';
 }

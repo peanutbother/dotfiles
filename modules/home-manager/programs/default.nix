@@ -6,7 +6,7 @@
     ./exa.nix
     ./git.nix
     ./starship.nix
-    ./tmux.nix
+    ./tmux
     ./vscode.nix
     ./zsh.nix
   ];

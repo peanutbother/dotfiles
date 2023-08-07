@@ -3,8 +3,7 @@
 CURRENT_DIR="$(dirname -- "$(readlink -f -- "$BASH_SOURCE")")"
 CHTSH="$CURRENT_DIR/cht.sh"
 LIST="$CURRENT_DIR/list"
-FZF="$CURRENT_DIR/fzf"
-ITEM="$(cat $LIST | $FZF --preview="bash $CHTSH {}")"
+ITEM="$(cat $LIST | fzf --preview="bash $CHTSH {}")"
 
 if [ "$ITEM" == "" ]; then
     exit 0
