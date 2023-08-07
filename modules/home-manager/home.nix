@@ -23,6 +23,7 @@
     ];
 
     shellAliases = {
+      sudo = "sudo "; # allow aliases to be run with sudo
       nixswitch = "nix run nix-darwin -- switch --flake ~/.nix/.#"; # refresh nix env after config changes
       nixup = "pushd ~/.nix; nix flake update; nixswitch; popd"; # update nix env and refresh
       cls = "clear"; # shorthand and alias to win's cls
