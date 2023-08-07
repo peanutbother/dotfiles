@@ -11,7 +11,7 @@ in
     shortcut = "y";
     terminal = "xterm-256color";
     plugins = with pkgs.tmuxPlugins;with plugins; [
-      better-mouse-mode
+      # theme
       {
         plugin = catppuccin;
         extraConfig = ''
@@ -21,11 +21,17 @@ in
           set -g @catppuccin_host "on"
         '';
       }
-      logging
-      pain-control
-      tmux-notify
+      # shell
       tmux-nerd-font-window-name-show-name
+
+      # control
+      better-mouse-mode
+      pain-control
       urlview
+
+      # utilities
+      tmux-notify
+      logging
     ];
     extraConfig = ''
       # Hack Terminfo to force 24 bit color support flags for my favourite terminal
