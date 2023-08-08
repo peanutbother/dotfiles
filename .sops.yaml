@@ -1,0 +1,7 @@
+keys:
+  - &yuna age1lz7p7qetu77a5nmaeznejy4rtxe3fsj23gmyvx4ee2vd4ma7y32sf8f073
+creation_rules:
+  - path_regex: secrets/[^/]+\.(yaml|json|env|ini)$
+    key_groups:
+      - age:
+          - *yuna

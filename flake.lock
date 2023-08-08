@@ -185,6 +185,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-stable": {
+      "locked": {
+        "lastModified": 1690066826,
+        "narHash": "sha256-6L2qb+Zc0BFkh72OS9uuX637gniOjzU6qCDBpjB2LGY=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "ce45b591975d070044ca24e3003c830d26fea1c8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "release-23.05",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "darwin": "darwin",
@@ -194,6 +210,7 @@
         "nix_shell": "nix_shell",
         "nixpkgs": "nixpkgs",
         "rust_shell": "rust_shell",
+        "sops-nix": "sops-nix",
         "web_shell": "web_shell"
       }
     },
@@ -213,6 +230,27 @@
       "original": {
         "path": "./shells/rust",
         "type": "path"
+      }
+    },
+    "sops-nix": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "nixpkgs-stable": "nixpkgs-stable"
+      },
+      "locked": {
+        "lastModified": 1690199016,
+        "narHash": "sha256-yTLL72q6aqGmzHq+C3rDp3rIjno7EJZkFLof6Ika7cE=",
+        "owner": "Mic92",
+        "repo": "sops-nix",
+        "rev": "c36df4fe4bf4bb87759b1891cab21e7a05219500",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Mic92",
+        "repo": "sops-nix",
+        "type": "github"
       }
     },
     "systems": {

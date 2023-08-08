@@ -4,10 +4,12 @@
     inherit stateVersion;
 
     packages = with pkgs; [
+      age
       bclm
       curl
       less
       neofetch
+      sops
       wget
     ];
 
@@ -15,7 +17,7 @@
       PAGER = "less"; # use less instead of more
       COLOR = 1; # force cli color
       CLICOLOR = 1; # force cli color
-      EDITOR = "code"; # requires alias `code` from below
+      EDITOR = "code --wait"; # requires alias `code` from below
     };
 
     sessionPath = [

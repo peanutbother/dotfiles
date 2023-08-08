@@ -18,6 +18,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     embedded_shell = {
       url = "path:./shells/embedded";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -38,7 +43,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
-  outputs = { darwin, home-manager, ... } @ inputs:
+  outputs = { darwin, home-manager, sops-nix, ... } @ inputs:
     let
       system = "x86_64-darwin";
       stateVersion = "23.05";
@@ -60,10 +65,10 @@
         inherit system;
 
         specialArgs = {
-          inherit inputs system stateVersion;
+          inherit inputs system stateVersion sops-nix;
         };
 
-        modules = (import ./modules) { inherit home-manager stateVersion; };
+        modules = import ./modules { inherit home-manager; };
       };
     };
 }
