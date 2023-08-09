@@ -5,6 +5,7 @@
 
     packages = with pkgs; [
       age
+      asciinema
       bclm
       curl
       less
