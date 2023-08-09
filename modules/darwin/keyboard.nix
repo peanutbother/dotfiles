@@ -2,7 +2,7 @@
   system = {
     keyboard = {
       enableKeyMapping = true;
-      nonUS.remapTilde = true;
+      nonUS.remapTilde = false;
     };
     defaults.NSGlobalDomain = {
       InitialKeyRepeat = 14;
