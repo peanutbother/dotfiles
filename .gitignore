@@ -27,3 +27,6 @@ Temporary Items
 
 # direnv cache
 .direnv
+
+# age secret key(s)
+secrets/keys.txt
