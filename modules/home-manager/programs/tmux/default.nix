@@ -30,6 +30,7 @@ in
       urlview
 
       # utilities
+      tmux-fzf
       tmux-notify
       logging
     ];
