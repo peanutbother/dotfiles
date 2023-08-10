@@ -36,8 +36,8 @@ in
     ];
     extraConfig = ''
       # Hack Terminfo to force 24 bit color support flags for my favourite terminal
-      set-option -sa terminal-overrides ",xterm-256color:Tc"
-      set-option -sa terminal-overrides ",tmux-256color:RGB"
+      set-option -sa terminal-overrides ",xterm-*:Tc"
+      set-option -sa terminal-overrides ",tmux-*:RGB"
       set-option -sa terminal-overrides ",alacritty:RGB"
 
       # hot reload tmux config 
@@ -47,7 +47,7 @@ in
       # set status bar to top
       set-option -g status-position top
 
-      bind S run-shell "tmux popup -y 10 -w 100 -h 20 -E ${pkgs.cht-sh}/tmux.sh"
+      bind S run-shell "tmux popup -y 10 -w 100 -h 50 -E ${pkgs.cht-sh}/tmux.sh"
     '';
   };
 }
