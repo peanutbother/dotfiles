@@ -52,15 +52,9 @@
         overlays = import ./overlays;
       };
     in
+
+    # system configs
     {
-
-      devShells.${system} = {
-        embedded = inputs.embedded_shell.devShells.${system}.default;
-        nix = inputs.nix_shell.devShells.${system}.default;
-        rust = inputs.rust_shell.devShells.${system}.default;
-        web = inputs.web_shell.devShells.${system}.default;
-      };
-
       darwinConfigurations.yubook = darwin.lib.darwinSystem {
         inherit system;
 
@@ -70,5 +64,38 @@
 
         modules = import ./modules { inherit home-manager; };
       };
-    };
+    }
+
+    // # shells
+    {
+      devShells.${system} = {
+        embedded = inputs.embedded_shell.devShells.${system}.default;
+        nix = inputs.nix_shell.devShells.${system}.default;
+        rust = inputs.rust_shell.devShells.${system}.default;
+        web = inputs.web_shell.devShells.${system}.default;
+      };
+    }
+
+    // # templates
+    {
+      templates = {
+        embedded = {
+          description = "embedded development environment";
+          path = ./templates/embedded;
+        };
+        nix = {
+          description = "nix development environment";
+          path = ./templates/nix;
+        };
+        rust = {
+          description = "rust development environment";
+          path = ./templates/rust;
+        };
+        web = {
+          description = "web development environment";
+          path = ./templates/web;
+        };
+      };
+    }
+  ;
 }
