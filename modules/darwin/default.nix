@@ -1,6 +1,7 @@
 {
   system.stateVersion = 4;
   imports = [
+    ./apps.nix # link nix apps to fix spotlight
     ./dock.nix # configure dock
     ./env.nix # configure environment (e.g default shell)
     ./finder.nix # configure finder

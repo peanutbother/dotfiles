@@ -1,9 +1,8 @@
 { lib, pkgs, ... }:
 let
-  makeWrapper = pkgs.makeWrapper;
-  makeBinPath = lib.makeBinPath;
-  fetchFromGitHub = pkgs.fetchFromGitHub;
-  mkTmuxPlugin = pkgs.tmuxPlugins.mkTmuxPlugin;
+  inherit (lib) makeBinPath;
+  inherit (pkgs) makeWrapper fetchFromGitHub;
+  inherit (pkgs.tmuxPlugins) mkTmuxPlugin;
 in
 {
   tmux-notify = mkTmuxPlugin {
