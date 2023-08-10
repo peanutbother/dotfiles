@@ -10,8 +10,11 @@
     in
     pkgs.callPackage ../_common/shell.nix {
       packages = with pkgs; [
-        nixpkgs-fmt
+        niv
+        nixfmt
         rnix-lsp
+        statix
+        vulnix
       ];
     }
   );

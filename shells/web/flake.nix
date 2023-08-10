@@ -12,6 +12,7 @@
       packages = with pkgs; [
         deno
         nodejs
+        pnpm
         rustup
         wasmtime
         yarn
