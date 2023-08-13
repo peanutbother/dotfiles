@@ -12,6 +12,7 @@
       mc
       neofetch
       sops
+      tmuxinator
       wget
     ];
 
@@ -32,6 +33,7 @@
       nixup = "pushd ~/.nix; nix flake update; nixswitch; popd"; # update nix env and refresh
       cls = "clear"; # shorthand and alias to win's cls
       code = "env VSCODE_CWD=\"$PWD\" open -n -b \"com.microsoft.VSCode\" --args $*"; # create a shell alias for vs code
+      mux = "tmuxinator"; # create a shell alias for tmuxinator
       # get_idf = ". $HOME/esp/esp-idf/export.sh"                                     # TODO install esp-idf somehow
     };
   };
