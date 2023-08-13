@@ -9,6 +9,7 @@
       bclm
       curl
       less
+      mc
       neofetch
       sops
       wget
