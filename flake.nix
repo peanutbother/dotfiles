@@ -91,6 +91,10 @@
           description = "rust development environment";
           path = ./templates/rust;
         };
+        rust-nix = {
+          description = "rust development environment with nix flake";
+          path = ./templates/rust-nix;
+        };
         web = {
           description = "web development environment";
           path = ./templates/web;
