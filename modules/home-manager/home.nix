@@ -14,6 +14,7 @@
       sops
       tmuxinator
       wget
+      yt-dlp
     ];
 
     sessionVariables = {
