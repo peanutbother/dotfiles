@@ -40,10 +40,6 @@ in
       set-option -sa terminal-overrides ",tmux-*:RGB"
       set-option -sa terminal-overrides ",alacritty:RGB"
 
-      # hot reload tmux config 
-      unbind r
-      bind r source-file ~/.config/tmux/tmux.conf
-
       # set status bar to top
       set-option -g status-position top
 
