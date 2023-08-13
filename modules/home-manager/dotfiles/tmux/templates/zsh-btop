@@ -1,0 +1,5 @@
+new-window
+split-window -h
+selectp -t 1
+send-keys btop\n
+selectp -t 0

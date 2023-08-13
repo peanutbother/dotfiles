@@ -44,6 +44,9 @@ in
       set-option -g status-position top
 
       bind S run-shell "tmux popup -y 10 -w 100 -h 50 -E ${pkgs.cht-sh}/tmux.sh"
+
+      # templates
+      bind '!' source-file ~/.config/tmux/templates/zsh-btop
     '';
   };
 }
