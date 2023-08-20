@@ -1,10 +1,9 @@
 #!/bin/sh
+# this script bootstraps nix-darwin
+# but could be refactored to also bootstrap other systems like linux and nix os
+
 echo "installing nix"
 eval "$(curl -L https://nixos.org/nix/install)"
-
-echo "copying keys"
-mkdir -p /Users/yuna/Library/Application\ Support/sops/age/
-cp secres/keys.txt /Users/yuna/Library/Application\ Support/sops/age/keys.txt
 
 echo "enabling flakes"
 mkdir -p ~/.config/nix

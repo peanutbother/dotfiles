@@ -3,7 +3,7 @@
     defaultSopsFile = ../../../secrets/yuna.yaml;
     defaultSopsFormat = "yaml";
 
-    age.keyFile = "${home}/Library/Application\ Support/sops/age/keys.txt";
+    age.keyFile = "${home}/.nix/secrets/keys.txt";
 
     secrets = {
       "ssh-keys/git/peanutbother" = {
