@@ -16,8 +16,8 @@
     casks = [
       "discord"
       "istat-menus"
-      "notunes"
       "mounty"
+      "notunes"
       "rectangle"
       "signal"
       "spotify"

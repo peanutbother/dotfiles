@@ -18,6 +18,7 @@
     ];
 
     sessionVariables = {
+      HOMEBREW_NO_ANALYTICS = 1; # disable homebrew analytics
       PAGER = "less"; # use less instead of more
       COLOR = 1; # force cli color
       CLICOLOR = 1; # force cli color
