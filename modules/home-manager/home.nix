@@ -11,6 +11,7 @@
       less
       mc
       neofetch
+      progress
       sops
       tmuxinator
       wget
