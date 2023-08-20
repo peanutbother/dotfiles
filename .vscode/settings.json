@@ -1,4 +1,4 @@
 {
   "nixEnvSelector.suggestion": true,
-  "nixEnvSelector.nixFile": "${workspaceRoot}/flake.nix"
+  "nixEnvSelector.nixFile": "${workspaceRoot}/shells/nix/flake.nix"
 }
