@@ -30,3 +30,6 @@ Temporary Items
 
 # age secret key(s)
 secrets/keys.txt
+
+# test builds
+/result
