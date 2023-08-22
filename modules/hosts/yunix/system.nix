@@ -1,4 +1,5 @@
 {
+  system.stateVersion = "23.05";
   networking.hostName = "yunix";
 
   programs.ssh = {

@@ -5,8 +5,6 @@ let
   host = "yubook";
 in
 [
-  ../common.nix
-
   # system
   (import ../../darwin { inherit host; })
 

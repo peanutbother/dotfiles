@@ -53,36 +53,27 @@
   outputs = { darwin, flake-utils, ... } @ inputs:
     let
       stateVersion = "23.05";
-      mkModules = target: (import ./modules/hosts/${target} { inherit inputs; });
-      # thanks heap!
-      mkSystemConfig = target: config: inputs.nixpkgs.lib.nixosSystem rec {
-        inherit (config) system;
-
-        specialArgs = {
-          inherit inputs system;
-          overlays = import ./overlays;
-        } //
-        inputs.nixpkgs.lib.optionalAttrs (builtins.hasAttr "specialArgs" config) config.specialArgs;
-
-        modules = mkModules target ++
-          inputs.nixpkgs.lib.lists.optional (builtins.hasAttr "modules" config) config.modules;
-      };
+      mkModules = host: (import ./modules/hosts/${host} { inherit inputs; });
     in
     {
       # system configs
-      nixosConfigurations.yunix = mkSystemConfig "yunix" rec {
+      nixosConfigurations.yunix = inputs.nixpkgs.lib.nixosSystem rec {
         system = "x86_64-linux";
 
         specialArgs = {
-          inherit stateVersion;
+          inherit inputs system stateVersion;
+          overlays = import ./overlays;
         };
+
+        modules = mkModules "yunix";
       };
 
       darwinConfigurations.yubook = darwin.lib.darwinSystem rec {
         system = "x86_64-darwin";
 
         specialArgs = {
-          inherit stateVersion;
+          inherit inputs system stateVersion;
+          overlays = import ./overlays;
         };
 
         modules = mkModules "yubook";

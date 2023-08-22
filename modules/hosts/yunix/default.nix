@@ -5,8 +5,6 @@ let
   host = "yunix";
 in
 [
-  ../common.nix
-
   # quirks
   nixos-hardware.nixosModules.apple-macbook-pro-12-1
   nixos-hardware.nixosModules.common-cpu-intel
