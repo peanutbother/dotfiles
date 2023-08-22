@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+{ pkgs, ... }:
 let
   plugins = pkgs.callPackage ./plugins.nix { };
 in
