@@ -1,6 +1,6 @@
-{
-  system.stateVersion = 4;
+{ host }: {
   imports = [
+    ../hosts/${host}/system.nix
     ./apps.nix # link nix apps to fix spotlight
     ./dock.nix # configure dock
     ./env.nix # configure environment (e.g default shell)
@@ -12,6 +12,6 @@
     ./nix.nix # configure nix itself (use flakes, etc)
     ./screen.nix # configure display of fonts etc
     ./system.nix # configure system settings
-    ./trackpad.nix # configure trackpad (e.g. force feedback) 
+    ./trackpad.nix # configure trackpad (e.g. force feedback)
   ];
 }

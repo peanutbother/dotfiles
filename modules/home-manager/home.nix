@@ -1,12 +1,11 @@
-{ pkgs, stateVersion, ... }:
-{
+{ pkgs, stateVersion, ... }: {
   home = {
     inherit stateVersion;
 
     packages = with pkgs; [
+      # common packages
       age
       asciinema
-      bclm
       curl
       less
       mc
@@ -23,7 +22,7 @@
       PAGER = "less"; # use less instead of more
       COLOR = 1; # force cli color
       CLICOLOR = 1; # force cli color
-      EDITOR = "code --wait"; # requires alias `code` from below
+      EDITOR = "code --wait"; # on darwin requires alias `code` from `shellAliases.code` below
     };
 
     sessionPath = [
@@ -32,10 +31,8 @@
 
     shellAliases = {
       sudo = "sudo "; # allow aliases to be run with sudo
-      nixswitch = "nix run nix-darwin -- switch --flake ~/.nix/.#"; # refresh nix env after config changes
       nixup = "pushd ~/.nix; nix flake update; nixswitch; popd"; # update nix env and refresh
       cls = "clear"; # shorthand and alias to win's cls
-      code = "env VSCODE_CWD=\"$PWD\" open -n -b \"com.microsoft.VSCode\" --args $*"; # create a shell alias for vs code
       mux = "tmuxinator"; # create a shell alias for tmuxinator
       # get_idf = ". $HOME/esp/esp-idf/export.sh"                                     # TODO install esp-idf somehow
     };

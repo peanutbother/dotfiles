@@ -1,9 +1,9 @@
-{ pkgs, inputs, lib, system, sops-nix, stateVersion, ... }:
+{ host, user }: { inputs, pkgs, system, stateVersion, ... }:
 let
-  user = "yuna";
-  home = "/Users/${user}";
+  home = if pkgs.stdenv.hostPlatform.isDarwin then "/Users/${user}" else "/home/${user}";
 in
 {
+  programs.zsh.enable = true;
   users.users.${user} = {
     inherit home;
     name = user;
@@ -16,8 +16,12 @@ in
   };
   home-manager.sharedModules = [
     ./apps.nix
-    sops-nix.homeManagerModule
+    inputs.sops-nix.homeManagerModule
   ];
 
   home-manager.users.${user} = import ./home.nix;
+
+  imports = [
+    ../hosts/${host}/home.nix
+  ];
 }
