@@ -7,7 +7,7 @@
     homepage = "https://github.com/zackelia/bclm";
     license = licenses.mit;
     platforms = platforms.darwin;
-    maintainers = [ "zackelia" "nata1993" ];
+    maintainers = [ "peanutbother" ];
   };
 
 

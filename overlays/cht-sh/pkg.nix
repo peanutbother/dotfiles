@@ -7,7 +7,7 @@
     homepage = "https://github.com/kenos1/tmux-cht-sh";
     license = licenses.mit;
     platforms = platforms.linux ++ platforms.darwin;
-    maintainers = [ "kenos1" ];
+    maintainers = [ "peanutbother" ];
   };
 
   src = ./src;
