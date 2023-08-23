@@ -1,6 +1,7 @@
-{ config, lib, ... }: {
-
-  # Enable networking
-  networking.networkmanager.enable = true;
-  networking.useDHCP = lib.mkDefault true;
+{ lib, ... }: {
+  networking = {
+    # Enable networking
+    networkmanager.enable = true;
+    useDHCP = lib.mkDefault true;
+  };
 }

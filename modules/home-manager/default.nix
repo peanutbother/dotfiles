@@ -10,7 +10,6 @@ in
   };
 
   home-manager.useGlobalPkgs = true;
-  # home-manager.useUserPackages = true;
   home-manager.extraSpecialArgs = {
     inherit home inputs stateVersion system;
   };

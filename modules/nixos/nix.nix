@@ -1,4 +1,4 @@
-{ pkgs, ...}: {
+{ pkgs, ... }: {
   nix = {
     package = pkgs.nixFlakes;
     extraOptions = ''
@@ -12,9 +12,10 @@
     };
   };
 
-  # Allow proprietary packages
-  nixpkgs.config.allowUnfree = true;
-
-  # add custom overlays
-  nixpkgs.overlays = import ../../overlays;
+  nixpkgs = {
+    # Allow proprietary packages
+    config.allowUnfree = true;
+    # add custom overlays
+    overlays = import ../../overlays;
+  };
 }
