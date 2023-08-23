@@ -10,26 +10,32 @@ in
     extraGroups = [ "networkmanager" "wheel" ];
     shell = pkgs.zsh;
   };
-  home-manager.users.${user}.home = {
-    file = {
-      ".config/latte" = {
-        source = ../../home-manager/dotfiles/latte-dock;
-        recursive = true;
+  home-manager.users.${user} = {
+    home = {
+      file = {
+        ".config/latte" = {
+          source = ../../home-manager/dotfiles/latte-dock;
+          recursive = true;
+        };
+      };
+      shellAliases = {
+        nixswitch = "sudo nixos-rebuild switch --flake ~/.nix/.#"; # refresh nix env after config changes
       };
     };
-    shellAliases = {
-      nixswitch = "sudo nixos-rebuild switch --flake ~/.nix/.#"; # refresh nix env after config changes
-    };
 
-    packages = with pkgs; [
-      # *nix packages
-      discord
-      latte-dock
-      putty
-      signal-desktop-beta
-      spotify
-      telegram-desktop
-      vivaldi
-    ];
+    programs.alacritty = {
+      settings.font.size = 8;
+    };
   };
+
+  packages = with pkgs; [
+    # *nix packages
+    discord
+    latte-dock
+    putty
+    signal-desktop-beta
+    spotify
+    telegram-desktop
+    vivaldi
+  ];
 }
