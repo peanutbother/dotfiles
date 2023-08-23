@@ -60,63 +60,59 @@
       nixosConfigurations.yunix = inputs.nixpkgs.lib.nixosSystem rec {
         system = "x86_64-linux";
 
+        modules = mkModules "yunix";
+
         specialArgs = {
           inherit inputs system stateVersion;
           overlays = import ./overlays;
         };
 
-        modules = mkModules "yunix";
       };
 
       darwinConfigurations.yubook = darwin.lib.darwinSystem rec {
         system = "x86_64-darwin";
 
+        modules = mkModules "yubook";
+
         specialArgs = {
           inherit inputs system stateVersion;
           overlays = import ./overlays;
         };
 
-        modules = mkModules "yubook";
       };
     }
-    // flake-utils.lib.eachDefaultSystem (system:
-      let
-        pkgs = import inputs.nixpkgs {
-          inherit system;
-          overlays = import ./overlays;
-        };
-      in
-      {
-        # shells
-        devShells.${system} = {
-          embedded = inputs.embedded_shell.devShells.${system}.default;
-          nix = inputs.nix_shell.devShells.${system}.default;
-          rust = inputs.rust_shell.devShells.${system}.default;
-          web = inputs.web_shell.devShells.${system}.default;
-        };
+    // flake-utils.lib.eachDefaultSystem (system: {
+      # shells
+      devShells.${system} = rec {
+        default = nix;
+        embedded = inputs.embedded_shell.devShells.${system}.default;
+        nix = inputs.nix_shell.devShells.${system}.default;
+        rust = inputs.rust_shell.devShells.${system}.default;
+        web = inputs.web_shell.devShells.${system}.default;
+      };
 
-        # templates
-        templates = {
-          embedded = {
-            description = "embedded development environment";
-            path = ./templates/embedded;
-          };
-          nix = {
-            description = "nix development environment";
-            path = ./templates/nix;
-          };
-          rust = {
-            description = "rust development environment";
-            path = ./templates/rust;
-          };
-          rust-nix = {
-            description = "rust development environment with nix flake";
-            path = ./templates/rust-nix;
-          };
-          web = {
-            description = "web development environment";
-            path = ./templates/web;
-          };
+      # templates
+      templates = {
+        embedded = {
+          description = "embedded development environment";
+          path = ./templates/embedded;
         };
-      });
+        nix = {
+          description = "nix development environment";
+          path = ./templates/nix;
+        };
+        rust = {
+          description = "rust development environment";
+          path = ./templates/rust;
+        };
+        rust-nix = {
+          description = "rust development environment with nix flake";
+          path = ./templates/rust-nix;
+        };
+        web = {
+          description = "web development environment";
+          path = ./templates/web;
+        };
+      };
+    });
 }

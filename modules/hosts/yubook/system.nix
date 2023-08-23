@@ -1,8 +1,8 @@
 {
   system.stateVersion = 4;
-  networking = {
-    computerName = "yubook";
+  networking = rec {
+    computerName = hostName;
     hostName = "yubook";
-    localHostName = "yubook";
+    localHostName = hostName;
   };
 }
