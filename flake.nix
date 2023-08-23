@@ -21,7 +21,7 @@
     };
 
     sops-nix = {
-      url = "github:Mic92/sops-nix/85a0f2fe60a905a2726b10fd8dbccff0458900d4"; # TODO replace with main once fixed
+      url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
