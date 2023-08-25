@@ -3,7 +3,6 @@ let
   user = "yuna";
 in
 {
-
   home-manager.users.${user}.home = {
     shellAliases = {
       nixswitch = "nix run nix-darwin -- switch --flake ~/.nix/.#"; # refresh nix env after config changes
