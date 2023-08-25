@@ -11,7 +11,7 @@
         packages = with pkgs; [
           niv
           nixfmt
-          rnix-lsp
+          nixd
           statix
           vulnix
         ];
