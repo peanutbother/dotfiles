@@ -1,15 +1,15 @@
-{
+{ lib, ... }: {
   system.defaults = {
     finder = {
-      AppleShowAllExtensions = true;
-      AppleShowAllFiles = true;
-      FXEnableExtensionChangeWarning = false;
-      _FXShowPosixPathInTitle = true; # show full path in finder title
-      FXPreferredViewStyle = "Nlsv"; # default to list view
+      AppleShowAllExtensions = lib.mkDefault true;
+      AppleShowAllFiles = lib.mkDefault true;
+      FXEnableExtensionChangeWarning = lib.mkDefault false;
+      _FXShowPosixPathInTitle = lib.mkDefault true; # show full path in finder title
+      FXPreferredViewStyle = lib.mkDefault "Nlsv"; # default to list view
     };
     NSGlobalDomain = {
-      AppleShowAllExtensions = true;
-      AppleShowAllFiles = true;
+      AppleShowAllExtensions = lib.mkDefault true;
+      AppleShowAllFiles = lib.mkDefault true;
     };
   };
 }

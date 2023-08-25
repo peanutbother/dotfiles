@@ -1,4 +1,4 @@
-{
+{ lib, ... }: {
   # Set your time zone.
-  time.timeZone = "Europe/Berlin";
+  time.timeZone = lib.mkDefault "Europe/Berlin";
 }

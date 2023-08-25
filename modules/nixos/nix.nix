@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ lib, pkgs, ... }: {
   nix = {
     package = pkgs.nixFlakes;
     extraOptions = ''
@@ -6,15 +6,15 @@
     '';
     settings = {
       # automatically hotlink duplicate files
-      auto-optimise-store = true;
+      auto-optimise-store = lib.mkDefault true;
       # sandbox builds
-      sandbox = true;
+      sandbox = lib.mkDefault true;
     };
   };
 
   nixpkgs = {
     # Allow proprietary packages
-    config.allowUnfree = true;
+    config.allowUnfree = lib.mkDefault true;
     # add custom overlays
     overlays = import ../../overlays;
   };

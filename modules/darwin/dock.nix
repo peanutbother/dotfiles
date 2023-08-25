@@ -1,8 +1,8 @@
-{
+{ lib, ... }: {
   system.defaults.dock = {
-    autohide = true;
-    magnification = false; # don't magnify on hover
-    tilesize = 42; # dock icon size
-    wvous-tl-corner = 11; # launchpad as hot corner top left
+    autohide = lib.mkDefault true;
+    magnification = lib.mkDefault false; # don't magnify on hover
+    tilesize = lib.mkDefault 42; # dock icon size
+    wvous-tl-corner = lib.mkDefault 11; # launchpad as hot corner top left
   };
 }

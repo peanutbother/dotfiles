@@ -1,6 +1,6 @@
-{ pkgs, ... }: {
+{ lib, pkgs, ... }: {
   fonts = {
-    fontDir.enable = true; # DANGER
+    fontDir.enable = lib.mkDefault true; # DANGER
     fonts = [
       (pkgs.nerdfonts.override {
         fonts = [

@@ -14,10 +14,15 @@ in
     home = {
       file = {
         ".config/latte" = {
-          source = ../../home-manager/dotfiles/latte-dock;
+          source = ../../modules/home-manager/dotfiles/latte-dock;
+          recursive = true;
+        };
+        ".ssh" = {
+          source = ../../modules/home-manager/dotfiles/ssh;
           recursive = true;
         };
       };
+
       shellAliases = {
         nixswitch = "sudo nixos-rebuild switch --flake ~/.nix/.#"; # refresh nix env after config changes
       };
@@ -25,6 +30,11 @@ in
 
     programs.alacritty = {
       settings.font.size = 8;
+    };
+
+    programs.git = {
+      userName = "peanutbother";
+      userEmail = "peanutbother@proton.me";
     };
   };
 

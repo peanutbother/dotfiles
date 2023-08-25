@@ -1,4 +1,4 @@
-{ pkgs, stateVersion, ... }: {
+{ lib, pkgs, stateVersion, ... }: {
   home = {
     inherit stateVersion;
 
@@ -18,11 +18,11 @@
     ];
 
     sessionVariables = {
-      HOMEBREW_NO_ANALYTICS = 1; # disable homebrew analytics
-      PAGER = "less"; # use less instead of more
-      COLOR = 1; # force cli color
-      CLICOLOR = 1; # force cli color
-      EDITOR = "code --wait"; # on darwin requires alias `code` from `shellAliases.code` below
+      HOMEBREW_NO_ANALYTICS = lib.mkDefault 1; # disable homebrew analytics
+      PAGER = lib.mkDefault "less"; # use less instead of more
+      COLOR = lib.mkDefault 1; # force cli color
+      CLICOLOR = lib.mkDefault 1; # force cli color
+      EDITOR = lib.mkDefault "code --wait"; # on darwin requires alias `code` from `shellAliases.code` below
     };
 
     sessionPath = [

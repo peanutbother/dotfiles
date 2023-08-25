@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 let
   plugins = pkgs.callPackage ./plugins.nix { };
 in
@@ -8,9 +8,9 @@ in
     clock24 = true;
     mouse = true;
     shell = "${pkgs.zsh}/bin/zsh";
-    shortcut = "y";
+    shortcut = lib.mkDefault "y";
     terminal = "xterm-256color";
-    plugins = with pkgs.tmuxPlugins;with plugins; [
+    plugins = with pkgs.tmuxPlugins; with plugins; [
       # theme
       {
         plugin = catppuccin;

@@ -1,9 +1,9 @@
-{
-  system.defaults.alf.globalstate = 1; # enable firewall
+{ lib, ... }: {
+  system.defaults.alf.globalstate = lib.mkDefault 1; # enable firewall
 
   networking = {
     # AdGuard DNS
-    dns = [
+    dns = lib.mkDefault [
       "94.140.14.14"
       "94.140.15.15"
     ];

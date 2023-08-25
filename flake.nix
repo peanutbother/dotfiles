@@ -53,7 +53,7 @@
   outputs = { darwin, flake-utils, ... } @ inputs:
     let
       stateVersion = "23.05";
-      mkModules = host: (import ./modules/hosts/${host} { inherit inputs; });
+      mkModules = host: (import ./hosts/${host} { inherit inputs; });
     in
     {
       # system configs

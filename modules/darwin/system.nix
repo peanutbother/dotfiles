@@ -1,18 +1,18 @@
-{
+{ lib, ... }: {
   system.defaults = {
     loginwindow = {
-      DisableConsoleAccess = true;
-      GuestEnabled = false;
-      SHOWFULLNAME = false;
+      DisableConsoleAccess = lib.mkDefault true;
+      GuestEnabled = lib.mkDefault false;
+      SHOWFULLNAME = lib.mkDefault false;
     };
     menuExtraClock = {
-      Show24Hour = true;
-      ShowDate = 0;
-      ShowDayOfMonth = true;
+      Show24Hour = lib.mkDefault true;
+      ShowDate = lib.mkDefault 0;
+      ShowDayOfMonth = lib.mkDefault true;
     };
     NSGlobalDomain = {
-      "com.apple.sound.beep.feedback" = 0; # disable sound when changing volume
-      AppleInterfaceStyleSwitchesAutomatically = true; # auto dark / light mode
+      "com.apple.sound.beep.feedback" = lib.mkDefault 0; # disable sound when changing volume
+      AppleInterfaceStyleSwitchesAutomatically = lib.mkDefault true; # auto dark / light mode
     };
   };
 }

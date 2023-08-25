@@ -12,11 +12,11 @@ in
   nixos-hardware.nixosModules.common-pc-ssd
 
   # system
-  (import ../../nixos { inherit host; })
+  (import ../../modules/nixos { inherit host; })
 
   # home
   home-manager.nixosModule
-  (import ../../home-manager { inherit host user; })
+  (import ../../modules/home-manager { inherit host user; })
 
   sops-nix.nixosModules.default
 ]

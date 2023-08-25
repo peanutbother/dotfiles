@@ -1,25 +1,25 @@
-{
+{ lib, ... }: {
   nix = {
     # enable flakes
-    extraOptions = ''
+    extraOptions = lib.mkDefault ''
       experimental-features = nix-command flakes
     '';
     # cofigure nix to use build users
-    configureBuildUsers = true;
+    configureBuildUsers = lib.mkDefault true;
     settings = {
       # automatically hotlink duplicate files
-      auto-optimise-store = true;
+      auto-optimise-store = lib.mkDefault true;
       # sandbox builds
-      sandbox = true;
+      sandbox = lib.mkDefault true;
     };
   };
 
   # allow proprietary software
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.allowUnfree = lib.mkDefault true;
 
   # add custom overlays
   nixpkgs.overlays = import ../../overlays;
 
   # activate nix daemon
-  services.nix-daemon.enable = true;
+  services.nix-daemon.enable = lib.mkDefault true;
 }

@@ -1,10 +1,10 @@
 { host }: {
   imports = [
     ../hosts/${host}/system.nix
+    ../hosts/${host}/hardware.nix
     ./boot.nix
     ./console.nix
-    ./fonts.nix
-    ./hardware.nix
+    ../common/fonts.nix
     ./i18n.nix
     ./networking.nix
     ./nix.nix

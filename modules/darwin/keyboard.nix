@@ -1,13 +1,13 @@
-{
+{ lib, ... }: {
   system = {
     keyboard = {
-      enableKeyMapping = true;
-      nonUS.remapTilde = false;
+      enableKeyMapping = lib.mkDefault true;
+      nonUS.remapTilde = lib.mkDefault false;
     };
     defaults.NSGlobalDomain = {
-      InitialKeyRepeat = 14;
-      KeyRepeat = 1;
-      "com.apple.keyboard.fnState" = true;
+      InitialKeyRepeat = lib.mkDefault 14;
+      KeyRepeat = lib.mkDefault 1;
+      "com.apple.keyboard.fnState" = lib.mkDefault true;
     };
   };
 }

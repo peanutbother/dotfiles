@@ -1,13 +1,13 @@
-{
+{ lib, ... }: {
   homebrew = {
-    enable = true;
-    caskArgs.no_quarantine = true;
+    enable = lib.mkDefault true;
+    caskArgs.no_quarantine = lib.mkDefault true;
     global = {
-      autoUpdate = false;
-      brewfile = true;
+      autoUpdate = lib.mkDefault false;
+      brewfile = lib.mkDefault true;
     };
     onActivation = {
-      autoUpdate = false;
+      autoUpdate = lib.mkDefault false;
     };
   };
 }

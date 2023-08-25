@@ -1,4 +1,4 @@
-{
+{ lib, ... }: {
   programs.git =
     let
       gh = "github.com";
@@ -11,14 +11,12 @@
       };
     in
     {
-      enable = true;
-      userName = "peanutbother";
-      userEmail = "peanutbother@proton.me";
+      enable = lib.mkDefault true;
       extraConfig = {
-        init.defaultBranch = "main";
+        init.defaultBranch = lib.mkDefault "main";
 
-        pull.rebase = false;
-        push.autoSetupRemote = true;
+        pull.rebase = lib.mkDefault false;
+        push.autoSetupRemote = lib.mkDefault true;
 
         url = { }
           // mkURLConfig gh "gh"

@@ -1,15 +1,15 @@
-{
+{ lib, ... }: {
   system.defaults = {
     trackpad = {
-      Clicking = true;
-      TrackpadRightClick = true;
-      ActuationStrength = 0; # force feedback
-      FirstClickThreshold = 1; # force feedback
-      SecondClickThreshold = 1; # force feedback
+      Clicking = lib.mkDefault true;
+      TrackpadRightClick = lib.mkDefault true;
+      ActuationStrength = lib.mkDefault 0; # force feedback
+      FirstClickThreshold = lib.mkDefault 1; # force feedback
+      SecondClickThreshold = lib.mkDefault 1; # force feedback
     };
     NSGlobalDomain = {
-      "com.apple.trackpad.scaling" = 2.0; # tracking speed
-      "com.apple.mouse.tapBehavior" = 1; # tap to click
+      "com.apple.trackpad.scaling" = lib.mkDefault 2.0; # tracking speed
+      "com.apple.mouse.tapBehavior" = lib.mkDefault 1; # tap to click
     };
   };
 }

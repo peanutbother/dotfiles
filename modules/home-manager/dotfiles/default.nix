@@ -12,9 +12,5 @@
       source = ./tmuxinator;
       recursive = true;
     };
-    ".ssh" = {
-      source = ./ssh;
-      recursive = true;
-    };
   };
 }

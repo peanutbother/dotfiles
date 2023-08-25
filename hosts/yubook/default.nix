@@ -6,11 +6,11 @@ let
 in
 [
   # system
-  (import ../../darwin { inherit host; })
+  (import ../../modules/darwin { inherit host; })
 
   # home
   home-manager.darwinModule
-  (import ../../home-manager { inherit host user; })
+  (import ../../modules/home-manager { inherit host user; })
 
   # sops-nix.darwinModules.default
 ]

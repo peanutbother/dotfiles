@@ -1,7 +1,7 @@
-{
+{ lib, ... }: {
   system.defaults = {
     NSGlobalDomain = {
-      AppleFontSmoothing = 1;
+      AppleFontSmoothing = lib.mkDefault 1;
     };
   };
 }
