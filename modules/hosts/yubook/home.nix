@@ -10,7 +10,6 @@ in
     };
 
     packages = with pkgs;[
-      # macos packages
       bclm
     ];
   };
