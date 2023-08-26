@@ -1,9 +1,11 @@
-{ lib, pkgs, ... }: {
+{ lib, ... }: {
   nix = {
-    package = pkgs.nixFlakes;
-    extraOptions = ''
+    # enable flakes
+    extraOptions = lib.mkDefault ''
       experimental-features = nix-command flakes
     '';
+    # cofigure nix to use build users
+    configureBuildUsers = lib.mkDefault true;
     settings = {
       # automatically hotlink duplicate files
       auto-optimise-store = lib.mkDefault true;
@@ -18,4 +20,7 @@
     # add custom overlays
     overlays = import ../../overlays;
   };
+
+  # activate nix daemon
+  services.nix-daemon.enable = lib.mkDefault true;
 }
