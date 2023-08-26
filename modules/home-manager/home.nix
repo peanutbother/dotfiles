@@ -34,6 +34,7 @@
       nixup = "pushd ~/.nix; nix flake update; nixswitch; popd"; # update nix env and refresh
       cls = "clear"; # shorthand and alias to win's cls
       mux = "tmuxinator"; # create a shell alias for tmuxinator
+      lsd = "ls -TaI .git --git-ignore";
       # get_idf = ". $HOME/esp/esp-idf/export.sh"                                     # TODO install esp-idf somehow
     };
   };
