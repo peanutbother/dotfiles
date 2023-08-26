@@ -2,7 +2,6 @@
   description = "nix-conf";
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-23.05-darwin";
-    flake-utils.url = "github:numtide/flake-utils";
     nixos-hardware.url = "github:NixOS/nixos-hardware";
 
     darwin = {
@@ -28,25 +27,21 @@
     embedded_shell = {
       url = "path:./shells/embedded";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-utils.follows = "flake-utils";
     };
 
     nix_shell = {
       url = "path:./shells/nix";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-utils.follows = "flake-utils";
     };
 
     rust_shell = {
       url = "path:./shells/rust";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-utils.follows = "flake-utils";
     };
 
     web_shell = {
       url = "path:./shells/web";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-utils.follows = "flake-utils";
     };
   };
 
@@ -61,12 +56,11 @@
     in
     {
       # system configs
-      nixosConfigurations.yunix = inputs.nixpkgs.lib.nixosSystem
-        rec {
-          system = "x86_64-linux";
-          modules = mkModules "yunix";
-          specialArgs = mkArgs system;
-        };
+      nixosConfigurations.yunix = inputs.nixpkgs.lib.nixosSystem rec {
+        system = "x86_64-linux";
+        modules = mkModules "yunix";
+        specialArgs = mkArgs system;
+      };
 
       darwinConfigurations.yubook = darwin.lib.darwinSystem rec {
         system = "x86_64-darwin";
@@ -74,7 +68,7 @@
         specialArgs = mkArgs system;
       };
     }
-    // flake-utils.lib.eachDefaultSystem (system: {
+    // (import ./util.nix).eachSystem (system: {
       # shells
       devShells.${system} = rec {
         default = nix;

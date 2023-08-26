@@ -22,16 +22,13 @@
     },
     "embedded_shell": {
       "inputs": {
-        "flake-utils": [
-          "flake-utils"
-        ],
         "nixpkgs": [
           "nixpkgs"
         ]
       },
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-YNzKKhgbY5NshDnGA0YCot/0XWw3OSMI0PYR6VaTQAg=",
+        "narHash": "sha256-CYEtcCUlyAq9qI3z1oF2xfSlYUUJckjg+icUph/fWQw=",
         "path": "./shells/embedded",
         "type": "path"
       },
@@ -53,9 +50,8 @@
         "type": "github"
       },
       "original": {
-        "owner": "numtide",
-        "repo": "flake-utils",
-        "type": "github"
+        "id": "flake-utils",
+        "type": "indirect"
       }
     },
     "home-manager": {
@@ -101,16 +97,13 @@
     },
     "nix_shell": {
       "inputs": {
-        "flake-utils": [
-          "flake-utils"
-        ],
         "nixpkgs": [
           "nixpkgs"
         ]
       },
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-6AzAq55GXjoGJ7gPYoYODG5C9hVts8CS/ejxJZ4S2dU=",
+        "narHash": "sha256-vHAoz4wFN7COsKJP8FcY2NAMe2Q+pceIhtFPRtJLk00=",
         "path": "./shells/nix",
         "type": "path"
       },
@@ -183,16 +176,13 @@
     },
     "rust_shell": {
       "inputs": {
-        "flake-utils": [
-          "flake-utils"
-        ],
         "nixpkgs": [
           "nixpkgs"
         ]
       },
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-5ArHdUkYw9Zqv7V2F50wcUHAcEI47LsPVp6dXCl0OmU=",
+        "narHash": "sha256-MIYOUu1EFB/UfBuNrThfLfckm7Sn95TTTSnpfkAo7iY=",
         "path": "./shells/rust",
         "type": "path"
       },
@@ -239,16 +229,13 @@
     },
     "web_shell": {
       "inputs": {
-        "flake-utils": [
-          "flake-utils"
-        ],
         "nixpkgs": [
           "nixpkgs"
         ]
       },
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-2YzjWCBvXePfDKTq2a3hd66cysv2m+IdqDYi0Aueegc=",
+        "narHash": "sha256-/PMHGiT56etEsbnCnIA1dCVQYuJUIAFLg/m6CUegl5Q=",
         "path": "./shells/web",
         "type": "path"
       },

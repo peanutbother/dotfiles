@@ -3,10 +3,9 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-    flake-utils.url = "github:numtide/flake-utils";
   };
 
-  outputs = inputs: with inputs; flake-utils.lib.eachDefaultSystem (system:
+  outputs = inputs: (import ../../util.nix).eachSystem (system:
     let
       pkgs = import nixpkgs { inherit system; };
     in
