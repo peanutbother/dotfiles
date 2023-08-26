@@ -1,4 +1,4 @@
-{ lib, ... }: {
+{ lib, pkgs, ... }: {
   nix = {
     # enable flakes
     extraOptions = lib.mkDefault ''
@@ -12,12 +12,12 @@
       # sandbox builds
       sandbox = lib.mkDefault true;
     };
-  };
-
-  gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 30d";
+    # enable garbage collection
+    gc = {
+      automatic = true;
+      interval = if pkgs.stdenv.hostPlatform.isDarwin then { Weekday = 0; Hour = 0; Minute = 0; } else "weekly";
+      options = "--delete-older-than 30d";
+    };
   };
 
   nixpkgs = {
