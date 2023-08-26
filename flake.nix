@@ -54,31 +54,24 @@
     let
       stateVersion = "23.05";
       mkModules = host: (import ./hosts/${host} { inherit inputs; });
+      mkArgs = system: {
+        inherit inputs system stateVersion;
+        overlays = import ./overlays;
+      };
     in
     {
       # system configs
-      nixosConfigurations.yunix = inputs.nixpkgs.lib.nixosSystem rec {
-        system = "x86_64-linux";
-
-        modules = mkModules "yunix";
-
-        specialArgs = {
-          inherit inputs system stateVersion;
-          overlays = import ./overlays;
+      nixosConfigurations.yunix = inputs.nixpkgs.lib.nixosSystem
+        rec {
+          system = "x86_64-linux";
+          modules = mkModules "yunix";
+          specialArgs = mkArgs system;
         };
-
-      };
 
       darwinConfigurations.yubook = darwin.lib.darwinSystem rec {
         system = "x86_64-darwin";
-
         modules = mkModules "yubook";
-
-        specialArgs = {
-          inherit inputs system stateVersion;
-          overlays = import ./overlays;
-        };
-
+        specialArgs = mkArgs system;
       };
     }
     // flake-utils.lib.eachDefaultSystem (system: {
