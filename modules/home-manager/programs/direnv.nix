@@ -1,7 +1,7 @@
-{
+{ lib, ... }: {
   programs.direnv = {
     enable = true;
-    enableZshIntegration = true;
+    enableZshIntegration = lib.mkDefault true;
 
     nix-direnv.enable = true;
 
