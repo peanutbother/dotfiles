@@ -26,7 +26,7 @@
     };
 
     sessionPath = [
-      "$HOME/.spicetify" # needs to be manually installed as of now (incompatible with macos)
+      "$HOME/.spicetify" # TODO needs to be manually installed as of now (incompatible with macos)
     ];
 
     shellAliases = {

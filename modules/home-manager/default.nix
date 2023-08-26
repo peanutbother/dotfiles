@@ -14,12 +14,14 @@ in
     inherit home inputs stateVersion system;
   };
   home-manager.sharedModules = [
-    ./apps.nix
+    ./apps.nix # link apps to fix spotlight on darwin
     inputs.sops-nix.homeManagerModule
   ];
 
+  # common home config
   home-manager.users.${user} = import ./home.nix;
 
+  # host specific home config
   imports = [
     ../../hosts/${host}/home.nix
   ];
