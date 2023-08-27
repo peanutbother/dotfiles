@@ -1,5 +1,8 @@
 {
   "editor.formatOnSave": true,
   "nixEnvSelector.suggestion": true,
-  "nixEnvSelector.nixFile": "${workspaceRoot}/shells/nix/flake.nix"
+  "nixEnvSelector.nixFile": "${workspaceRoot}/shells/nix/flake.nix",
+  "nix.enableLanguageServer": true,
+  "nix.formatterPath": "nixfmt",
+  "redhat.telemetry.enabled": false
 }
