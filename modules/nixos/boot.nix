@@ -1,5 +1,5 @@
 { lib, ... }: {
-  bot = {
+  boot = {
     # Bootloader.
     loader = {
       systemd-boot.enable = lib.mkDefault true;
