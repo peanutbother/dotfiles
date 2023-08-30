@@ -8,7 +8,10 @@
     # Bootloader.
     loader = {
       systemd-boot.enable = lib.mkDefault true;
-      efi.canTouchEfiVariables = lib.mkDefault true;
+      efi = {
+        canTouchEfiVariables = lib.mkDefault true;
+        efiSysMountPoint = lib.mkDefault "/boot";
+      };
     };
     # Boot graphics
     plymouth.enable = lib.mkDefault true;
