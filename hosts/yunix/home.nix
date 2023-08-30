@@ -43,7 +43,7 @@ in
 
     programs = {
       alacritty = {
-        settings.font.size = 8;
+        settings.font.size = 10;
       };
       git = {
         userName = "peanutbother";
