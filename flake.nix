@@ -45,7 +45,7 @@
     };
   };
 
-  outputs = { darwin, flake-utils, ... } @ inputs:
+  outputs = { darwin, ... } @ inputs:
     let
       stateVersion = "23.05";
       mkModules = host: (import ./hosts/${host} { inherit inputs; });
