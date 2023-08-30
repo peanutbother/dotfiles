@@ -1,7 +1,7 @@
 { host }: {
   imports = [
-    ../../hosts/${host}/system.nix # import host psecific system configuration
     ../../hosts/${host}/hardware.nix # import host specific hardware configuration
+    ../../hosts/${host}/system.nix # import host psecific system configuration
     ./boot.nix # configure boot settings
     ./console.nix # configure console layout, etc
     ../common/fonts.nix # install fonts (e.g. NerdFonts)
