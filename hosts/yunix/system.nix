@@ -12,7 +12,7 @@
     luks.devices."luks-ccc08f94-9a1f-4c65-8498-a18da59d6471".device = "/dev/disk/by-uuid/ccc08f94-9a1f-4c65-8498-a18da59d6471";
     # Kernel modules in initrd
     availableKernelModules = [ "xhci_pci" "nvme" "usb_storage" "usbhid" "sd_mod" ];
-    kernelModules = [ ];
+      kernelModules = [ "kvm-intel" "brcmfmac" ];
   };
 
   kernelModules = [ "kvm-intel" ];
