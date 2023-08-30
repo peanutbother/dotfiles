@@ -34,6 +34,7 @@ in
         networkmanager
         putty
         signal-desktop-beta
+        spectacle
         spotify
         telegram-desktop
         vivaldi
