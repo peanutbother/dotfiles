@@ -2,6 +2,7 @@
   system.stateVersion = "23.05";
   networking.hostName = "yunix";
 
+  boot = {
   initrd = {
     # Setup keyfile
     secrets = {
@@ -19,6 +20,7 @@
   # extraModProbeConfig = ''
   #   options snd_hda_intel model=mbp121
   # '';
+  };
 
   programs.ssh = {
     startAgent = true;

@@ -26,17 +26,6 @@ in
       shellAliases = {
         nixswitch = "sudo nixos-rebuild switch --flake ~/.nix/.#"; # refresh nix env after config changes
       };
-    };
-
-    programs.alacritty = {
-      settings.font.size = 8;
-    };
-
-    programs.git = {
-      userName = "peanutbother";
-      userEmail = "peanutbother@proton.me";
-    };
-  };
 
   packages = with pkgs; [
     # *nix packages
@@ -48,4 +37,16 @@ in
     telegram-desktop
     vivaldi
   ];
+    };
+
+    programs = {
+      alacritty = {
+        settings.font.size = 8;
+      };
+      git = {
+        userName = "peanutbother";
+        userEmail = "peanutbother@proton.me";
+      };
+    };
+  };
 }
