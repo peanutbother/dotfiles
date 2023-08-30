@@ -3,6 +3,7 @@
   "nixEnvSelector.suggestion": true,
   "nixEnvSelector.nixFile": "${workspaceRoot}/shells/nix/flake.nix",
   "nix.enableLanguageServer": true,
-  "nix.formatterPath": "nixfmt",
+  "nix.serverPath": "nixd",
+  "nix.formatterPath": "nixpkgs-fmt",
   "redhat.telemetry.enabled": false
 }

@@ -9,7 +9,7 @@
         pkgs = import nixpkgs { inherit system; };
         packages = with pkgs; [
           niv
-          nixfmt
+          nixpkgs-fmt
           nixd
           statix
           vulnix
