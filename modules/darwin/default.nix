@@ -9,7 +9,7 @@
     ./homebrew.nix # install homebrew apps and configure homebrew itsef
     ./keyboard.nix # settings for key repeat etc
     ./networking.nix # configure networking (e.g. hostname, dns, etc)
-    ../common/nix.nix # configure nix itself (use flakes, etc)
+    ./nix.nix # configure nix itself (use flakes, etc)
     ./screen.nix # configure display of fonts etc
     ./system.nix # configure system settings
     ./trackpad.nix # configure trackpad (e.g. force feedback)

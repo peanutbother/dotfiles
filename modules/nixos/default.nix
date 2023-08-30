@@ -7,7 +7,7 @@
     ../common/fonts.nix # install fonts (e.g. NerdFonts)
     ./i18n.nix # configure language
     ./networking.nix # configure networking management
-    ../common/nix.nix # configure nix settings
+    ./nix.nix # configure nix settings
     ./sound.nix # enable sound
     ./time.nix # configure timezone
     ./touchpad.nix # configure trackpad (e.g. force feedback)
