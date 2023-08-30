@@ -6,7 +6,7 @@
     ./exa.nix
     ./fzf.nix
     ./git.nix
-    ./gpg.nix
+    ./gpg
     ./sops.nix
     ./ssh.nix
     ./starship.nix
