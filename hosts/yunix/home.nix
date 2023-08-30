@@ -27,16 +27,17 @@ in
         nixswitch = "sudo nixos-rebuild switch --flake ~/.nix/.#"; # refresh nix env after config changes
       };
 
-  packages = with pkgs; [
-    # *nix packages
-    discord
-    latte-dock
-    putty
-    signal-desktop-beta
-    spotify
-    telegram-desktop
-    vivaldi
-  ];
+      packages = with pkgs; [
+        # *nix packages
+        discord
+        latte-dock
+        networkmanager
+        putty
+        signal-desktop-beta
+        spotify
+        telegram-desktop
+        vivaldi
+      ];
     };
 
     programs = {
