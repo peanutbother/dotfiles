@@ -27,5 +27,11 @@
     enableAskPassword = true;
   };
 
-  services.xserver.xkbVariant = "mac_nodeadkeys";
+  services.xserver = {
+    xkbVariant = "mac_nodeadkeys";
+    displayManager.autoLogin = {
+      enable = true;
+      user = "yuna";
+    };
+  };
 }
