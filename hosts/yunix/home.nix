@@ -76,6 +76,15 @@ in
 
     sops = {
       secrets = {
+        "ssh-keys/git/peanutbother" = {
+          path = "${home}/.ssh/github_peanutbother";
+        };
+        "ssh-keys/devs/bricksoft" = {
+          path = "${home}/.ssh/dev_bricksoft";
+        };
+        "ssh-keys/devs/ravpower" = {
+          path = "${home}/.ssh/dev_ravpower";
+        };
         "ssh-keys/devs/yunix" = {
           path = "${home}/.ssh/dev_yunix";
           sopsFile = ../../secrets/yunix.yaml;
