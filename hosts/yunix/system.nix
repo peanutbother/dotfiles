@@ -1,4 +1,4 @@
-{
+{ pkgs, ... }: {
   system.stateVersion = "23.05";
   networking.hostName = "yunix";
 
@@ -20,6 +20,11 @@
     # extraModProbeConfig = ''
     #   options snd_hda_intel model=mbp121
     # '';
+
+    plymouth = {
+      theme = "mac";
+      themePackages = [ pkgs.plymouth-mac-theme ];
+    };
   };
 
   programs.ssh = {
