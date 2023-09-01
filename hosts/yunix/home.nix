@@ -33,6 +33,7 @@ in
       packages = with pkgs; [
         # *nix packages
         discord
+        kdeconnect
         latte-dock
         networkmanager
         putty
