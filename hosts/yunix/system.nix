@@ -34,9 +34,12 @@
 
   services.xserver = {
     xkbVariant = "mac_nodeadkeys";
-    displayManager.autoLogin = {
-      enable = true;
-      user = "yuna";
+    displayManager = {
+      autoLogin = {
+        enable = true;
+        user = "yuna";
+      };
+      sddm.enableHidpi = true;
     };
   };
 }
