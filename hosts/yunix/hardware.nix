@@ -26,7 +26,14 @@
     # Enable FacetimeHD
     facetimehd.enable = true;
     # Enable bluetooth
-    bluetooth.enable = true;
+    bluetooth = {
+      enable = true;
+      settings = {
+        General = {
+          Enable = "Source,Sink,Media,Socket";
+        };
+      };
+    };
   };
 
   # Enable CUPS to print documents.
