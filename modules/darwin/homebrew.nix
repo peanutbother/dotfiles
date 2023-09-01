@@ -7,7 +7,7 @@
       brewfile = lib.mkDefault true;
     };
     onActivation = {
-      autoUpdate = lib.mkDefault false;
+      autoUpdate = lib.mkDefault true;
     };
   };
 }
