@@ -1,6 +1,7 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 let
   user = "yuna";
+  spicePkgs = inputs.spicetify-nix.packages.${pkgs.system}.default;
 in
 {
   users.users.${user} = {
@@ -11,6 +12,7 @@ in
     shell = pkgs.zsh;
   };
   home-manager.users.${user} = {
+    imports = [ inputs.spicetify-nix.homeManagerModule ];
     home = {
       file = {
         ".config/latte" = {
@@ -35,7 +37,6 @@ in
         putty
         signal-desktop-beta
         spectacle
-        spotify
         telegram-desktop
         vivaldi
       ];
@@ -48,6 +49,26 @@ in
       git = {
         userName = "peanutbother";
         userEmail = "peanutbother@proton.me";
+      };
+      spicetify = {
+        enable = true;
+        theme = spicePkgs.themes.Bloom;
+        enabledExtensions = with spicePkgs.extensions; [
+          adblock
+        ];
+        enabledCustomApps = with spicePkgs.apps; [
+          marketplace
+          lyrics-plus
+          {
+            name = "combined-playlists";
+            src = builtins.fetchGit {
+              url = "https://github.com/jeroentvb/spicetify-combined-playlists";
+              rev = "fc2589ad83ea069035af0b0e1544a9688b871566";
+              ref = "dist";
+            };
+            appendName = true;
+          }
+        ];
       };
     };
   };

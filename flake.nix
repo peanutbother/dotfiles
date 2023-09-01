@@ -24,6 +24,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    spicetify-nix = {
+      url = "github:peanutbother/spicetify-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     embedded_shell = {
       url = "path:./shells/embedded";
       inputs.nixpkgs.follows = "nixpkgs";
