@@ -31,7 +31,7 @@ in
 
       packages = with pkgs; [
         # *nix packages
-        discord
+        armcord
         krita
         kdeconnect
         latte-dock
