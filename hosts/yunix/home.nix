@@ -27,6 +27,7 @@ in
 
       shellAliases = {
         nixswitch = "sudo nixos-rebuild switch --flake ~/.nix/.#"; # refresh nix env after config changes
+        nixclean = "sudo nix-collect-garbage --delete-old"; # delete old generations
       };
 
       packages = with pkgs; [
