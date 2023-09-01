@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }:
+{ home }: { inputs, pkgs, ... }:
 let
   user = "yuna";
   spicePkgs = inputs.spicetify-nix.packages.${pkgs.system}.default;
@@ -7,7 +7,6 @@ in
   users.users.${user} = {
     isNormalUser = true;
     group = "users";
-    # extraGroups = [ "audio" "networkmanager" "systemd-journal" "video" "wheel" ];
     extraGroups = [ "networkmanager" "wheel" ];
     shell = pkgs.zsh;
   };
@@ -33,6 +32,7 @@ in
       packages = with pkgs; [
         # *nix packages
         discord
+        krita
         kdeconnect
         latte-dock
         networkmanager
@@ -71,6 +71,15 @@ in
             appendName = true;
           }
         ];
+      };
+    };
+
+    sops = {
+      secrets = {
+        "ssh-keys/devs/yunix" = {
+          path = "${home}/.ssh/dev_yunix";
+          sopsFile = ../../secrets/yunix.yaml;
+        };
       };
     };
   };

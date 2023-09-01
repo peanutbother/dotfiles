@@ -1,7 +1,17 @@
 keys:
-  - &yuna age1lz7p7qetu77a5nmaeznejy4rtxe3fsj23gmyvx4ee2vd4ma7y32sf8f073
+  - &yubook age1lz7p7qetu77a5nmaeznejy4rtxe3fsj23gmyvx4ee2vd4ma7y32sf8f073
+  - &yunix age1k6vvn5qlr7kc3h992t2fvnus4xg83r6d423dlufu820famn9z4cqfgrywh
 creation_rules:
-  - path_regex: secrets/[^/]+\.(yaml|json|env|ini)$
+  - path_regex: secrets/yubook\.(yaml|json|env|ini)$
     key_groups:
       - age:
-          - *yuna
+          - *yubook
+  - path_regex: secrets/yunix\.(yaml|json|env|ini)$
+    key_groups:
+      - age:
+          - *yunix
+  - path_regex: secrets/common\.(yaml|json|env|ini)$
+    key_groups:
+      - age:
+          - *yubook
+          - *yunix

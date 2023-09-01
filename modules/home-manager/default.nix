@@ -11,7 +11,7 @@ in
 
   home-manager.useGlobalPkgs = lib.mkDefault true;
   home-manager.extraSpecialArgs = {
-    inherit home inputs stateVersion system;
+    inherit host home inputs stateVersion system;
   };
   home-manager.sharedModules = [
     ./apps.nix # link apps to fix spotlight on darwin
@@ -23,6 +23,6 @@ in
 
   # host specific home config
   imports = [
-    ../../hosts/${host}/home.nix
+    (import ../../hosts/${host}/home.nix { inherit home; })
   ];
 }

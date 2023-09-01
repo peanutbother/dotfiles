@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ home }: { pkgs, ... }:
 let
   user = "yuna";
 in
