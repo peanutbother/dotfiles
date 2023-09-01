@@ -8,6 +8,10 @@
       device = "/dev/disk/by-uuid/67E3-17ED";
       fsType = "vfat";
     };
+    "/mnt/share" = {
+      device = "/dev/disk/by-uuid/64ED-11AE";
+      fsType = "exfat";
+    };
   };
 
   swapDevices = [ ];
