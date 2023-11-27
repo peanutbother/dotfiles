@@ -28,12 +28,12 @@ in
       tmp_path=$(mktemp -dt "home-manager-applications.XXXXXX") || exit 1
 
       if [[ -d "$app_path" ]]; then
-      	$DRY_RUN_CMD rm -rf "$app_path"
+        $DRY_RUN_CMD rm -rf "$app_path"
       fi
 
       ${pkgs.fd}/bin/fd \
-      	-t l -d 1 . ${apps}/Applications \
-      	-x $DRY_RUN_CMD ${mkalias} -L {} "$tmp_path/{/}"
+        -t l -d 1 . ${apps}/Applications \
+        -x $DRY_RUN_CMD ${mkalias} -L {} "$tmp_path/{/}"
 
       $DRY_RUN_CMD mv "$tmp_path" "$app_path"
     ''

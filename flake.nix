@@ -1,7 +1,7 @@
 {
   description = "nix-conf";
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-23.05-darwin";
+    nixpkgs.url = "github:NixOS/nixpkgs/release-23.05";
     nixos-hardware.url = "github:NixOS/nixos-hardware";
 
     darwin = {
@@ -50,7 +50,7 @@
     };
   };
 
-  outputs = { darwin, ... } @ inputs:
+  outputs = { darwin, nixpkgs, ... } @ inputs:
     let
       stateVersion = "23.05";
       mkModules = host: (import ./hosts/${host} { inherit inputs; });
@@ -61,7 +61,7 @@
     in
     {
       # system configs
-      nixosConfigurations.yunix = inputs.nixpkgs.lib.nixosSystem rec {
+      nixosConfigurations.yunix = nixpkgs.lib.nixosSystem rec {
         system = "x86_64-linux";
         modules = mkModules "yunix";
         specialArgs = mkArgs system;
@@ -71,16 +71,6 @@
         system = "x86_64-darwin";
         modules = mkModules "yubook";
         specialArgs = mkArgs system;
-      };
-    }
-    // (import ./util.nix).eachSystem (system: {
-      # shells
-      devShells.${system} = rec {
-        default = nix;
-        embedded = inputs.embedded_shell.devShells.${system}.default;
-        nix = inputs.nix_shell.devShells.${system}.default;
-        rust = inputs.rust_shell.devShells.${system}.default;
-        web = inputs.web_shell.devShells.${system}.default;
       };
 
       # templates
@@ -101,10 +91,19 @@
           description = "rust development environment with nix flake";
           path = ./templates/rust-nix;
         };
-        web = {
-          description = "web development environment";
-          path = ./templates/web;
+        typescript = {
+          description = "typescript development environment";
+          path = ./templates/typescript;
         };
+      };
+    }
+    // (import ./util.nix).eachSystem (system: {
+      # shells
+      devShells = {
+        embedded = inputs.embedded_shell.devShells.${system}.default;
+        nix = inputs.nix_shell.devShells.${system}.default;
+        rust = inputs.rust_shell.devShells.${system}.default;
+        web = inputs.web_shell.devShells.${system}.default;
       };
     });
 }

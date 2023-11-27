@@ -11,6 +11,4 @@ in
   # home
   home-manager.darwinModule
   (import ../../modules/home-manager { inherit host user; })
-
-  # sops-nix.darwinModules.default
 ]

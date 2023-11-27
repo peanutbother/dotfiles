@@ -1,46 +1,55 @@
 { modulesPath, ... }: {
   fileSystems = {
-    "/" = {
-      device = "/dev/disk/by-uuid/9e60daf1-a1a9-4cf1-b6e3-39bac5b482b3";
-      fsType = "ext4";
-    };
+    "/" =
+      {
+        device = "/dev/disk/by-uuid/24d9645b-07e3-4c51-9720-1e65a7ce11f7";
+        fsType = "btrfs";
+        options = [ "subvol=root" "compress=zstd" "noatime" ];
+      };
+
+    "/home" =
+      {
+        device = "/dev/disk/by-uuid/24d9645b-07e3-4c51-9720-1e65a7ce11f7";
+        fsType = "btrfs";
+        options = [ "subvol=home" "compress=zstd" "noatime" ];
+      };
+
+    "/nix" =
+      {
+        device = "/dev/disk/by-uuid/24d9645b-07e3-4c51-9720-1e65a7ce11f7";
+        fsType = "btrfs";
+        options = [ "subvol=nix" "compress=zstd" "noatime" ];
+      };
+
+    "/persist" =
+      {
+        device = "/dev/disk/by-uuid/24d9645b-07e3-4c51-9720-1e65a7ce11f7";
+        fsType = "btrfs";
+        options = [ "subvol=persist" "compress=zstd" "noatime" ];
+      };
+
+    "/var/log" =
+      {
+        device = "/dev/disk/by-uuid/24d9645b-07e3-4c51-9720-1e65a7ce11f7";
+        fsType = "btrfs";
+        options = [ "subvol=log" "compress=zstd" "noatime" ];
+        neededForBoot = true;
+      };
+
     "/boot" = {
       device = "/dev/disk/by-uuid/67E3-17ED";
       fsType = "vfat";
     };
+
     "/mnt/share" = {
       device = "/dev/disk/by-uuid/64ED-11AE";
       fsType = "exfat";
     };
   };
 
+  boot.initrd.luks.devices."enc".device = "/dev/disk/by-uuid/3f62db56-c8ff-4784-a22d-eaaca721566e";
+
   swapDevices = [ ];
 
   powerManagement.enable = true;
-
-  hardware = {
-    # Enable Firmware
-    enableAllFirmware = true;
-    enableRedistributableFirmware = true;
-    cpu.intel.updateMicrocode = true;
-    # Enable FacetimeHD
-    facetimehd.enable = true;
-    # Enable bluetooth
-    bluetooth = {
-      enable = true;
-      settings = {
-        General = {
-          Enable = "Source,Sink,Media,Socket";
-        };
-      };
-    };
-  };
-
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
-
-  imports = [
-    (modulesPath + "/hardware/network/broadcom-43xx.nix")
-    (modulesPath + "/installer/scan/not-detected.nix")
-  ];
 }

@@ -1,6 +1,6 @@
 keys:
-  - &yubook age1lz7p7qetu77a5nmaeznejy4rtxe3fsj23gmyvx4ee2vd4ma7y32sf8f073
-  - &yunix age1k6vvn5qlr7kc3h992t2fvnus4xg83r6d423dlufu820famn9z4cqfgrywh
+  - &yubook age1k6vvn5qlr7kc3h992t2fvnus4xg83r6d423dlufu820famn9z4cqfgrywh
+  - &yunix age1upak4x3s6v8j4dk2m52ad6phrf3sw59qtyyq7a9j2kjhtm3g9y3qm6f4tk
 creation_rules:
   - path_regex: secrets/yubook\.(yaml|json|env|ini)$
     key_groups:

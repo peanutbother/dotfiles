@@ -1,6 +1,5 @@
 { inputs }:
-with inputs;
-let
+with inputs; let
   user = "yuna";
   host = "yunix";
 in
@@ -17,6 +16,4 @@ in
   # home
   home-manager.nixosModule
   (import ../../modules/home-manager { inherit host user; })
-
-  sops-nix.nixosModules.default
 ]

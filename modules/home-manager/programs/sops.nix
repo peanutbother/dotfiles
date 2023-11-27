@@ -1,7 +1,7 @@
-{ home, ... }: {
+{ home, lib, ... }: {
   sops = {
     defaultSopsFile = ../../../secrets/common.yaml;
     defaultSopsFormat = "yaml";
-    age.keyFile = "${home}/.nix/secrets/keys.txt";
+    age.keyFile = lib.mkDefault "${home}/.nix/secrets/keys.txt";
   };
 }

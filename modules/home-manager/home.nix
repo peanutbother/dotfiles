@@ -25,10 +25,6 @@
       EDITOR = lib.mkDefault "code --wait"; # on darwin requires alias `code` from `shellAliases.code` below
     };
 
-    sessionPath = [
-      "$HOME/.spicetify" # TODO needs to be manually installed as of now (incompatible with macos)
-    ];
-
     shellAliases = {
       sudo = "sudo "; # allow aliases to be run with sudo
       nixup = "pushd ~/.nix; nix flake update; nixswitch; popd"; # update nix env and refresh

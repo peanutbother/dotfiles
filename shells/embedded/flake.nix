@@ -13,7 +13,6 @@
         ];
       in
       {
-        inherit packages;
         devShells.default = pkgs.mkShell {
           inherit packages;
           shellHook = ''

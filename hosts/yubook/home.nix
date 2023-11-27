@@ -12,10 +12,13 @@ in
         };
       };
       shellAliases = {
-        nixswitch = "nix run nix-darwin -- switch --flake ~/.nix/.#"; # refresh nix env after config changes
+        nixswitch = "nix run nix-darwin -- switch --flake /Volumes/Share/.nix/.#"; # refresh nix env after config changes
         code = "env VSCODE_CWD=\"$PWD\" open -n -b \"com.microsoft.VSCode\" --args $*"; # create a shell alias for vs code
       };
 
+      sessionPath = [
+        "$HOME/.spicetify" # TODO needs to be manually installed as of now (spicetify-nix is incompatible with darwin)
+      ];
 
       packages = with pkgs;[
         bclm
@@ -29,6 +32,7 @@ in
     };
 
     sops = {
+      age.keyFile = "/Volumes/Share/.nix/secrets/keys.txt";
       secrets = {
         "ssh-keys/git/peanutbother" = {
           path = "${home}/.ssh/github_peanutbother";

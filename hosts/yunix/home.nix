@@ -6,6 +6,7 @@ in
 {
   users.users.${user} = {
     isNormalUser = true;
+    initialPassword = "login";
     group = "users";
     extraGroups = [ "networkmanager" "wheel" ];
     shell = pkgs.zsh;
@@ -25,7 +26,7 @@ in
       };
 
       shellAliases = {
-        nixswitch = "sudo nixos-rebuild switch --flake ~/.nix/.#"; # refresh nix env after config changes
+        nixswitch = "sudo nixos-rebuild switch --flake ~/mnt/share/.nix/.#"; # refresh nix env after config changes
         nixclean = "sudo nix-collect-garbage --delete-old"; # delete old generations
       };
 
@@ -75,6 +76,7 @@ in
     };
 
     sops = {
+      age.keyFile = "/mnt/share/.nix/secrets/keys.txt";
       secrets = {
         "ssh-keys/git/peanutbother" = {
           path = "${home}/.ssh/github_peanutbother";

@@ -1,6 +1,6 @@
 { host }: {
   imports = [
-    ../../hosts/${host}/system.nix # import host psecific system configuration
+    ../../hosts/${host}/system.nix # import host specific system configuration
     ./apps.nix # link nix apps to fix spotlight
     ./dock.nix # configure dock
     ./env.nix # configure environment (e.g default shell)

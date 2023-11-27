@@ -10,6 +10,7 @@ in
     # Enable the KDE Plasma Desktop Environment.
     displayManager.sddm = {
       enable = lib.mkDefault true;
+      # TODO remove if using pantheon / replace with better DM when using pantheon
       theme = "${theme.themeName}-${theme.color}";
     };
     desktopManager.plasma5.enable = lib.mkDefault true;
@@ -21,7 +22,8 @@ in
   };
 
   environment.systemPackages = with pkgs; [
-    sddm-kcm
-    theme
+    libsForQt5.qtstyleplugin-kvantum # TODO remove if not needed for KDE
+    sddm-kcm # TODO replace with elementary os' pantheon
+    theme # TODO remove when using pantheon
   ];
 }
