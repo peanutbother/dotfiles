@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }: {
+{ config, inputs, pkgs, ... }: {
   system.stateVersion = "23.05";
   networking.hostName = "yunix";
 
@@ -21,7 +21,7 @@
     };
 
     kernelModules = [ "kvm-intel" ];
-    extraModulePackages = [ ];
+    extraModulePackages = with config.boot.kernelPackages; [ ];
     extraModprobeConfig = ''
       options snd_hda_intel model=auto
       options hid_apple fnmode=2
