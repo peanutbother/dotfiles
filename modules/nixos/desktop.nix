@@ -11,9 +11,12 @@ in
     excludePackages = [ pkgs.xterm ];
 
     # Enable the KDE Plasma Desktop Environment.
-    displayManager.sddm = {
-      enable = lib.mkDefault true;
-      theme = "${theme.themeName}-${theme.color}";
+    displayManager = {
+      defaultSession = "plasmawayland";
+      sddm = {
+        enable = lib.mkDefault true;
+        theme = "${theme.themeName}-${theme.color}";
+      };
     };
     desktopManager.plasma5.enable = lib.mkDefault true;
 
@@ -33,5 +36,8 @@ in
       khelpcenter
       konsole # we have alacritty ;)
     ];
+    sessionVariables = {
+      NIXOS_OZONE_WL = "1";
+    };
   };
 }
