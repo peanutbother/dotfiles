@@ -2,38 +2,8 @@
   fileSystems = {
     "/" =
       {
-        device = "/dev/disk/by-uuid/24d9645b-07e3-4c51-9720-1e65a7ce11f7";
-        fsType = "btrfs";
-        options = [ "subvol=root" "compress=zstd" "noatime" ];
-      };
-
-    "/home" =
-      {
-        device = "/dev/disk/by-uuid/24d9645b-07e3-4c51-9720-1e65a7ce11f7";
-        fsType = "btrfs";
-        options = [ "subvol=home" "compress=zstd" "noatime" ];
-      };
-
-    "/nix" =
-      {
-        device = "/dev/disk/by-uuid/24d9645b-07e3-4c51-9720-1e65a7ce11f7";
-        fsType = "btrfs";
-        options = [ "subvol=nix" "compress=zstd" "noatime" ];
-      };
-
-    "/persist" =
-      {
-        device = "/dev/disk/by-uuid/24d9645b-07e3-4c51-9720-1e65a7ce11f7";
-        fsType = "btrfs";
-        options = [ "subvol=persist" "compress=zstd" "noatime" ];
-      };
-
-    "/var/log" =
-      {
-        device = "/dev/disk/by-uuid/24d9645b-07e3-4c51-9720-1e65a7ce11f7";
-        fsType = "btrfs";
-        options = [ "subvol=log" "compress=zstd" "noatime" ];
-        neededForBoot = true;
+        device = "/dev/mapper/enc";
+        fsType = "ext4";
       };
 
     "/boot" = {
