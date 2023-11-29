@@ -36,7 +36,9 @@ in
         krita
         kdeconnect
         latte-dock
+        pciutils
         networkmanager
+        plasma5Packages.plasma-browser-integration
         putty
         signal-desktop-beta
         spectacle
