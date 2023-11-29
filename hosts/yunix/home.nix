@@ -13,7 +13,6 @@ in
   };
 
   home-manager.users.${user} = {
-    imports = [ inputs.spicetify-nix.homeManagerModule ];
 
     home = {
       file = {

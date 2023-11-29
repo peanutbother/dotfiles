@@ -15,9 +15,11 @@ in
   };
   home-manager.sharedModules = [
     ./apps.nix # link apps to fix spotlight on darwin
-    inputs.plasma-manager.homeManagerModules.plasma-manager
     inputs.sops-nix.homeManagerModule
-  ];
+  ] ++ (if !pkgs.stdenv.hostPlatform.isDarwin then [
+    inputs.plasma-manager.homeManagerModules.plasma-manager
+    inputs.spicetify-nix.homeManagerModule
+  ] else []);
 
   # common home config
   home-manager.users.${user} = import ./home.nix;
