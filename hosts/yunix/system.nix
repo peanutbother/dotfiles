@@ -2,6 +2,11 @@
   system.stateVersion = "23.05";
   networking.hostName = "yunix";
 
+  system.autoUpgrade = {
+    enable = true;
+    allowReboot = false;
+  };
+
   boot = {
     initrd = {
       # Setup keyfile
