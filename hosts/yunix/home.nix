@@ -11,8 +11,10 @@ in
     extraGroups = [ "networkmanager" "wheel" ];
     shell = pkgs.zsh;
   };
+  
   home-manager.users.${user} = {
     imports = [ inputs.spicetify-nix.homeManagerModule ];
+
     home = {
       file = {
         ".config/latte" = {
@@ -51,10 +53,12 @@ in
       alacritty = {
         settings.font.size = 10;
       };
+
       git = {
         userName = "peanutbother";
         userEmail = "peanutbother@proton.me";
       };
+
       spicetify = {
         enable = true;
         theme = spicePkgs.themes.Bloom;
