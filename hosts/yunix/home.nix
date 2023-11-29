@@ -26,7 +26,7 @@ in
       };
 
       shellAliases = {
-        nixswitch = "sudo nixos-rebuild switch --flake ~/mnt/share/.nix/.#"; # refresh nix env after config changes
+        nixswitch = "sudo nixos-rebuild switch --flake /mnt/share/.nix/.#"; # refresh nix env after config changes
         nixclean = "sudo nix-collect-garbage --delete-old"; # delete old generations
       };
 
