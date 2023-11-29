@@ -50,7 +50,7 @@
 
   boot.initrd.luks.devices."enc".device = "/dev/disk/by-uuid/3f62db56-c8ff-4784-a22d-eaaca721566e";
 
-  swapDevices = [ ];
+  swapDevices = [ { device = "/.swapfile"; } ];
 
   powerManagement.enable = true;
 
