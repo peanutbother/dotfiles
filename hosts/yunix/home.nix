@@ -66,7 +66,7 @@ in
           "kdeglobals"."KScreen"."ScreenScaleFactors" = "eDP-1=1.5;DP-1=1.5;HDMI-1=1.5;DP-2=1.5;HDMI-2=1.5;";
           "kiorc"."Confirmations"."ConfirmDelete" = false;
           "ksplashrc"."KSplash"."Engine" = "none";
-          "plasma-localerc"."Formats"."LANG" = "de_DE.UTF-8";
+          "plasma-localerc"."Formats"."LANG" = "en_GB.UTF-8";
         };
       };
 
