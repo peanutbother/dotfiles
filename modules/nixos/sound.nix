@@ -7,8 +7,7 @@
     enable = lib.mkDefault true;
     alsa.enable = lib.mkDefault true;
     alsa.support32Bit = lib.mkDefault true;
-    pulse.enable = lib.mkDefault false;
-    # If you want to use JACK applications, uncomment this
+    pulse.enable = lib.mkDefault true;
     jack.enable = lib.mkDefault true;
 
     # use the example session manager (no others are packaged yet so this is enabled by default,
