@@ -52,4 +52,13 @@
   swapDevices = [ ];
 
   powerManagement.enable = true;
+
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
+    settings = {
+      # This configuration may be unnecessary and does not work with bluez5 (Unknown key Enable for group General).
+      General.Enable = "Source,Sink,Media,Socket";
+    };
+  };
 }
