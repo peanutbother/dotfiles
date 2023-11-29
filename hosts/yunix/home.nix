@@ -11,7 +11,7 @@ in
     extraGroups = [ "networkmanager" "wheel" ];
     shell = pkgs.zsh;
   };
-  
+
   home-manager.users.${user} = {
     imports = [ inputs.spicetify-nix.homeManagerModule ];
 
@@ -57,6 +57,18 @@ in
       git = {
         userName = "peanutbother";
         userEmail = "peanutbother@proton.me";
+      };
+
+      plasma = {
+        enable = true;
+        configFile = {
+          "kdeglobals"."KFileDialog Settings"."Show hidden files" = true;
+          "kdeglobals"."KScreen"."ScaleFactor" = 1.5;
+          "kdeglobals"."KScreen"."ScreenScaleFactors" = "eDP-1=1.5;DP-1=1.5;HDMI-1=1.5;DP-2=1.5;HDMI-2=1.5;";
+          "kiorc"."Confirmations"."ConfirmDelete" = false;
+          "ksplashrc"."KSplash"."Engine" = "none";
+          "plasma-localerc"."Formats"."LANG" = "de_DE.UTF-8";
+        };
       };
 
       spicetify = {

@@ -15,6 +15,7 @@ in
   };
   home-manager.sharedModules = [
     ./apps.nix # link apps to fix spotlight on darwin
+    inputs.plasma-manager.homeManagerModules.plasma-manager
     inputs.sops-nix.homeManagerModule
   ];
 
