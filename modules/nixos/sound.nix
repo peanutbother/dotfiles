@@ -7,7 +7,7 @@
     enable = lib.mkDefault true;
     alsa.enable = lib.mkDefault true;
     alsa.support32Bit = lib.mkDefault true;
-    pulse.enable = lib.mkDefault true;
+    pulse.enable = lib.mkDefault false;
     # If you want to use JACK applications, uncomment this
     jack.enable = lib.mkDefault true;
 
