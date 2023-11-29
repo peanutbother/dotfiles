@@ -44,6 +44,7 @@
     "/mnt/share" = {
       device = "/dev/disk/by-uuid/64ED-11AE";
       fsType = "exfat";
+      options = [ "uid=1000" "gid=1000" ];
     };
   };
 
