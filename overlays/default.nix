@@ -4,6 +4,7 @@
   (import ./direnv.nix)
   (import ./plymouth)
   (import ./sddm)
+  (import ./vivaldi.nix)
   (import (builtins.fetchGit {
     url = "https://github.com/nix-community/nix-vscode-extensions";
     ref = "refs/heads/master";
