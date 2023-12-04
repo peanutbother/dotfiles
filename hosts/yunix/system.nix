@@ -14,6 +14,7 @@
       kernelModules = [ "kvm-intel" "brcmfmac" ];
     };
 
+    kernelPackages = pkgs.linuxPackages_latest;
     kernelModules = [ "kvm-intel" ];
     extraModulePackages = with config.boot.kernelPackages; [ ];
     extraModprobeConfig = ''
