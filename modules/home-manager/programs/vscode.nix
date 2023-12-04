@@ -62,6 +62,7 @@
       hbenl.vscode-test-explorer
       hdevalke.rust-test-lens
       hediet.vscode-drawio
+      heybourn.headwind
       humao.rest-client
       icrawl.discord-vscode
       irongeek.vscode-env
