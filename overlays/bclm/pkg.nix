@@ -1,6 +1,7 @@
 { lib, fetchzip, stdenv }: stdenv.mkDerivation rec {
   pname = "bclm";
-  version = "0.0.4";
+  version = "0.1.0";
+  hash = "sha256-GtMxg8BnaJjfZ13G+/tzBiM0V/ZGze+RCEaimHdc550=";
 
   meta = with lib; {
     description = "macOS command-line utility to limit max battery charge";
@@ -12,8 +13,8 @@
 
 
   src = fetchzip {
+    inherit hash;
     url = "https://github.com/zackelia/bclm/releases/download/v${version}/bclm.zip";
-    hash = "sha256-3sQhszO+MRLGF5/dm1mFXQZu/MxK3nw68HTpc3cEBOA=";
   };
 
   installPhase = ''
