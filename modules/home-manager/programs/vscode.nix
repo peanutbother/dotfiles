@@ -49,6 +49,7 @@
       eamodio.gitlens
       editorconfig.editorconfig
       esbenp.prettier-vscode
+      fivepointseven.node-version
       foxundermoon.shell-format
       github.codespaces
       github.vscode-pull-request-github
