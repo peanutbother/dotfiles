@@ -1,8 +1,11 @@
-{ modulesPath, ... }: {
+let
+  encryption_device = "enc";
+in
+{
   fileSystems = {
     "/" =
       {
-        device = "/dev/mapper/enc";
+        device = "/dev/mapper/${encryption_device}";
         fsType = "ext4";
       };
 
@@ -18,9 +21,9 @@
     };
   };
 
-  boot.initrd.luks.devices."enc".device = "/dev/disk/by-uuid/3f62db56-c8ff-4784-a22d-eaaca721566e";
+  boot.initrd.luks.devices.${encryption_device}.device = "/dev/disk/by-uuid/3f62db56-c8ff-4784-a22d-eaaca721566e";
 
-  swapDevices = [ { device = "/.swapfile"; } ];
+  swapDevices = [{ device = "/.swapfile"; }];
 
   powerManagement.enable = true;
 
