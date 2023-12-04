@@ -20,6 +20,10 @@ in
           source = ../../modules/home-manager/dotfiles/latte-dock;
           recursive = true;
         };
+        ".config/mpv" = {
+          source = ../../modules/home-manager/dotfiles/mpv;
+          recursive = true;
+        };
         ".ssh" = {
           source = ../../modules/home-manager/dotfiles/ssh;
           recursive = true;
@@ -72,7 +76,7 @@ in
 
       spicetify = {
         enable = true;
-        theme = spicePkgs.themes.Bloom;
+        theme = spicePkgs.themes.Comfy;
         enabledExtensions = with spicePkgs.extensions; [
           adblock
         ];
