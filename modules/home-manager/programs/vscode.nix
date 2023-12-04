@@ -2,6 +2,11 @@
 {
   programs.vscode = {
     enable = true;
+    userSettings = {
+      "editor.fontFamily" = "FiraCode Nerd Font";
+      "terminal.integrated.fontFamily" = "FiraMono Nerd Font";
+      "editor.fontLigatures" = true;
+    };
     keybindings =
       let
         modifier = if pkgs.stdenv.hostPlatform.isDarwin then "cmd" else "ctrl";
