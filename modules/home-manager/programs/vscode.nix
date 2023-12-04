@@ -1,6 +1,25 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   programs.vscode = {
     enable = true;
+    keybindings =
+      let
+        modifier = if pkgs.stdenv.hostPlatform.isDarwin then "cmd" else "ctrl";
+      in
+      [
+        {
+          key = "${modifier}+n";
+          command = "explorer.newFile";
+        }
+        {
+          key = "shift+${modifier}+n";
+          command = "explorer.newFolder";
+        }
+        {
+          key = "shift+alt+n";
+          command = "rust-mod-generator.createRustMod";
+        }
+      ];
     extensions = with pkgs.vscode-marketplace; [
       a5huynh.vscode-ron
       alexcvzz.vscode-sqlite
