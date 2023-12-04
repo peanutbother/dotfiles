@@ -7,8 +7,10 @@ in
     # Enable the X11 windowing system.
     enable = lib.mkDefault true;
 
-    # exclude xterm (we have alacritty set up)
-    excludePackages = [ pkgs.xterm ];
+    excludePackages = with pkgs; [ 
+      plasma5Packages.plasma-browser-integration # currently incompatible with vivaldi
+      xterm # exclude xterm (we have alacritty set up)
+    ];
 
     # Enable the KDE Plasma Desktop Environment.
     displayManager = {
