@@ -4,7 +4,6 @@
   homebrew = {
     # caskArgs.no_quarantine = false;
     masApps = {
-      telegram = 747648890;
       WCHSerialPort = 1580700717;
     };
     # taps = [
@@ -19,6 +18,7 @@
       "rectangle"
       "signal"
       "spotify"
+      "telegram"
       "vivaldi"
     ];
   };
