@@ -7,7 +7,6 @@
   src = builtins.path { path = ./mac; };
 
   installPhase = ''
-  
     mkdir -p $out/share/plymouth/themes
     cp -r $src $out/share/plymouth/themes/mac
     chmod -R +w $out/share/plymouth/themes/mac
