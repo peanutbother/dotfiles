@@ -23,7 +23,10 @@ in
 
   boot.initrd.luks.devices.${encryption_device}.device = "/dev/disk/by-uuid/3f62db56-c8ff-4784-a22d-eaaca721566e";
 
-  swapDevices = [{ device = "/.swapfile"; }];
+  swapDevices = [{ 
+    device = "/.swapfile";
+    size = 8 * 1024;
+  }];
 
   powerManagement.enable = true;
 
