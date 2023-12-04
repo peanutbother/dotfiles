@@ -22,9 +22,10 @@
       ];
     extensions = with pkgs.vscode-marketplace; [
       a5huynh.vscode-ron
+      ahmadalli.vscode-nginx-conf
       alexcvzz.vscode-sqlite
       alpha4.jsonl
-      amodio.tsl-problem-matcher
+      anseki.vscode-color
       arcanis.vscode-zipfs
       arrterian.nix-env-selector
       bierner.color-info
@@ -35,14 +36,16 @@
       bierner.markdown-mermaid
       bierner.markdown-preview-github-styles
       bierner.markdown-yaml-preamble
+      bradlc.vscode-tailwindcss
       cezaraugusto.vscode-chrome-extesion-manifest-json-schema
       chenxuan.cargo-crate-completer
+      christian-kohler.npm-intellisense
       christian-kohler.path-intellisense
-      circlecodesolution.ccs-flutter-color
       codezombiech.gitignore
       csstools.postcss
       davidanson.vscode-markdownlint
       develiteio.api-blueprint-viewer
+      dotjoshjohnson.xml
       dtsvet.vscode-wasm
       dustypomerleau.rust-syntax
       #eamodio.find-related
@@ -60,13 +63,14 @@
       hdevalke.rust-test-lens
       hediet.vscode-drawio
       humao.rest-client
+      icrawl.discord-vscode
+      irongeek.vscode-env
       jakob101.relativepath
       jdinhlife.gruvbox
       jedeop.crates-completer
       jnoortheen.nix-ide
       jock.svg
       jscearcy.rust-doc-viewer
-      leonardssh.vscord
       lokalise.i18n-ally
       lorenzopirro.rust-flash-snippets
       malmaud.tmux
@@ -76,22 +80,27 @@
       mcu-debug.memory-view
       mcu-debug.peripheral-viewer
       mcu-debug.rtos-views
+      mike-co.import-sorter
       mikestead.dotenv
       mkhl.direnv
       mkornelsen.vscode-arm64
+      mrmlnc.vscode-scss
       ms-azuretools.vscode-docker
       ms-vscode-remote.remote-containers
+      ms-vscode-remote.remote-ssh
+      ms-vscode-remote.remote-ssh-edit
+      ms-vscode-remote.remote-wsl
       ms-vscode.hexeditor
       ms-vscode.live-server
       ms-vscode.mono-debug
       ms-vscode.remote-explorer
       ms-vscode.test-adapter-converter
-      mwpb.java-prettier-formatter
       natizyskunk.sftp
       nhoizey.gremlins
       nico-castell.linux-desktop-file
       oderwat.indent-rainbow
       oouo-diogo-perdigao.docthis
+      ottostreifel.typescript-uml
       p1c2u.docker-compose
       panicbit.cargo
       peterschmalfeldt.explorer-exclude
@@ -103,11 +112,14 @@
       quicktype.quicktype
       qwtel.sqlite-viewer
       rafaelmaiolla.diff
+      raynigon.nginx-formatter
       redhat.vscode-yaml
       rust-lang.rust-analyzer
       ryanluker.vscode-coverage-gutters
       serayuzgur.crates
       shyykoserhiy.vscode-spotify
+      statiolake.vscode-rustfmt
+      streetsidesoftware.code-spell-checker
       swellaby.rust-pack
       swellaby.vscode-rust-test-adapter
       tamasfe.even-better-toml
@@ -115,7 +127,7 @@
       unifiedjs.vscode-mdx
       usernamehw.errorlens
       vadimcn.vscode-lldb
-      visualstudioexptteam.intellicode-api-usage-examples
+      visualstudioexptteam.vscodeintellicode-completions
       vncz.vscode-apielements
       webfreak.debug
       yukai.map-replace-js
