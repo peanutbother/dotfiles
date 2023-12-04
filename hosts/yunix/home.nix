@@ -39,7 +39,7 @@ in
         latte-dock
         pciutils
         networkmanager
-        plasma5Packages.plasma-browser-integration
+        #plasma5Packages.plasma-browser-integration # currently incompatible with vivaldi
         putty
         signal-desktop-beta
         spectacle
