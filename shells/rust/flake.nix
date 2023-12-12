@@ -8,8 +8,12 @@
       let
         pkgs = import nixpkgs { inherit system; };
         packages = with pkgs; [
+          iconv
           rustup
-        ];
+        ] ++ (if system == "aarch64-darwin" || system == "x86_64-darwin" then with pkgs; [
+          darwin.apple_sdk.frameworks.Security
+          darwin.apple_sdk.frameworks.SystemConfiguration
+        ] else [ ]);
       in
       {
         devShells.default = pkgs.mkShell {
