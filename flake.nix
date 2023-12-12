@@ -38,22 +38,22 @@
     };
 
     embedded_shell = {
-      url = "path:./shells/embedded";
+      url = "github:peanutbother/dotfiles?dir=shells/embedded";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     nix_shell = {
-      url = "path:./shells/nix";
+      url = "github:peanutbother/dotfiles?dir=shells/nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     rust_shell = {
-      url = "path:./shells/rust";
+      url = "github:peanutbother/dotfiles?dir=shells/rust";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     web_shell = {
-      url = "path:./shells/web";
+      url = "github:peanutbother/dotfiles?dir=shells/web";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

@@ -27,14 +27,19 @@
         ]
       },
       "locked": {
-        "lastModified": 1,
-        "narHash": "sha256-uk6guJjpVSSh5trEvNe8lO3vwHUQUExOPP/RU07vjNs=",
-        "path": "./shells/embedded",
-        "type": "path"
+        "dir": "shells/embedded",
+        "lastModified": 1701278793,
+        "narHash": "sha256-8Ju/6SiumY/uyWQn+ThzUh3B3zknthyS/ApIBrz4yog=",
+        "owner": "peanutbother",
+        "repo": "dotfiles",
+        "rev": "366ad37590fc0841e1e95553ccc0109f65638011",
+        "type": "github"
       },
       "original": {
-        "path": "./shells/embedded",
-        "type": "path"
+        "dir": "shells/embedded",
+        "owner": "peanutbother",
+        "repo": "dotfiles",
+        "type": "github"
       }
     },
     "flake-utils": {
@@ -103,14 +108,19 @@
         ]
       },
       "locked": {
-        "lastModified": 1,
-        "narHash": "sha256-KR5P/v/NwRZermkMxnQblr+tnsX/QfppIkF4mVIOrWE=",
-        "path": "./shells/nix",
-        "type": "path"
+        "dir": "shells/nix",
+        "lastModified": 1701278793,
+        "narHash": "sha256-8Ju/6SiumY/uyWQn+ThzUh3B3zknthyS/ApIBrz4yog=",
+        "owner": "peanutbother",
+        "repo": "dotfiles",
+        "rev": "366ad37590fc0841e1e95553ccc0109f65638011",
+        "type": "github"
       },
       "original": {
-        "path": "./shells/nix",
-        "type": "path"
+        "dir": "shells/nix",
+        "owner": "peanutbother",
+        "repo": "dotfiles",
+        "type": "github"
       }
     },
     "nixos-hardware": {
@@ -206,14 +216,19 @@
         ]
       },
       "locked": {
-        "lastModified": 1,
-        "narHash": "sha256-5CXpkm+j4eqjeVsHaOpo9wfk5MIDMmeirI/DLIfpWvg=",
-        "path": "./shells/rust",
-        "type": "path"
+        "dir": "shells/rust",
+        "lastModified": 1701278793,
+        "narHash": "sha256-8Ju/6SiumY/uyWQn+ThzUh3B3zknthyS/ApIBrz4yog=",
+        "owner": "peanutbother",
+        "repo": "dotfiles",
+        "rev": "366ad37590fc0841e1e95553ccc0109f65638011",
+        "type": "github"
       },
       "original": {
-        "path": "./shells/rust",
-        "type": "path"
+        "dir": "shells/rust",
+        "owner": "peanutbother",
+        "repo": "dotfiles",
+        "type": "github"
       }
     },
     "sops-nix": {
@@ -280,14 +295,19 @@
         ]
       },
       "locked": {
-        "lastModified": 1,
-        "narHash": "sha256-cRnOikId6tbzXhHGvEnpqem7ih2MJUrCd7bM2meFWoQ=",
-        "path": "./shells/web",
-        "type": "path"
+        "dir": "shells/web",
+        "lastModified": 1701278793,
+        "narHash": "sha256-8Ju/6SiumY/uyWQn+ThzUh3B3zknthyS/ApIBrz4yog=",
+        "owner": "peanutbother",
+        "repo": "dotfiles",
+        "rev": "366ad37590fc0841e1e95553ccc0109f65638011",
+        "type": "github"
       },
       "original": {
-        "path": "./shells/web",
-        "type": "path"
+        "dir": "shells/web",
+        "owner": "peanutbother",
+        "repo": "dotfiles",
+        "type": "github"
       }
     }
   },
