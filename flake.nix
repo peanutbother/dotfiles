@@ -1,7 +1,7 @@
 {
   description = "nix-conf";
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/release-23.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.11";
     nixos-hardware.url = "github:NixOS/nixos-hardware";
 
     darwin = {
@@ -10,7 +10,7 @@
     };
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-23.05";
+      url = "github:nix-community/home-manager/release-23.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -60,7 +60,7 @@
 
   outputs = { darwin, nixpkgs, ... } @ inputs:
     let
-      stateVersion = "23.05";
+      stateVersion = "23.11";
       mkModules = host: (import ./hosts/${host} { inherit inputs; });
       mkArgs = system: {
         inherit inputs system stateVersion;
