@@ -8,6 +8,6 @@
   (import (builtins.fetchGit {
     url = "https://github.com/nix-community/nix-vscode-extensions";
     ref = "refs/heads/master";
-    rev = "a72a237b9929ce7d8163617747802553e6c7fdc0";
+    rev = "edf4473be9f0becf2567db862b1d2fe7075de41c";
   })).overlays.default
 ]
