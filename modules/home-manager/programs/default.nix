@@ -3,7 +3,7 @@
     ./alacritty.nix
     ./btop.nix
     ./direnv.nix
-    ./exa.nix
+    ./eza.nix
     ./fzf.nix
     ./git.nix
     ./gpg
