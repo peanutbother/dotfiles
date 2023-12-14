@@ -15,5 +15,5 @@ in
 
   # home
   home-manager.nixosModule
-  (import ../../modules/home-manager { inherit host user; })
+  (import ../../modules/home-manager { inherit host user; repo = "/mnt/share/.nix"; })
 ]

@@ -1,4 +1,4 @@
-{ home }: { pkgs, ... }:
+{ home, repo }: { pkgs, ... }:
 let
   user = "yuna";
 in
@@ -12,7 +12,6 @@ in
         };
       };
       shellAliases = {
-        nixswitch = "nix run nix-darwin -- switch --flake /Volumes/Share/.nix/.#"; # refresh nix env after config changes
         code = "env VSCODE_CWD=\"$PWD\" open -n -b \"com.microsoft.VSCode\" --args $*"; # create a shell alias for vs code
       };
 
@@ -32,7 +31,7 @@ in
     };
 
     sops = {
-      age.keyFile = "/Volumes/Share/.nix/secrets/keys.txt";
+      age.keyFile = "${repo}/secrets/keys.txt";
       secrets = {
         "ssh-keys/git/peanutbother" = {
           path = "${home}/.ssh/github_peanutbother";

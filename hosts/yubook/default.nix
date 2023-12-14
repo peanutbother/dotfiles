@@ -10,5 +10,5 @@ in
 
   # home
   home-manager.darwinModule
-  (import ../../modules/home-manager { inherit host user; })
+  (import ../../modules/home-manager { inherit host user; repo = "/Volumes/Share/.nix"; })
 ]

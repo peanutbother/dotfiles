@@ -1,4 +1,4 @@
-{ home }: { inputs, pkgs, ... }:
+{ home, repo }: { inputs, pkgs, ... }:
 let
   user = "yuna";
   spicePkgs = inputs.spicetify-nix.packages.${pkgs.system}.default;
@@ -28,11 +28,6 @@ in
           source = ../../modules/home-manager/dotfiles/ssh;
           recursive = true;
         };
-      };
-
-      shellAliases = {
-        nixswitch = "sudo nixos-rebuild switch --flake /mnt/share/.nix/.#"; # refresh nix env after config changes
-        nixclean = "sudo nix-collect-garbage --delete-old"; # delete old generations
       };
 
       packages = with pkgs; [
@@ -97,7 +92,7 @@ in
     };
 
     sops = {
-      age.keyFile = "/mnt/share/.nix/secrets/keys.txt";
+      age.keyFile = "${repo}/secrets/keys.txt";
       secrets = {
         "ssh-keys/git/peanutbother" = {
           path = "${home}/.ssh/github_peanutbother";

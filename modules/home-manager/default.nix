@@ -1,4 +1,4 @@
-{ host, user }: { inputs, lib, pkgs, system, stateVersion, ... }:
+{ host, repo, user }: { inputs, lib, pkgs, system, stateVersion, ... }:
 let
   home = if pkgs.stdenv.hostPlatform.isDarwin then "/Users/${user}" else "/home/${user}";
 in
@@ -22,10 +22,10 @@ in
   ] else []);
 
   # common home config
-  home-manager.users.${user} = import ./home.nix;
+  home-manager.users.${user} = import ./home.nix { inherit repo; };
 
   # host specific home config
   imports = [
-    (import ../../hosts/${host}/home.nix { inherit home; })
+    (import ../../hosts/${host}/home.nix { inherit home repo; })
   ];
 }
