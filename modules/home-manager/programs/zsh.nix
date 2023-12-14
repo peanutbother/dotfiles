@@ -3,7 +3,7 @@
     enable = lib.mkDefault true;
     enableCompletion = true;
     enableAutosuggestions = true;
-    enableSyntaxHighlighting = true;
+    syntaxHighlighting.enable = true;
 
     autocd = true;
     envExtra = ''
