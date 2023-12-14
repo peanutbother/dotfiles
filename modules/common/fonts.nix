@@ -1,7 +1,7 @@
 { lib, pkgs, ... }: {
   fonts = {
     fontDir.enable = lib.mkDefault true; # DANGER
-    fonts = [
+    packages = [
       (pkgs.nerdfonts.override {
         fonts = [
           "FiraCode"
