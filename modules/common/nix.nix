@@ -6,7 +6,8 @@
     '';
     settings = {
       # automatically hotlink duplicate files
-      auto-optimise-store = lib.mkDefault true;
+      # TODO do not automatically hotlink duplicate files (currently broken)[https://github.com/NixOS/nix/issues/1281]
+      auto-optimise-store = lib.mkDefault (!pkgs.stdenv.hostPlatform.isDarwin);
       # sandbox builds
       sandbox = lib.mkDefault true;
       # enable binary caches
