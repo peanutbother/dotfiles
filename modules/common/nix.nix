@@ -2,7 +2,7 @@
   nix = {
     # enable flakes
     settings = {
-      experimental-features = [ "nix-command" "flakes" ];
+      experimental-features = lib.mkDefault [ "nix-command" "flakes" ];
       # automatically hotlink duplicate files
       auto-optimise-store = lib.mkDefault true;
       # sandbox builds
