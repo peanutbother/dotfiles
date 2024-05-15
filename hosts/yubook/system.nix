@@ -17,10 +17,4 @@
       "vivaldi"
     ];
   };
-
-  networking = rec {
-    computerName = hostName;
-    hostName = "yubook";
-    localHostName = hostName;
-  };
 }

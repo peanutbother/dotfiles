@@ -1,14 +1,14 @@
-{ inputs }:
+{ inputs, mkSystem, mkHome, host }:
 with inputs;
 let
   user = "yuna";
-  host = "yubook";
+  repo = "/Volumes/Share/.nix";
 in
 [
   # system
-  (import ../../modules/darwin { inherit host; })
+  (mkSystem { inherit host; darwin = true; })
 
   # home
   home-manager.darwinModule
-  (import ../../modules/home-manager { inherit host user; repo = "/Volumes/Share/.nix"; })
+  (mkHome { inherit host user repo; })
 ]

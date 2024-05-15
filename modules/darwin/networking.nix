@@ -1,4 +1,4 @@
-{ lib, ... }: {
+{ host, lib, ... }: {
   system.defaults.alf.globalstate = lib.mkDefault 1; # enable firewall
 
   networking = {
@@ -9,5 +9,9 @@
     ];
 
     knownNetworkServices = [ "Wi-Fi" ];
+
+    computerName = lib.mkDefault host;
+    hostName = lib.mkDefault host;
+    localHostName = lib.mkDefault host;
   };
 }

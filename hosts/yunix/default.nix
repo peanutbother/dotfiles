@@ -1,7 +1,8 @@
-{ inputs }:
-with inputs; let
+{ inputs, mkSystem, mkHome, host }:
+with inputs;
+let
   user = "yuna";
-  host = "yunix";
+  repo = "/mnt/share/.nix";
 in
 [
   # quirks
@@ -11,9 +12,9 @@ in
   nixos-hardware.nixosModules.common-pc-ssd
 
   # system
-  (import ../../modules/nixos { inherit host; })
+  (mkSystem { inherit host; })
 
   # home
   home-manager.nixosModule
-  (import ../../modules/home-manager { inherit host user; repo = "/mnt/share/.nix"; })
+  (mkHome { inherit host user repo; })
 ]

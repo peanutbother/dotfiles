@@ -1,6 +1,5 @@
 { config, inputs, pkgs, ... }: {
   system.stateVersion = "23.05";
-  networking.hostName = "yunix";
 
   system.autoUpgrade = {
     enable = true;
