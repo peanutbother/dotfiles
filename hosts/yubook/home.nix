@@ -12,7 +12,7 @@ in
         };
       };
       shellAliases = {
-        code = "env VSCODE_CWD=\"$PWD\" open -n -b \"com.microsoft.VSCode\" --args $*"; # create a shell alias for vs code
+        # code = "env VSCODE_CWD=\"$PWD\" open -n -b \"com.microsoft.VSCode\" --args $*"; # create a shell alias for vs code
       };
 
       sessionPath = [
@@ -29,6 +29,14 @@ in
       userName = "peanutbother";
       userEmail = "peanutbother@proton.me";
     };
+
+    programs.ssh.extraConfig = ''
+      Host *.github.com
+        AddKeysToAgent yes
+        UseKeychain yes
+        IdentityFile ~/.ssh/github_peanutbother
+    '';
+
 
     sops = {
       age.keyFile = "${repo}/secrets/keys.txt";
