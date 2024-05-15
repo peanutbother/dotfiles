@@ -1,7 +1,7 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 {
   programs.vscode = {
-    enable = true;
+    enable = lib.mkDefault true;
     userSettings = {
       "editor.fontFamily" = "FiraCode Nerd Font";
       "terminal.integrated.fontFamily" = "FiraMono Nerd Font";

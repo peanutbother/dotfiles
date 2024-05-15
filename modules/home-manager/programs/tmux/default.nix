@@ -4,7 +4,7 @@ let
 in
 {
   programs.tmux = {
-    enable = true;
+    enable = lib.mkDefault true;
     clock24 = true;
     mouse = true;
     shell = "${pkgs.zsh}/bin/zsh";

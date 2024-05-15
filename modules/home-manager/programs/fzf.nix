@@ -1,6 +1,6 @@
 { lib, ... }: {
   programs.fzf = {
-    enable = true;
+    enable = lib.mkDefault true;
     enableZshIntegration = lib.mkDefault true;
   };
 }

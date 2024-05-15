@@ -1,5 +1,5 @@
-{
+{ lib, ... }: {
   programs.btop = {
-    enable = true;
+    enable = lib.mkDefault true;
   };
 }

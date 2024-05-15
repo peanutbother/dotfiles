@@ -1,6 +1,6 @@
 { lib, ... }: {
   programs.gpg = {
-    enable = true;
+    enable = lib.mkDefault true;
     mutableKeys = lib.mkDefault true;
     mutableTrust = lib.mkDefault true;
     publicKeys = [

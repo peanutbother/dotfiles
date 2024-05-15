@@ -1,6 +1,6 @@
-{
+{ lib, ... }: {
   programs.eza = {
-    enable = true;
+    enable = lib.mkDefault true;
     enableAliases = true;
   };
 }
