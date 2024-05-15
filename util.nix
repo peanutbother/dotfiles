@@ -1,4 +1,4 @@
-rec {
+inputs: stateVersion: rec {
   eachSystem = f:
     let
       # Merge together the outputs for all systems.
@@ -27,4 +27,24 @@ rec {
   mkDarwinSystem = host: (import ./modules/darwin { inherit host; });
   mkNixSystem = host: (import ./modules/nixos { inherit host; });
   mkHome = { host, user, repo }: (import ./modules/home-manager { inherit host user repo; });
+
+  mkModules = host: (import ./hosts/${host}
+    {
+      inherit inputs host mkSystem mkHome;
+    });
+  mkArgs = system: stateVersion: host: {
+    inherit inputs system stateVersion host;
+    overlays = import ./overlays;
+  };
+
+  nixosSystem = { system, name }: inputs.nixpkgs.lib.nixosSystem {
+    inherit system;
+    modules = mkModules name;
+    specialArgs = mkArgs system stateVersion name;
+  };
+  darwinSystem = { system, name }: inputs.darwin.lib.darwinSystem {
+    inherit system;
+    modules = mkModules name;
+    specialArgs = mkArgs system stateVersion name;
+  };
 }

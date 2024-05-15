@@ -58,27 +58,22 @@
     };
   };
 
-  outputs = { darwin, nixpkgs, ... } @ inputs:
+  outputs = inputs:
     let
       stateVersion = "23.11";
-      mkModules = host: (import ./hosts/${host} { inherit inputs; });
-      mkArgs = system: {
-        inherit inputs system stateVersion;
-        overlays = import ./overlays;
-      };
+      utils = (import ./util.nix) inputs stateVersion;
     in
     {
       # system configs
-      nixosConfigurations.yunix = nixpkgs.lib.nixosSystem rec {
+      nixosConfigurations.yunix = utils.nixosSystem {
+        name = "yunix";
         system = "x86_64-linux";
-        modules = mkModules "yunix";
-        specialArgs = mkArgs system;
       };
 
-      darwinConfigurations.yubook = darwin.lib.darwinSystem rec {
+      darwinConfigurations.yubook = utils.darwinSystem {
+        name = "yubook";
         system = "x86_64-darwin";
-        modules = mkModules "yubook";
-        specialArgs = mkArgs system;
+
       };
 
       # templates
