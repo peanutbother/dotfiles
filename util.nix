@@ -22,15 +22,17 @@ inputs: stateVersion: rec {
     ]
   ;
 
-  mkSystem = { host, darwin ? false }:
+  mkSystem = host: { darwin ? false }:
     if darwin then mkDarwinSystem host else mkNixSystem host;
   mkDarwinSystem = host: (import ./modules/darwin { inherit host; });
   mkNixSystem = host: (import ./modules/nixos { inherit host; });
-  mkHome = { host, user, repo }: (import ./modules/home-manager { inherit host user repo; });
+  mkHome = host: { user, repo }: (import ./modules/home-manager { inherit host user repo; });
 
   mkModules = host: (import ./hosts/${host}
     {
-      inherit inputs host mkSystem mkHome;
+      inherit inputs host;
+      mkHome = mkHome host;
+      mkSystem = mkSystem host;
     });
   mkArgs = system: stateVersion: host: {
     inherit inputs system stateVersion host;

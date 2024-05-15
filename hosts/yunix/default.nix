@@ -12,9 +12,9 @@ in
   nixos-hardware.nixosModules.common-pc-ssd
 
   # system
-  (mkSystem { inherit host; })
+  (mkSystem { })
 
   # home
   home-manager.nixosModule
-  (mkHome { inherit host user repo; })
+  (mkHome { inherit user repo; })
 ]

@@ -6,9 +6,9 @@ let
 in
 [
   # system
-  (mkSystem { inherit host; darwin = true; })
+  (mkSystem { darwin = true; })
 
   # home
   home-manager.darwinModule
-  (mkHome { inherit host user repo; })
+  (mkHome { inherit user repo; })
 ]
