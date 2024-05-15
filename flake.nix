@@ -100,7 +100,7 @@
         };
       };
     }
-    // (import ./util.nix).eachSystem (system: {
+    // utils.eachSystem (system: {
       # shells
       devShells = {
         embedded = inputs.embedded_shell.devShells.${system}.default;
