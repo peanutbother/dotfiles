@@ -7,7 +7,7 @@
   (import ./vivaldi.nix)
   (import (builtins.fetchGit {
     url = "https://github.com/nix-community/nix-vscode-extensions";
-    ref = "refs/heads/master";
-    rev = "edf4473be9f0becf2567db862b1d2fe7075de41c";
+    ref = "master";
+    rev = "5426ecc8a714c6986383511fbe6c79eca1981d02";
   })).overlays.default
 ]
