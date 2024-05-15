@@ -1,4 +1,4 @@
-{
+rec {
   eachSystem = f:
     let
       # Merge together the outputs for all systems.
@@ -21,4 +21,10 @@
       "x86_64-linux"
     ]
   ;
+
+  mkSystem = { host, darwin ? false }:
+    if darwin then mkDarwinSystem host else mkNixSystem host;
+  mkDarwinSystem = host: (import ./modules/darwin { inherit host; });
+  mkNixSystem = host: (import ./modules/nixos { inherit host; });
+  mkHome = { host, user, repo }: (import ./modules/home-manager { inherit host user repo; });
 }
