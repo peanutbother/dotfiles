@@ -2,6 +2,18 @@
 {
   programs.vscode = {
     enable = lib.mkDefault true;
+    package = pkgs.vscode.fhsWithPackages (ps: with ps; [
+      rustup
+      zlib
+      openssl.dev
+      pkg-config
+
+      niv
+      nixpkgs-fmt
+      nixd
+      statix
+      vulnix
+    ]);
     userSettings = {
       "editor.fontFamily" = "FiraCode Nerd Font";
       "terminal.integrated.fontFamily" = "FiraMono Nerd Font";
