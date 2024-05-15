@@ -10,4 +10,4 @@ mkdir -p ~/.config/nix
 echo "experimental-features = nix-command flakes" >>~/.config/nix/nix.conf
 
 echo "configuring nix-darwin"
-nix run nix-darwin -- switch --flake ~/.nix
+nix run nix-darwin -- switch --flake /Volumes/Share/.nix
