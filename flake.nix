@@ -5,6 +5,22 @@
     nixpkgs-darwin.url = "github:NixOS/nixpkgs/nixpkgs-23.11-darwin";
     nixos-hardware.url = "github:NixOS/nixos-hardware";
 
+    nix-homebrew = {
+      url = "github:zhaofengli-wip/nix-homebrew";
+      inputs.nixpkgs.follows = "nixpkgs-darwin";
+      inputs.nix-darwin.follows = "darwin";
+    };
+
+    homebrew-core = {
+      url = "github:homebrew/homebrew-core";
+      flake = false;
+    };
+
+    homebrew-cask = {
+      url = "github:homebrew/homebrew-cask";
+      flake = false;
+    };
+
     darwin = {
       url = "github:lnl7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs-darwin";
@@ -74,7 +90,11 @@
       darwinConfigurations.yubook = utils.darwinSystem {
         name = "yubook";
         system = "x86_64-darwin";
+      };
 
+      darwinConfigurations.YunAir = utils.darwinSystem {
+        name = "YunAir";
+        system = "aarch64-darwin";
       };
 
       # templates
