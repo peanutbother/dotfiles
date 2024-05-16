@@ -12,6 +12,7 @@
     casks = [
       "ableton-live-suite"
       "aldente"
+      "alt-tab"
       "arduino-ide"
       "crossover"
       "discord"
