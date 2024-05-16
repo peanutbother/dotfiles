@@ -19,7 +19,7 @@ in
   ] ++ (if !pkgs.stdenv.hostPlatform.isDarwin then [
     inputs.plasma-manager.homeManagerModules.plasma-manager
     inputs.spicetify-nix.homeManagerModule
-  ] else []);
+  ] else [ ]);
 
   # common home config
   home-manager.users.${user} = import ./home.nix { inherit repo; };
