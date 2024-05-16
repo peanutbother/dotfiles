@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 let
   encryption_device = "enc";
 in
@@ -28,7 +29,13 @@ in
     size = 8 * 1024;
   }];
 
-  powerManagement.enable = true;
+  powerManagement = {
+    enable = true;
+    # see https://github.com/NixOS/nixos-hardware/tree/master/apple/macbook-pro/12-1
+    powerUpCommands = ''
+      ${pkgs.systemd}/bin/systemctl restart wpa_supplicant.service
+    '';
+  };
 
   hardware.bluetooth = {
     enable = true;
