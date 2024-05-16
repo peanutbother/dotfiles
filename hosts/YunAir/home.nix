@@ -30,7 +30,6 @@ in
       userEmail = "peanutbother@proton.me";
     };
 
-    # programs.tmux.enable = false;
     programs.vscode.enable = false;
 
     programs.ssh.extraConfig = ''
