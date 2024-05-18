@@ -54,6 +54,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    vscode-extensions = {
+      url = "github:nix-community/nix-vscode-extensions";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     embedded_shell = {
       url = "github:peanutbother/dotfiles?dir=shells/embedded";
       inputs.nixpkgs.follows = "nixpkgs";

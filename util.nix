@@ -36,7 +36,7 @@ inputs: stateVersion: rec {
     });
   mkArgs = system: stateVersion: host: {
     inherit inputs system stateVersion host;
-    overlays = import ./overlays;
+    overlays = import ./overlays inputs;
   };
 
   nixosSystem = { system, name }: inputs.nixpkgs.lib.nixosSystem {

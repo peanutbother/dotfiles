@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }: {
+{ lib, pkgs, inputs, ... }: {
   nix = {
     # enable flakes
     settings = {
@@ -27,6 +27,6 @@
     # Allow proprietary packages
     config.allowUnfree = true;
     # add custom overlays
-    overlays = import ../../overlays;
+    overlays = import ../../overlays inputs;
   };
 }
