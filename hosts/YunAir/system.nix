@@ -14,6 +14,7 @@
       "aldente"
       "alt-tab"
       "arduino-ide"
+      "blackhole-2ch"
       "crossover"
       "discord"
       "docker"
