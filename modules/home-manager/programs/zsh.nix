@@ -7,6 +7,8 @@
 
     autocd = true;
     envExtra = ''
+      setopt extended_glob
+      
       # initialize nix development shells with these aliases
       develop(){
         nix develop ~/.nix#$1 --show-trace
