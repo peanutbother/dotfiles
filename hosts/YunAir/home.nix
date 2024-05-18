@@ -20,8 +20,12 @@ in
       ];
 
       packages = with pkgs;[
-        # bclm
+        alt-tab-macos
+        docker
         imagemagick
+        keka
+        raycast
+        rectangle
       ];
     };
 
