@@ -32,7 +32,7 @@
       {
         sudo = "sudo "; # allow aliases to be run with sudo
         nixclean = "sudo nix-collect-garbage --delete-old"; # delete old generations
-        nixswitch = "${switchcmd} switch --flake ${repo}/.#"; # refresh nix env after config changes
+        nixswitch = "${switchcmd} switch --flake '${repo}/.#'"; # refresh nix env after config changes
         nixup = "pushd ${repo}/; nix flake update; nixswitch; popd"; # update nix env and refresh
         cls = "clear"; # shorthand and alias to win's cls
         mux = "tmuxinator"; # create a shell alias for tmuxinator
