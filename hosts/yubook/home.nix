@@ -38,6 +38,7 @@ in
           IdentityFile ~/.ssh/github_peanutbother
       '';
 
+      zoxide.prefix = "cd";
     };
 
     sops = {

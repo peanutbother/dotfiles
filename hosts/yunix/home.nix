@@ -89,6 +89,8 @@ in
           }
         ];
       };
+
+      zoxide.prefix = "cd";
     };
 
     sops = {
