@@ -12,6 +12,7 @@
     ./starship.nix
     ./tmux
     ./vscode.nix
+    ./zoxide.nix
     ./zsh.nix
   ];
 }
