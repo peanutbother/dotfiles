@@ -25,18 +25,20 @@ in
       ];
     };
 
-    programs.git = {
-      userName = "peanutbother";
-      userEmail = "peanutbother@proton.me";
+    programs = {
+      git = {
+        userName = "peanutbother";
+        userEmail = "peanutbother@proton.me";
+      };
+
+      ssh.extraConfig = ''
+        Host *.github.com
+          AddKeysToAgent yes
+          UseKeychain yes
+          IdentityFile ~/.ssh/github_peanutbother
+      '';
+
     };
-
-    programs.ssh.extraConfig = ''
-      Host *.github.com
-        AddKeysToAgent yes
-        UseKeychain yes
-        IdentityFile ~/.ssh/github_peanutbother
-    '';
-
 
     sops = {
       age.keyFile = "${repo}/secrets/keys.txt";
