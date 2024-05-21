@@ -20,6 +20,7 @@ in
       ];
 
       packages = with pkgs;[
+        unstable.aldente
         alt-tab-macos
         docker
         imagemagick

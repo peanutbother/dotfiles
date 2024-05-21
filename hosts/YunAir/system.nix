@@ -11,7 +11,6 @@
     ];
     casks = [
       "ableton-live-suite"
-      "aldente"
       "arduino-ide"
       "blackhole-2ch"
       "crossover"
