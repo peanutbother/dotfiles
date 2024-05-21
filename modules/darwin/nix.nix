@@ -15,6 +15,6 @@
   services.nix-daemon.enable = lib.mkDefault true;
 
   imports = [
-    ../common/nix.nix
+    ../common/nix
   ];
 }

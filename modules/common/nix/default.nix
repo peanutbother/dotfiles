@@ -24,9 +24,7 @@
   };
 
   nixpkgs = {
-    # Allow proprietary packages
-    config.allowUnfree = true;
     # add custom overlays
-    overlays = import ../../overlays inputs;
-  };
+    overlays = import ../../../overlays inputs;
+  } // import ./nixpkgs.nix;
 }
