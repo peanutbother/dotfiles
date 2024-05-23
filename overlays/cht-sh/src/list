@@ -1055,7 +1055,7 @@ elm/Lists_Tuples_and_Records
 elm/Modules_and_Imports
 elm/Ports
 elm/The_Basics
-elm/Type_Aliases_and_Union_Types
+elm/Type_Aliases_and_Custom_Types
 elm/Types_and_Type_Annotations
 elm/hello
 elm/rosetta/
@@ -2745,8 +2745,11 @@ ocaml/:learn
 ocaml/:list
 ocaml/Built-in_data_structures
 ocaml/Comments
+ocaml/Higher_Order_Functions
+ocaml/Mutability
 ocaml/Operators
 ocaml/Pattern_matching
+ocaml/Records
 ocaml/Strings_and_characters
 ocaml/User-defined_data_types
 ocaml/Variables_and_functions
