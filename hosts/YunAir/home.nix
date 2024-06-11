@@ -21,11 +21,11 @@ in
 
       packages = with pkgs;[
         unstable.aldente
+        unstable.raycast
         alt-tab-macos
         docker
         imagemagick
         keka
-        raycast
         rectangle
       ];
     };
