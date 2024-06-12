@@ -8,6 +8,7 @@
     };
     onActivation = {
       autoUpdate = lib.mkDefault true;
+      upgrade = lib.mkDefault true;
     };
   };
 }
