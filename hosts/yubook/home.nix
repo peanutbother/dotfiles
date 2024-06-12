@@ -41,6 +41,9 @@ in
       zoxide.prefix = "cd";
     };
 
+    # yubook does not have touchid :(
+    security.useTouchId = false;
+
     sops = {
       age.keyFile = "${repo}/secrets/keys.txt";
       secrets = {
