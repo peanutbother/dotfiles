@@ -10,6 +10,8 @@
     NSGlobalDomain = {
       AppleShowAllExtensions = lib.mkDefault true;
       AppleShowAllFiles = lib.mkDefault true;
+      NSNavPanelExpandedStateForSaveMode = lib.mkDefault true;
+      NSNavPanelExpandedStateForSaveMode2 = lib.mkDefault true;
     };
   };
 }
