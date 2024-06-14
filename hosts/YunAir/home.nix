@@ -26,6 +26,7 @@ in
         docker
         imagemagick
         keka
+        ntfs3g # required for mounty
         rectangle
       ];
     };
