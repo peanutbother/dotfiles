@@ -2,6 +2,7 @@
   system.defaults = {
     trackpad = {
       Clicking = lib.mkDefault true;
+      Dragging = lib.mkDefault true;
       TrackpadRightClick = lib.mkDefault true;
       ActuationStrength = lib.mkDefault 0; # force feedback
       FirstClickThreshold = lib.mkDefault 1; # force feedback
