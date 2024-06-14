@@ -11,6 +11,10 @@ let cfg = config.security; in
   };
   config = {
     security.pam.enableSudoTouchIdAuth = lib.mkDefault cfg.useTouchId;
-    security.sudo.extraConfig = lib.mkDefault (if cfg.useTouchId then "auth       optional       ${pkgs.unstable.pam-reattach}/lib/pam/pam_reattach.so" else "");
+    environment.etc."pam.d/sudo_local".text = (if cfg.useTouchId then ''
+      # Written by nix-darwin
+      auth       optional       ${pkgs.unstable.pam-reattach}/lib/pam/pam_reattach.so
+      auth       sufficient     pam_tid.so
+    '' else "");
   };
 }

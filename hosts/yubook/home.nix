@@ -3,6 +3,9 @@ let
   user = "yuna";
 in
 {
+  # yubook does not have touchid :(
+  security.useTouchId = false;
+
   home-manager.users.${user} = {
     home = {
       file = {
@@ -41,8 +44,6 @@ in
       zoxide.prefix = "cd";
     };
 
-    # yubook does not have touchid :(
-    security.useTouchId = false;
 
     sops = {
       age.keyFile = "${repo}/secrets/keys.txt";
