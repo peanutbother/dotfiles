@@ -1,4 +1,4 @@
-{ lib, ... }: {
+{ lib, pkgs, ... }: {
   programs.zsh = {
     enable = lib.mkDefault true;
     enableCompletion = true;
@@ -29,5 +29,10 @@
         yt-dlp "$1" -o "~/Downloads/%(title)s-%(id)s.%(ext)s" 
       }
     '';
+    initExtra =
+      if pkgs.stdenv.hostPlatform.isAarch64 then ''
+        #make sure brew is on the path for aarch64
+          eval "$(/opt/homebrew/bin/brew shellenv)"
+      '' else "";
   };
 }
