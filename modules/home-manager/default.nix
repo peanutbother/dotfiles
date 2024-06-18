@@ -14,7 +14,7 @@ in
     inherit host home inputs stateVersion system;
   };
   home-manager.sharedModules = [
-    ./apps.nix # link apps to fix spotlight on darwin
+    inputs.mac-app-util.homeManagerModules.default # link apps to fix spotlight and dock on darwin
     inputs.sops-nix.homeManagerModule
   ] ++ (if !pkgs.stdenv.hostPlatform.isDarwin then [
     inputs.plasma-manager.homeManagerModules.plasma-manager
