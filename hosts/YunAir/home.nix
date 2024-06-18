@@ -61,6 +61,9 @@ in
         "ssh-keys/devs/ravpower" = {
           path = "${home}/.ssh/dev_ravpower";
         };
+        "ssh-keys/devs/homebridge" = {
+          path = "${home}/.ssh/dev_homebridge";
+        };
         "ssh-keys/devs/YunAir" = {
           path = "${home}/.ssh/dev_yunair";
           sopsFile = ../../secrets/YunAir.yaml;
