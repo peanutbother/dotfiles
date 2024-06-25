@@ -53,8 +53,8 @@
     };
 
     spicetify-nix = {
-      url = "github:peanutbother/spicetify-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:Gerg-L/spicetify-nix";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
     vscode-extensions = {

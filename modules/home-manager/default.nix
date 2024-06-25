@@ -16,9 +16,9 @@ in
   home-manager.sharedModules = [
     inputs.mac-app-util.homeManagerModules.default # link apps to fix spotlight and dock on darwin
     inputs.sops-nix.homeManagerModule
+    inputs.spicetify-nix.homeManagerModules.default
   ] ++ (if !pkgs.stdenv.hostPlatform.isDarwin then [
     inputs.plasma-manager.homeManagerModules.plasma-manager
-    inputs.spicetify-nix.homeManagerModule
   ] else [ ]);
 
   # common home config
