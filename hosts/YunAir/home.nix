@@ -22,12 +22,12 @@ in
       packages = with pkgs;[
         unstable.aldente
         unstable.raycast
+        unstable.rectangle
         alt-tab-macos
         docker
         imagemagick
         keka
         ntfs3g # required for mounty
-        rectangle
       ];
     };
 
