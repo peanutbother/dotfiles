@@ -12,7 +12,6 @@
       "notunes"
       "rectangle"
       "signal"
-      "spotify"
       "telegram"
       "vivaldi"
     ];

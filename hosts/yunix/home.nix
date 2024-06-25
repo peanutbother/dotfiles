@@ -69,27 +69,6 @@ in
         };
       };
 
-      spicetify = {
-        enable = true;
-        theme = spicePkgs.themes.Comfy;
-        enabledExtensions = with spicePkgs.extensions; [
-          adblock
-        ];
-        enabledCustomApps = with spicePkgs.apps; [
-          marketplace
-          lyrics-plus
-          {
-            name = "combined-playlists";
-            src = builtins.fetchGit {
-              url = "https://github.com/jeroentvb/spicetify-combined-playlists";
-              rev = "fc2589ad83ea069035af0b0e1544a9688b871566";
-              ref = "dist";
-            };
-            appendName = true;
-          }
-        ];
-      };
-
       zoxide.prefix = "cd";
     };
 

@@ -21,7 +21,6 @@
       "paragon-extfs"
       "playcover-community"
       "signal"
-      "spotify"
       "steam"
       "telegram"
       "ultimate-vocal-remover"

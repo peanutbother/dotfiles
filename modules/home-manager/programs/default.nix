@@ -8,6 +8,7 @@
     ./git.nix
     ./gpg
     ./sops.nix
+    ./spotify.nix
     ./ssh.nix
     ./starship.nix
     ./tmux
