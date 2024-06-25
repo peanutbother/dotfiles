@@ -1,13 +1,10 @@
 { pkgs, inputs, ... }:
-let
-  spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
-in
 {
-  programs.spicetify = {
+  programs.spicetify = with pkgs.spicetify; {
     enable = true;
-    theme = spicePkgs.themes.dribbblish;
+    theme = themes.dribbblish;
     colorScheme = "rosepine";
-    enabledExtensions = with spicePkgs.extensions; [
+    enabledExtensions = with extensions; [
       fullAppDisplay
       history
       lastfm
@@ -15,17 +12,10 @@ in
       playNext
       savePlaylists
     ];
-    enabledCustomApps = with spicePkgs.apps; [
+    enabledCustomApps = with apps; [
+      combinedPlaylists
       lyricsPlus
       newReleases
-      {
-        name = "combined-playlists";
-        src = builtins.fetchGit {
-          url = "https://github.com/jeroentvb/spicetify-combined-playlists";
-          rev = "fc2589ad83ea069035af0b0e1544a9688b871566";
-          ref = "dist";
-        };
-      }
     ];
   };
 }
