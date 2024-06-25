@@ -15,10 +15,6 @@ in
         # code = "env VSCODE_CWD=\"$PWD\" open -n -b \"com.microsoft.VSCode\" --args $*"; # create a shell alias for vs code
       };
 
-      sessionPath = [
-        "$HOME/.spicetify" # TODO needs to be manually installed as of now (spicetify-nix is incompatible with darwin)
-      ];
-
       packages = with pkgs;[
         unstable.aldente
         unstable.raycast
