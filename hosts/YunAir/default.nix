@@ -1,4 +1,4 @@
-{ inputs, mkSystem, mkHome, host }:
+{ inputs, mkSystem, mkHome, host, homebrew }:
 with inputs;
 let
   user = "yuna";
@@ -9,22 +9,7 @@ in
   (mkSystem { darwin = true; })
 
   # homebrew
-  nix-homebrew.darwinModules.nix-homebrew
-  {
-    nix-homebrew = {
-      inherit user;
-
-      enable = true;
-      enableRosetta = true;
-      mutableTaps = true;
-      autoMigrate = true;
-
-      taps = {
-        "homebrew/homebrew-core" = homebrew-core;
-        "homebrew/homebrew-cask" = homebrew-cask;
-      };
-    };
-  }
+  (homebrew { inherit user inputs; })
 
   # link nix apps to darwin (fix spotlight, dock)
   mac-app-util.darwinModules.default
