@@ -1,8 +1,4 @@
-{ home, repo }: { inputs, pkgs, ... }:
-let
-  user = "yuna";
-  spicePkgs = inputs.spicetify-nix.packages.${pkgs.system}.default;
-in
+{ home, repo, user }: { inputs, pkgs, ... }:
 {
   users.users.${user} = {
     isNormalUser = true;

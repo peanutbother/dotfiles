@@ -26,6 +26,6 @@ in
 
   # host specific home config
   imports = [
-    (import ../../hosts/${host}/home.nix { inherit home repo; })
+    (import ../../hosts/${host}/home.nix { inherit home repo user; })
   ];
 }

@@ -1,7 +1,4 @@
-{ home, repo }: { pkgs, ... }:
-let
-  user = "yuna";
-in
+{ home, repo, user }: { pkgs, ... }:
 {
   # yubook does not have touchid :(
   security.useTouchId = false;
