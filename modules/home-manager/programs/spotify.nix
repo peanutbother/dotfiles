@@ -16,6 +16,7 @@
       combinedPlaylists
       lyricsPlus
       newReleases
+      reddit
     ];
   };
 }
