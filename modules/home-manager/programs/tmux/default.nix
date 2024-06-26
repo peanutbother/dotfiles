@@ -48,6 +48,8 @@ in
         set-option -sa terminal-overrides ",xterm-*:Tc"
         set-option -sa terminal-overrides ",tmux-*:RGB"
         set-option -sa terminal-overrides ",alacritty:RGB"
+        set-option -sa terminal-overrides ",rio:Tc"
+        set-option -sa terminal-overrides ",screen-256color:Tc"
 
         # set status bar to top
         set-option -g status-position top
