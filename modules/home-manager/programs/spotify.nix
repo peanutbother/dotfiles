@@ -1,10 +1,10 @@
-{ pkgs, inputs, ... }:
+{ pkgs, inputs, lib, ... }:
 {
   programs.spicetify = with pkgs.spicetify; {
-    enable = true;
-    theme = themes.dribbblish;
-    colorScheme = "rosepine";
-    enabledExtensions = with extensions; [
+    enable = lib.mkDefault true;
+    theme = lib.mkDefault themes.dribbblish;
+    colorScheme = lib.mkDefault "rosepine";
+    enabledExtensions = with extensions; lib.mkDefault [
       fullAppDisplay
       history
       lastfm
@@ -12,7 +12,7 @@
       playNext
       savePlaylists
     ];
-    enabledCustomApps = with apps; [
+    enabledCustomApps = with apps; lib.mkDefault [
       combinedPlaylists
       lyricsPlus
       newReleases
