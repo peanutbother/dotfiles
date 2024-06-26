@@ -1,4 +1,4 @@
-{ repo }: { lib, pkgs, stateVersion, ... }: {
+{ repo }: { config, lib, pkgs, stateVersion, ... }: {
   home = {
     inherit stateVersion;
 
@@ -12,7 +12,7 @@
       neofetch
       progress
       sops
-      tmuxinator
+      (lib.mkIf config.programs.tmux.enable tmuxinator)
       wget
       yt-dlp
     ];
@@ -35,7 +35,7 @@
         nixswitch = "${switchcmd} switch --flake '${repo}/.#'"; # refresh nix env after config changes
         nixup = "pushd ${repo}/; nix flake update; nixswitch; popd"; # update nix env and refresh
         cls = "clear"; # shorthand and alias to win's cls
-        mux = "tmuxinator"; # create a shell alias for tmuxinator
+        mux = lib.mkIf config.programs.tmux.enable "tmuxinator"; # create a shell alias for tmuxinator
         lsd = "ls -TaI .git --git-ignore";
         # get_idf = ". $HOME/esp/esp-idf/export.sh"                                     # TODO install esp-idf somehow
       };

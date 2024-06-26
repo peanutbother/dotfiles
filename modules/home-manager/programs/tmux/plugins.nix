@@ -28,7 +28,7 @@ in
     };
     nativeBuildInputs = [ makeWrapper ];
     postInstall = ''
-      wrapProgram $target/bin/tmux-nerd-font-window-name --prefix PATH : ${with pkgs; makeBinPath [yq-go ]}
+      wrapProgram $target/bin/tmux-nerd-font-window-name --prefix PATH : ${with pkgs; makeBinPath [ yq-go ]}
     '';
   };
 }
