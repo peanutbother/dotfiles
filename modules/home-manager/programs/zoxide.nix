@@ -14,7 +14,7 @@ in
     programs.zoxide = {
       enable = mkDefault true;
       enableZshIntegration = mkDefault true;
-      options = mkDefault (if cfg.enableZshIntegration then [ "--cmd ${cfg.prefix}" ] else [ ]);
+      options = mkIf cfg.enableZshIntegration (mkDefault [ "--cmd ${cfg.prefix}" ]);
     };
   };
 }
