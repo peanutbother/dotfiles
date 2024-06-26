@@ -14,6 +14,6 @@
     ./tmux
     ./vscode.nix
     ./zoxide.nix
-    ./zsh.nix
+    ./zsh
   ];
 }

@@ -14,7 +14,6 @@
       sops
       (lib.mkIf config.programs.tmux.enable tmuxinator)
       wget
-      yt-dlp
     ];
 
     sessionVariables = {
