@@ -9,7 +9,7 @@ in
   (mkSystem { darwin = true; })
 
   # homebrew
-  (homebrew { inherit user inputs; })
+  (homebrew { inherit user; })
 
   # link nix apps to darwin (fix spotlight, dock)
   mac-app-util.darwinModules.default

@@ -28,7 +28,7 @@ inputs: stateVersion: rec {
   mkNixSystem = host: (import ./modules/nixos { inherit host; });
   mkHome = host: { user, repo }: (import ./modules/home-manager { inherit host user repo; });
 
-  homebrew = { darwin ? true, user, options ? { } }: (import ./modules/homebrew.nix { inherit user inputs options; nix-homebrew = if darwin then inputs.nix-homebrew.darwinModules.nix-homebrew else throw "homebrew not available for non-darwin"; });
+  homebrew = { darwin ? true, user, options ? { } }: (import ./modules/homebrew.nix { inherit user options darwin; });
 
   mkModules = host: (import ./hosts/${host}
     {
