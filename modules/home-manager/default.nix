@@ -17,9 +17,9 @@ in
     inputs.mac-app-util.homeManagerModules.default # link apps to fix spotlight and dock on darwin
     inputs.sops-nix.homeManagerModule
     inputs.spicetify-nix.homeManagerModules.default
-  ] ++ (if !pkgs.stdenv.hostPlatform.isDarwin then [
+  ] ++ (lib.optionals (!pkgs.stdenv.hostPlatform.isDarwin) [
     inputs.plasma-manager.homeManagerModules.plasma-manager
-  ] else [ ]);
+  ]);
 
   # common home config
   home-manager.users.${user} = import ./home.nix { inherit repo; };
