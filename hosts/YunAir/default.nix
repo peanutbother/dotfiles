@@ -1,4 +1,4 @@
-{ inputs, mkSystem, mkHome, host, homebrew }:
+{ inputs, mkSystem, mkHome, homebrew, ... }:
 with inputs;
 let
   user = "yuna";
