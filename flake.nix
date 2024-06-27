@@ -85,8 +85,11 @@
       description = "A flake with utils, configurations and templates to build convenient environments";
       formatter = inputs.nixpkgs.alejandra;
     }
+    # export templates
     // import ./templates
+    # load host configurations from `./hosts` folder
     // utils.mkConfigurations ./hosts
+    # export `devShells`
     // utils.eachSystem (system: {
       # shells
       devShells = {
