@@ -7,7 +7,7 @@ in
     # Enable the X11 windowing system.
     enable = lib.mkDefault true;
 
-    excludePackages = with pkgs; [ 
+    excludePackages = with pkgs; [
       plasma5Packages.plasma-browser-integration # currently incompatible with vivaldi
       xterm # exclude xterm (we have alacritty set up)
     ];
