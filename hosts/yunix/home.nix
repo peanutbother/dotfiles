@@ -1,5 +1,4 @@
-{ home, repo, user }: { inputs, pkgs, ... }:
-{
+{ inputs, pkgs, home, repo, user, ... }: {
   users.users.${user} = {
     isNormalUser = true;
     initialPassword = "login";

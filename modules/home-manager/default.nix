@@ -1,4 +1,4 @@
-{ host, repo, user }: { inputs, lib, pkgs, system, stateVersion, ... }:
+{ repo, user }: { inputs, lib, pkgs, system, stateVersion, host, ... }:
 let
   home = if pkgs.stdenv.hostPlatform.isDarwin then "/Users/${user}" else "/home/${user}";
 in
@@ -11,21 +11,15 @@ in
 
   home-manager.useGlobalPkgs = lib.mkDefault true;
   home-manager.extraSpecialArgs = {
-    inherit host home inputs stateVersion system;
+    inherit repo user host home inputs stateVersion system;
   };
   home-manager.sharedModules = [
     inputs.mac-app-util.homeManagerModules.default # link apps to fix spotlight and dock on darwin
     inputs.sops-nix.homeManagerModule
     inputs.spicetify-nix.homeManagerModules.default
+    ./home.nix # common home config
+    ../../hosts/${host}/home.nix # host-specific home config
   ] ++ (lib.optionals (!pkgs.stdenv.hostPlatform.isDarwin) [
     inputs.plasma-manager.homeManagerModules.plasma-manager
   ]);
-
-  # common home config
-  home-manager.users.${user} = import ./home.nix { inherit repo; };
-
-  # host specific home config
-  imports = [
-    (import ../../hosts/${host}/home.nix { inherit home repo user; })
-  ];
 }

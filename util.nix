@@ -22,11 +22,8 @@ inputs: stateVersion: rec {
     ]
   ;
 
-  mkSystem = host: { darwin ? false }:
-    if darwin then mkDarwinSystem host else mkNixSystem host;
-  mkDarwinSystem = host: (import ./modules/darwin { inherit host; });
-  mkNixSystem = host: (import ./modules/nixos { inherit host; });
-  mkHome = host: { user, repo }: (import ./modules/home-manager { inherit host user repo; });
+  mkSystem = host: { darwin ? false }: (import ./modules/${if darwin then "darwin" else "nixos"});
+  mkHome = host: { user, repo }: (import ./modules/home-manager { inherit user repo; });
 
   homebrew = { darwin ? true, user, options ? { } }: (import ./modules/homebrew.nix { inherit user options darwin; });
 

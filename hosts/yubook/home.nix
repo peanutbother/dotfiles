@@ -1,5 +1,4 @@
-{ home, repo, user }: { pkgs, ... }:
-{
+{ pkgs, home, repo, user, ... }: {
   # yubook does not have touchid :(
   security.useTouchId = false;
 

@@ -1,6 +1,10 @@
-{ host }: {
+{
   imports = [
-    ../../hosts/${host}/system.nix # import host specific system configuration
+    ({ host, ... }: {
+      imports = [
+        ../../hosts/${host}/system.nix # import host specific system configuration
+      ];
+    })
     ./dock.nix # configure dock
     ./env.nix # configure environment (e.g default shell)
     ./finder.nix # configure finder

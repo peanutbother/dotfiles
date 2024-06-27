@@ -1,5 +1,4 @@
-{ home, repo, user }: { pkgs, ... }:
-{
+{ pkgs, home, repo, user, ... }: {
   home-manager.users.${user} = {
     home = {
       file = {
