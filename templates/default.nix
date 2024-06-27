@@ -3,23 +3,23 @@
   templates = {
     embedded = {
       description = "embedded development environment";
-      path = ./templates/embedded;
+      path = ./embedded;
     };
     nix = {
       description = "nix development environment";
-      path = ./templates/nix;
+      path = ./nix;
     };
     rust = {
       description = "rust development environment";
-      path = ./templates/rust;
+      path = ./rust;
     };
     rust-nix = {
       description = "rust development environment with nix flake";
-      path = ./templates/rust-nix;
+      path = ./rust-nix;
     };
     typescript = {
       description = "typescript development environment";
-      path = ./templates/typescript;
+      path = ./typescript;
     };
   };
 }
