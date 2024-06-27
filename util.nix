@@ -20,25 +20,17 @@ inputs: stateVersion: rec {
       "x86_64-linux"
     ];
 
-  mkConfiguration = {
-    type,
-    name,
-    system,
-    config,
-  }:
-    if type == "darwin"
-    then {
-      darwinConfigurations.${name} = darwinSystem {
-        inherit name system config;
-      };
-    }
-    else if type == "nixos"
-    then {
-      nixosConfigurations.${name} = nixosSystem {
-        inherit name system config;
-      };
-    }
-    else throw "invalid type ${type}";
+  mkConfiguration = name: config:
+    with inputs.nixpkgs.lib;
+      if hasSuffix "darwin" config.system
+      then {
+        darwinConfigurations.${name} = darwinSystem name (import ./modules/hosts/darwin.nix config);
+      }
+      else if hasSuffix "linux" config.system
+      then {
+        nixosConfigurations.${name} = nixosSystem name (import ./modules/hosts/nixos.nix config);
+      }
+      else throw "invalid system ${config.system}";
 
   eachDefaultFolder = dir:
     inputs.nixpkgs.lib.mapAttrs (name: _: import (dir + "/${name}"))
@@ -48,13 +40,9 @@ inputs: stateVersion: rec {
     builtins.foldl' (acc: elem: {
       darwinConfigurations = acc.darwinConfigurations or {} // elem.darwinConfigurations or {};
       nixosConfigurations = acc.nixosConfigurations or {} // elem.nixosConfigurations or {};
-    }) {} (builtins.attrValues (inputs.nixpkgs.lib.mapAttrs
-      (name: value:
-        with value;
-          mkConfiguration {
-            inherit type name system config;
-          })
-      (eachDefaultFolder path)));
+    }) {} (
+      builtins.attrValues (inputs.nixpkgs.lib.mapAttrs (name: value: mkConfiguration name value) (eachDefaultFolder path))
+    );
 
   mkSystem = host: darwin: (import
     ./modules/${
@@ -93,9 +81,8 @@ inputs: stateVersion: rec {
     overlays = import ./overlays inputs;
   };
 
-  nixosSystem = {
+  nixosSystem = name: {
     system,
-    name,
     config,
   }:
     inputs.nixpkgs.lib.nixosSystem {
@@ -103,9 +90,8 @@ inputs: stateVersion: rec {
       modules = mkModules name false config;
       specialArgs = mkArgs system stateVersion name;
     };
-  darwinSystem = {
+  darwinSystem = name: {
     system,
-    name,
     config,
   }:
     inputs.nix-darwin.lib.darwinSystem {
