@@ -108,7 +108,7 @@ inputs: stateVersion: rec {
     name,
     config,
   }:
-    inputs.darwin.lib.darwinSystem {
+    inputs.nix-darwin.lib.darwinSystem {
       inherit system;
       modules =
         (mkModules name true config)
