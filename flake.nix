@@ -89,22 +89,6 @@
       utils = (import ./util.nix) inputs stateVersion;
     in
     {
-      # system configs
-      nixosConfigurations.yunix = utils.nixosSystem {
-        name = "yunix";
-        system = "x86_64-linux";
-      };
-
-      darwinConfigurations.yubook = utils.darwinSystem {
-        name = "yubook";
-        system = "x86_64-darwin";
-      };
-
-      darwinConfigurations.YunAir = utils.darwinSystem {
-        name = "YunAir";
-        system = "aarch64-darwin";
-      };
-
       # templates
       templates = {
         embedded = {
@@ -129,6 +113,7 @@
         };
       };
     }
+    // utils.mkConfigurations ./hosts
     // utils.eachSystem (system: {
       # shells
       devShells = {

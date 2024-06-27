@@ -22,6 +22,28 @@ inputs: stateVersion: rec {
     ]
   ;
 
+  mkConfiguration = { type, name, system }:
+    if type == "darwin" then
+      {
+        darwinConfigurations.${name} = darwinSystem {
+          inherit name system;
+        };
+      }
+    else if type == "nixos" then
+      {
+        nixosConfigurations.${name} = darwinSystem {
+          inherit name system;
+        };
+      }
+    else
+      throw "invalid type ${type}";
+
+  mkConfigurations = path: builtins.foldl' (acc: elem: { darwinConfigurations = acc.darwinConfigurations or { } // elem.darwinConfigurations or { }; nixosConfigurations = acc.nixosConfigurations or { } // elem.nixosConfigurations or { }; }) { } (builtins.attrValues (inputs.nixpkgs.lib.mapAttrs
+    (name: value: with value; mkConfiguration {
+      inherit type name system;
+    })
+    (import path)));
+
   mkSystem = host: darwin: (import ./modules/${if darwin then "darwin" else "nixos"});
   mkHome = host: darwin: { user, repo }: {
     imports = [
