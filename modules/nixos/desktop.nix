@@ -14,10 +14,10 @@ in
 
     # Enable the KDE Plasma Desktop Environment.
     displayManager = {
-      defaultSession = "plasmawayland";
+      defaultSession = lib.mkDefault "plasmawayland";
       sddm = {
         enable = lib.mkDefault true;
-        theme = "${theme.themeName}-${theme.color}";
+        theme = lib.mkDefault "${theme.themeName}-${theme.color}";
       };
     };
     desktopManager.plasma5.enable = lib.mkDefault true;
