@@ -5,6 +5,7 @@
     nixpkgs-darwin.url = "github:NixOS/nixpkgs/nixpkgs-23.11-darwin";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware";
+    mac-app-util.url = "github:hraban/mac-app-util";
 
     nix-darwin = {
       url = "github:lnl7/nix-darwin";
@@ -29,13 +30,6 @@
 
     home-manager = {
       url = "github:nix-community/home-manager/release-23.11";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    mac-app-util.url = "github:hraban/mac-app-util";
-
-    mkAlias = {
-      url = "github:reckenrode/mkAlias";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
