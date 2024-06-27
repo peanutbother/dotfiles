@@ -90,6 +90,7 @@
     in
     {
       description = "A flake with utils, configurations and templates to build convenient environments";
+      formatter = inputs.nixpkgs.alejandra;
     }
     // import ./templates
     // utils.mkConfigurations ./hosts

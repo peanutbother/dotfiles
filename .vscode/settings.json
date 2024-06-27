@@ -4,7 +4,11 @@
   "nixEnvSelector.nixFile": "${workspaceRoot}/shells/nix/flake.nix",
   "nix.enableLanguageServer": true,
   "nix.serverPath": "nixd",
-  "nix.formatterPath": "nixpkgs-fmt",
+  "nix.serverSettings": {
+    "nixd": {
+      "formatting": { "command": "alejandra --quiet" }
+    }
+  },
   "redhat.telemetry.enabled": false,
   "files.exclude": {
     "**/.git": true,
