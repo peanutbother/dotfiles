@@ -1,8 +1,10 @@
-{ lib, pkgs, ... }:
-let
-  theme = pkgs.sddm-macventura-theme;
-in
 {
+  lib,
+  pkgs,
+  ...
+}: let
+  theme = pkgs.sddm-macventura-theme;
+in {
   services.xserver = {
     # Enable the X11 windowing system.
     enable = lib.mkDefault true;

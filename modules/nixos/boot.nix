@@ -1,9 +1,9 @@
-{ lib, ... }: {
+{lib, ...}: {
   boot = {
     # Kernel options
-    kernelParams = [ "quiet" "splash" ];
+    kernelParams = ["quiet" "splash"];
     consoleLogLevel = lib.mkDefault 0;
-    # initrd 
+    # initrd
     initrd.systemd.enable = lib.mkDefault true;
     # Bootloader.
     loader = {

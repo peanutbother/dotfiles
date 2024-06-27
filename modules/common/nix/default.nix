@@ -1,8 +1,13 @@
-{ lib, pkgs, inputs, ... }: {
+{
+  lib,
+  pkgs,
+  inputs,
+  ...
+}: {
   nix = {
     # enable flakes
     settings = {
-      experimental-features = lib.mkDefault [ "nix-command" "flakes" ];
+      experimental-features = lib.mkDefault ["nix-command" "flakes"];
       # automatically hotlink duplicate files
       # TODO do not automatically hotlink duplicate files (currently broken)[https://github.com/NixOS/nix/issues/1281]
       auto-optimise-store = lib.mkDefault (!pkgs.stdenv.hostPlatform.isDarwin);
@@ -23,8 +28,10 @@
     };
   };
 
-  nixpkgs = {
-    # add custom overlays
-    overlays = import ../../../overlays inputs;
-  } // import ./nixpkgs.nix;
+  nixpkgs =
+    {
+      # add custom overlays
+      overlays = import ../../../overlays inputs;
+    }
+    // import ./nixpkgs.nix;
 }

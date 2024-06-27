@@ -1,4 +1,4 @@
-{ lib, ... }: {
+{lib, ...}: {
   system = {
     startup.chime = lib.mkDefault false;
     defaults = {

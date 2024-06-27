@@ -2,7 +2,6 @@
 # attrName is used as host name
 # `system` denotes the arch
 # `type` denotes which system type (either `nixos` or `darwin`)
-
 {
   yunix = {
     system = "x86_64-linux";

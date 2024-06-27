@@ -1,4 +1,8 @@
-{ lib, config, ... }: {
+{
+  lib,
+  config,
+  ...
+}: {
   programs.direnv = {
     enable = lib.mkDefault true;
     enableZshIntegration = lib.mkDefault true;

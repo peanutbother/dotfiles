@@ -1,9 +1,13 @@
-{ lib, pkgs, ... }: {
+{
+  lib,
+  pkgs,
+  ...
+}: {
   environment = {
-    shells = [ pkgs.zsh ];
+    shells = [pkgs.zsh];
     loginShell = lib.mkDefault pkgs.zsh;
-    systemPackages = [ pkgs.coreutils ];
-    systemPath = [ "/usr/local/Homebrew/bin" ];
-    pathsToLink = [ "/Applications" ];
+    systemPackages = [pkgs.coreutils];
+    systemPath = ["/usr/local/Homebrew/bin"];
+    pathsToLink = ["/Applications"];
   };
 }

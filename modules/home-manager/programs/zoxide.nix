@@ -1,7 +1,11 @@
-{ lib, config, ... }:
-with lib; let cfg = config.programs.zoxide;
-in
 {
+  lib,
+  config,
+  ...
+}:
+with lib; let
+  cfg = config.programs.zoxide;
+in {
   options = {
     programs.zoxide.prefix = mkOption {
       type = types.str;
@@ -14,7 +18,7 @@ in
     programs.zoxide = {
       enable = mkDefault true;
       enableZshIntegration = mkDefault true;
-      options = mkIf cfg.enableZshIntegration (mkDefault [ "--cmd ${cfg.prefix}" ]);
+      options = mkIf cfg.enableZshIntegration (mkDefault ["--cmd ${cfg.prefix}"]);
     };
   };
 }

@@ -1,4 +1,4 @@
-{ lib, ... }: {
+{lib, ...}: {
   system.defaults = {
     trackpad = {
       Clicking = lib.mkDefault true;

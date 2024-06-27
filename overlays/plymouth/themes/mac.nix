@@ -1,10 +1,15 @@
-{ fetchzip, lib, stdenv }: stdenv.mkDerivation rec {
+{
+  fetchzip,
+  lib,
+  stdenv,
+}:
+stdenv.mkDerivation rec {
   pname = "plymouth-mac-theme";
   version = "0.0.1";
   dontUnpack = true;
   dontBuild = true;
 
-  src = builtins.path { path = ./mac; };
+  src = builtins.path {path = ./mac;};
 
   installPhase = ''
     mkdir -p $out/share/plymouth/themes
@@ -19,6 +24,6 @@
     homepage = "https://github.com/peanutbother/plymouth-mac-theme";
     # license = licenses.lgpl3;
     platforms = platforms.linux;
-    maintainers = [ "peanutbother" ];
+    maintainers = ["peanutbother"];
   };
 }

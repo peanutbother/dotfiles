@@ -1,4 +1,10 @@
-{ pkgs, home, repo, user, ... }: {
+{
+  pkgs,
+  home,
+  repo,
+  user,
+  ...
+}: {
   home-manager.users.${user} = {
     home = {
       file = {
@@ -11,7 +17,7 @@
         # code = "env VSCODE_CWD=\"$PWD\" open -n -b \"com.microsoft.VSCode\" --args $*"; # create a shell alias for vs code
       };
 
-      packages = with pkgs;[
+      packages = with pkgs; [
         unstable.aldente
         unstable.raycast
         unstable.rectangle

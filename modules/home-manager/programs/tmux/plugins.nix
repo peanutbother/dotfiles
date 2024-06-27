@@ -1,10 +1,12 @@
-{ lib, pkgs, ... }:
-let
+{
+  lib,
+  pkgs,
+  ...
+}: let
   inherit (lib) makeBinPath;
   inherit (pkgs) makeWrapper fetchFromGitHub;
   inherit (pkgs.tmuxPlugins) mkTmuxPlugin;
-in
-{
+in {
   tmux-notify = mkTmuxPlugin {
     pluginName = "tmux-notify";
     version = "2.1.0";
@@ -26,9 +28,9 @@ in
       rev = "83c572451a969a8741c4c608f3d99d82814ac2d8";
       hash = "sha256-2JBdKVdHU5WvA2DtK4JXY8xKjvGF17pR/nylU8gmDnM=";
     };
-    nativeBuildInputs = [ makeWrapper ];
+    nativeBuildInputs = [makeWrapper];
     postInstall = ''
-      wrapProgram $target/bin/tmux-nerd-font-window-name --prefix PATH : ${with pkgs; makeBinPath [ yq-go ]}
+      wrapProgram $target/bin/tmux-nerd-font-window-name --prefix PATH : ${with pkgs; makeBinPath [yq-go]}
     '';
   };
 }

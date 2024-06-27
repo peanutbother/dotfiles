@@ -1,4 +1,8 @@
-{ lib, config, ... }: {
+{
+  lib,
+  config,
+  ...
+}: {
   programs.zsh = {
     envExtra = lib.mkIf config.programs.yt-dlp.enable ''
       # Download given URL as mp3 via youtube-dl into ~/Downloads
@@ -7,7 +11,7 @@
       }
       # Download given URL as best single file video quality resolution via youtube-dl into ~/Downloads
       ytv(){
-        yt-dlp "$1" -o "~/Downloads/%(title)s-%(id)s.%(ext)s" 
+        yt-dlp "$1" -o "~/Downloads/%(title)s-%(id)s.%(ext)s"
       }
     '';
   };

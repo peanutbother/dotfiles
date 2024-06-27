@@ -1,8 +1,14 @@
-{ lib, pkgs, config, ... }:
+{
+  lib,
+  pkgs,
+  config,
+  ...
+}:
 with lib; let
-  plugins = pkgs.callPackage ./plugins.nix { };
+  plugins = pkgs.callPackage ./plugins.nix {};
   cfg = config.programs.tmux;
-  plgs = with pkgs.tmuxPlugins; with plugins; [
+  plgs = with pkgs.tmuxPlugins;
+  with plugins; [
     # theme
     {
       plugin = catppuccin;
@@ -25,8 +31,7 @@ with lib; let
     tmux-notify
     logging
   ];
-in
-{
+in {
   options = {
     programs.tmux.urlview = mkOption {
       type = types.bool;
@@ -42,7 +47,11 @@ in
       shell = "${pkgs.zsh}/bin/zsh";
       shortcut = mkDefault "y";
       terminal = "xterm-256color";
-      plugins = mkDefault (if cfg.urlview then plgs ++ [ pkgs.tmuxPlugins.urlview ] else plgs);
+      plugins = mkDefault (
+        if cfg.urlview
+        then plgs ++ [pkgs.tmuxPlugins.urlview]
+        else plgs
+      );
       extraConfig = ''
         # Hack Terminfo to force 24 bit color support flags for my favourite terminal
         set-option -sa terminal-overrides ",xterm-*:Tc"

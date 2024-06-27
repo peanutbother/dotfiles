@@ -1,4 +1,4 @@
-{ lib, ... }: {
+{lib, ...}: {
   nix = {
     # cofigure nix to use build users
     configureBuildUsers = lib.mkDefault true;

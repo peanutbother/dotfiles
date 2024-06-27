@@ -1,4 +1,4 @@
-{ lib, ... }: {
+{lib, ...}: {
   programs.alacritty = {
     enable = lib.mkDefault true;
     settings.font.normal.family = lib.mkDefault "FiraMono Nerd Font";

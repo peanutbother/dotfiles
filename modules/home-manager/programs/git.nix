@@ -1,4 +1,8 @@
-{ lib, config, ... }:
+{
+  lib,
+  config,
+  ...
+}:
 with lib; let
   mkURLConfig = host: shortcut: {
     # url rewrites to ssh
@@ -7,8 +11,7 @@ with lib; let
     "https://${host}".insteadOf = shortcut;
   };
   cfg = config.programs.git;
-in
-{
+in {
   options = {
     programs.git.shortcuts = mkOption {
       type = with types; attrsOf str;
@@ -25,19 +28,18 @@ in
   };
 
   config = {
-    programs.git =
-      {
-        enable = lib.mkDefault true;
-        extraConfig = {
-          init.defaultBranch = lib.mkDefault "main";
+    programs.git = {
+      enable = lib.mkDefault true;
+      extraConfig = {
+        init.defaultBranch = lib.mkDefault "main";
 
-          pull.rebase = lib.mkDefault false;
-          push.autoSetupRemote = lib.mkDefault true;
+        pull.rebase = lib.mkDefault false;
+        push.autoSetupRemote = lib.mkDefault true;
 
-          url = (foldl (a: b: a // b) { } (
-            mapAttrsToList (shortcut: host: mkURLConfig host shortcut) cfg.shortcuts
-          ));
-        };
+        url = foldl (a: b: a // b) {} (
+          mapAttrsToList (shortcut: host: mkURLConfig host shortcut) cfg.shortcuts
+        );
       };
+    };
   };
 }

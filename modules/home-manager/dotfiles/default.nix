@@ -1,4 +1,8 @@
-{ config, lib, ... }: {
+{
+  config,
+  lib,
+  ...
+}: {
   home.file = {
     ".cargo" = {
       source = ./cargo;

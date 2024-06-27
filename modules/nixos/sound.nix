@@ -1,4 +1,4 @@
-{ lib, ... }: {
+{lib, ...}: {
   # Enable sound with pipewire.
   sound.enable = lib.mkDefault true;
   hardware.pulseaudio.enable = lib.mkDefault false;

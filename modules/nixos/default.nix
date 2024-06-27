@@ -1,6 +1,6 @@
 {
   imports = [
-    ({ host, ... }: {
+    ({host, ...}: {
       imports = [
         ../../hosts/${host}/hardware.nix # import host specific hardware configuration
         ../../hosts/${host}/system.nix # import host psecific system configuration

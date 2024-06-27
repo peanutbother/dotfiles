@@ -1,4 +1,8 @@
-{ lib, pkgs, ... }: {
+{
+  lib,
+  pkgs,
+  ...
+}: {
   fonts = {
     packages = [
       (pkgs.nerdfonts.override {

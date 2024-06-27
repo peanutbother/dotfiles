@@ -1,4 +1,4 @@
-{ lib, ... }: {
+{lib, ...}: {
   homebrew = {
     enable = lib.mkDefault true;
     caskArgs.no_quarantine = lib.mkDefault true;

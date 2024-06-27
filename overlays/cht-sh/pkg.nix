@@ -1,4 +1,10 @@
-{ lib, fetchzip, stdenv, pkgs }: stdenv.mkDerivation rec {
+{
+  lib,
+  fetchzip,
+  stdenv,
+  pkgs,
+}:
+stdenv.mkDerivation rec {
   pname = "cht-sh";
   version = "0.0.4";
 
@@ -7,16 +13,16 @@
     homepage = "https://github.com/kenos1/tmux-cht-sh";
     license = licenses.mit;
     platforms = platforms.linux ++ platforms.darwin;
-    maintainers = [ "peanutbother" ];
+    maintainers = ["peanutbother"];
   };
 
   src = ./src;
 
-  nativeBuildInputs = [ pkgs.makeWrapper ];
+  nativeBuildInputs = [pkgs.makeWrapper];
   installPhase = ''
     mkdir --parents "$out"
     cp * $out
     chmod +x $out/*.sh
-    wrapProgram $out/tmux.sh --prefix PATH : ${lib.makeBinPath [ pkgs.fzf ]}
+    wrapProgram $out/tmux.sh --prefix PATH : ${lib.makeBinPath [pkgs.fzf]}
   '';
 }

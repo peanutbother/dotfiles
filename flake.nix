@@ -83,11 +83,10 @@
     };
   };
 
-  outputs = inputs:
-    let
-      stateVersion = "23.11";
-      utils = (import ./util.nix) inputs stateVersion;
-    in
+  outputs = inputs: let
+    stateVersion = "23.11";
+    utils = (import ./util.nix) inputs stateVersion;
+  in
     {
       description = "A flake with utils, configurations and templates to build convenient environments";
       formatter = inputs.nixpkgs.alejandra;

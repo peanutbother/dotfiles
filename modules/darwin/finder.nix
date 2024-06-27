@@ -1,4 +1,4 @@
-{ lib, ... }: {
+{lib, ...}: {
   system.defaults = {
     finder = {
       AppleShowAllExtensions = lib.mkDefault true;

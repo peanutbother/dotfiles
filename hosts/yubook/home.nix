@@ -1,4 +1,10 @@
-{ pkgs, home, repo, user, ... }: {
+{
+  pkgs,
+  home,
+  repo,
+  user,
+  ...
+}: {
   # yubook does not have touchid :(
   security.useTouchId = false;
 
@@ -14,7 +20,7 @@
         # code = "env VSCODE_CWD=\"$PWD\" open -n -b \"com.microsoft.VSCode\" --args $*"; # create a shell alias for vs code
       };
 
-      packages = with pkgs;[
+      packages = with pkgs; [
         bclm
         imagemagick
       ];
@@ -42,7 +48,6 @@
 
       zoxide.prefix = "cd";
     };
-
 
     sops = {
       age.keyFile = "${repo}/secrets/keys.txt";

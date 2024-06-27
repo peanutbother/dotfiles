@@ -1,4 +1,9 @@
-{ lib, fetchzip, stdenv }: stdenv.mkDerivation rec {
+{
+  lib,
+  fetchzip,
+  stdenv,
+}:
+stdenv.mkDerivation rec {
   pname = "bclm";
   version = "0.1.0";
   hash = "sha256-GtMxg8BnaJjfZ13G+/tzBiM0V/ZGze+RCEaimHdc550=";
@@ -8,9 +13,8 @@
     homepage = "https://github.com/zackelia/bclm";
     license = licenses.mit;
     platforms = platforms.darwin;
-    maintainers = [ "peanutbother" ];
+    maintainers = ["peanutbother"];
   };
-
 
   src = fetchzip {
     inherit hash;

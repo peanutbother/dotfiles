@@ -1,4 +1,4 @@
-{ config, ... }: {
+{config, ...}: {
   programs.zsh = {
     envExtra = ''
       # initialize nix development shells with these aliases

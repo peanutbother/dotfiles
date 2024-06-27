@@ -1,42 +1,47 @@
-{ lib, pkgs, ... }:
 {
+  lib,
+  pkgs,
+  ...
+}: {
   programs.vscode = {
     enable = lib.mkDefault true;
-    package = pkgs.vscode.fhsWithPackages (ps: with ps; [
-      rustup
-      zlib
-      openssl.dev
-      pkg-config
+    package = pkgs.vscode.fhsWithPackages (ps:
+      with ps; [
+        rustup
+        zlib
+        openssl.dev
+        pkg-config
 
-      niv
-      nixpkgs-fmt
-      nixd
-      statix
-      vulnix
-    ]);
+        niv
+        nixpkgs-fmt
+        nixd
+        statix
+        vulnix
+      ]);
     userSettings = {
       "editor.fontFamily" = "FiraCode Nerd Font";
       "terminal.integrated.fontFamily" = "FiraMono Nerd Font";
       "editor.fontLigatures" = true;
     };
-    keybindings =
-      let
-        modifier = if pkgs.stdenv.hostPlatform.isDarwin then "cmd" else "ctrl";
-      in
-      [
-        {
-          key = "${modifier}+n";
-          command = "explorer.newFile";
-        }
-        {
-          key = "shift+${modifier}+n";
-          command = "explorer.newFolder";
-        }
-        {
-          key = "shift+alt+n";
-          command = "rust-mod-generator.createRustMod";
-        }
-      ];
+    keybindings = let
+      modifier =
+        if pkgs.stdenv.hostPlatform.isDarwin
+        then "cmd"
+        else "ctrl";
+    in [
+      {
+        key = "${modifier}+n";
+        command = "explorer.newFile";
+      }
+      {
+        key = "shift+${modifier}+n";
+        command = "explorer.newFolder";
+      }
+      {
+        key = "shift+alt+n";
+        command = "rust-mod-generator.createRustMod";
+      }
+    ];
     extensions = with pkgs.vscode-marketplace; [
       a5huynh.vscode-ron
       ahmadalli.vscode-nginx-conf

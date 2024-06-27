@@ -1,4 +1,4 @@
-{ lib, ... }: {
+{lib, ...}: {
   programs.starship = {
     enable = lib.mkDefault true;
     enableZshIntegration = lib.mkDefault true;

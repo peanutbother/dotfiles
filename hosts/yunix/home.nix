@@ -1,14 +1,20 @@
-{ inputs, pkgs, home, repo, user, ... }: {
+{
+  inputs,
+  pkgs,
+  home,
+  repo,
+  user,
+  ...
+}: {
   users.users.${user} = {
     isNormalUser = true;
     initialPassword = "login";
     group = "users";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = ["networkmanager" "wheel"];
     shell = pkgs.zsh;
   };
 
   home-manager.users.${user} = {
-
     home = {
       file = {
         ".config/latte" = {

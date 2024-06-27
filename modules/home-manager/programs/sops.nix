@@ -1,4 +1,8 @@
-{ home, lib, ... }: {
+{
+  home,
+  lib,
+  ...
+}: {
   sops = {
     defaultSopsFile = ../../../secrets/common.yaml;
     defaultSopsFormat = "yaml";
