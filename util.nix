@@ -24,20 +24,25 @@ inputs: stateVersion: rec {
     type,
     name,
     system,
+    config,
   }:
     if type == "darwin"
     then {
       darwinConfigurations.${name} = darwinSystem {
-        inherit name system;
+        inherit name system config;
       };
     }
     else if type == "nixos"
     then {
-      nixosConfigurations.${name} = darwinSystem {
-        inherit name system;
+      nixosConfigurations.${name} = nixosSystem {
+        inherit name system config;
       };
     }
     else throw "invalid type ${type}";
+
+  eachDefaultFolder = dir:
+    inputs.nixpkgs.lib.mapAttrs (name: _: import (dir + "/${name}"))
+    (builtins.readDir dir);
 
   mkConfigurations = path:
     builtins.foldl' (acc: elem: {
@@ -47,9 +52,9 @@ inputs: stateVersion: rec {
       (name: value:
         with value;
           mkConfiguration {
-            inherit type name system;
+            inherit type name system config;
           })
-      (import path)));
+      (eachDefaultFolder path)));
 
   mkSystem = host: darwin: (import
     ./modules/${
@@ -77,7 +82,7 @@ inputs: stateVersion: rec {
     options ? {},
   }: (import ./modules/homebrew.nix {inherit user options darwin;});
 
-  mkModules = host: darwin: (import ./hosts/${host}
+  mkModules = host: darwin: config: (config
     {
       inherit inputs host;
       mkHome = mkHome host darwin;
@@ -91,20 +96,22 @@ inputs: stateVersion: rec {
   nixosSystem = {
     system,
     name,
+    config,
   }:
     inputs.nixpkgs.lib.nixosSystem {
       inherit system;
-      modules = mkModules name false;
+      modules = mkModules name false config;
       specialArgs = mkArgs system stateVersion name;
     };
   darwinSystem = {
     system,
     name,
+    config,
   }:
     inputs.darwin.lib.darwinSystem {
       inherit system;
       modules =
-        (mkModules name true)
+        (mkModules name true config)
         # link nix apps to darwin (fix spotlight, dock)
         ++ [inputs.mac-app-util.darwinModules.default];
       specialArgs = mkArgs system stateVersion name;
