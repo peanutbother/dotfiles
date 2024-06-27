@@ -25,6 +25,7 @@ inputs: stateVersion: rec {
   mkSystem = host: darwin: (import ./modules/${if darwin then "darwin" else "nixos"});
   mkHome = host: darwin: { user, repo }: {
     imports = [
+      (mkSystem host darwin)
       (if darwin then inputs.home-manager.darwinModules.default else inputs.home-manager.nixosModules.default)
       (import ./modules/home-manager { inherit user repo; })
     ];
@@ -36,7 +37,6 @@ inputs: stateVersion: rec {
     {
       inherit inputs host;
       mkHome = mkHome host darwin;
-      mkSystem = mkSystem host darwin;
       homebrew = homebrew darwin;
     });
   mkArgs = system: stateVersion: host: {

@@ -1,13 +1,10 @@
-{ inputs, mkSystem, mkHome, homebrew, ... }:
+{ inputs, mkHome, homebrew, ... }:
 with inputs;
 let
   user = "yuna";
   repo = "/Volumes/Share/.nix";
 in
 [
-  # system
-  mkSystem
-
   # homebrew
   (homebrew { inherit user; })
 
