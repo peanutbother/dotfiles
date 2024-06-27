@@ -10,9 +10,8 @@ in
   nixos-hardware.nixosModules.common-hidpi
 
   # system
-  (mkSystem { })
+  mkSystem
 
   # home
-  home-manager.nixosModule
   (mkHome { inherit user repo; })
 ]

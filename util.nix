@@ -22,16 +22,22 @@ inputs: stateVersion: rec {
     ]
   ;
 
-  mkSystem = host: { darwin ? false }: (import ./modules/${if darwin then "darwin" else "nixos"});
-  mkHome = host: { user, repo }: (import ./modules/home-manager { inherit user repo; });
+  mkSystem = host: darwin: (import ./modules/${if darwin then "darwin" else "nixos"});
+  mkHome = host: darwin: { user, repo }: {
+    imports = [
+      (if darwin then inputs.home-manager.darwinModules.default else inputs.home-manager.nixosModules.default)
+      (import ./modules/home-manager { inherit user repo; })
+    ];
+  };
 
-  homebrew = { darwin ? true, user, options ? { } }: (import ./modules/homebrew.nix { inherit user options darwin; });
+  homebrew = darwin: { user, options ? { } }: (import ./modules/homebrew.nix { inherit user options darwin; });
 
-  mkModules = host: (import ./hosts/${host}
+  mkModules = host: darwin: (import ./hosts/${host}
     {
-      inherit inputs host homebrew;
-      mkHome = mkHome host;
-      mkSystem = mkSystem host;
+      inherit inputs host;
+      mkHome = mkHome host darwin;
+      mkSystem = mkSystem host darwin;
+      homebrew = homebrew darwin;
     });
   mkArgs = system: stateVersion: host: {
     inherit inputs system stateVersion host;
@@ -40,12 +46,14 @@ inputs: stateVersion: rec {
 
   nixosSystem = { system, name }: inputs.nixpkgs.lib.nixosSystem {
     inherit system;
-    modules = mkModules name;
+    modules = mkModules name false;
     specialArgs = mkArgs system stateVersion name;
   };
   darwinSystem = { system, name }: inputs.darwin.lib.darwinSystem {
     inherit system;
-    modules = mkModules name;
+    modules = (mkModules name true)
+      # link nix apps to darwin (fix spotlight, dock)
+      ++ [ inputs.mac-app-util.darwinModules.default ];
     specialArgs = mkArgs system stateVersion name;
   };
 }
