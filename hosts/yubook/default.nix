@@ -3,21 +3,11 @@
   user = "yuna";
   repo = "/Volumes/Share/.nix";
 
-  # optionally override config
-  # config = {
-  #   inputs,
-  #   mkHome,
-  #   homebrew,
-  #   ...
-  # }: [
-  #   # homebrew
-  #   (homebrew {inherit user;})
-  #   # home
-  #   (mkHome {inherit user repo;})
-  # ];
-
-  # or just append modules
-  # modules = inputs: [
-  #   inputs.myModule
+  # optionally override modules
+  # modules = {inputs, home-manager}: [
+  #   ../../modules/darwin
+  #   home-manager # refers to the correct home-manager module
+  #   ../../modules/home-manager
+  #   ../../modules/common/homebrew.nix
   # ];
 }
