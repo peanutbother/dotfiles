@@ -1,20 +1,15 @@
 {
-  repo,
-  user,
-}: {
   inputs,
   lib,
   pkgs,
   system,
   stateVersion,
   host,
+  home,
+  user,
+  repo,
   ...
-}: let
-  home =
-    if pkgs.stdenv.hostPlatform.isDarwin
-    then "/Users/${user}"
-    else "/home/${user}";
-in {
+}: {
   programs.zsh.enable = lib.mkDefault true;
   users.users.${user} = {
     inherit home;
@@ -28,13 +23,15 @@ in {
   };
   home-manager.sharedModules =
     [
-      inputs.mac-app-util.homeManagerModules.default # link apps to fix spotlight and dock on darwin
+      inputs.mac-app-util.homeManagerModules.default # link nix apps to darwin (fix spotlight, dock)
       inputs.sops-nix.homeManagerModule
       inputs.spicetify-nix.homeManagerModules.default
-      ./home.nix # common home config
-      ../../hosts/${host}/home.nix # host-specific home config
     ]
     ++ (lib.optionals (!pkgs.stdenv.hostPlatform.isDarwin) [
       inputs.plasma-manager.homeManagerModules.plasma-manager
     ]);
+
+  imports = [
+    ./home.nix # common home config
+  ];
 }

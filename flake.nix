@@ -6,6 +6,7 @@
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware";
     mac-app-util.url = "github:hraban/mac-app-util";
+    spicetify-nix.url = "github:Gerg-L/spicetify-nix";
 
     nix-darwin = {
       url = "github:lnl7/nix-darwin";
@@ -46,40 +47,15 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    spicetify-nix = {
-      url = "github:Gerg-L/spicetify-nix";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
-    };
-
     vscode-extensions = {
       url = "github:nix-community/nix-vscode-extensions";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    embedded_shell = {
-      url = "github:peanutbother/dotfiles?dir=shells/embedded";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    nix_shell = {
-      url = "github:peanutbother/dotfiles?dir=shells/nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    rust_shell = {
-      url = "github:peanutbother/dotfiles?dir=shells/rust";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    web_shell = {
-      url = "github:peanutbother/dotfiles?dir=shells/web";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
   outputs = inputs: let
     stateVersion = "23.11";
-    utils = (import ./util.nix) inputs stateVersion;
+    utils = (import ./modules/util) inputs stateVersion;
   in
     {
       description = "A flake with utils, configurations and templates to build convenient environments";
@@ -88,15 +64,7 @@
     # export templates
     // import ./templates
     # load host configurations from `./hosts` folder
-    // utils.mkConfigurations ./hosts
-    # export `devShells`
-    // utils.eachSystem (system: {
-      # shells
-      devShells = {
-        embedded = inputs.embedded_shell.devShells.${system}.default;
-        nix = inputs.nix_shell.devShells.${system}.default;
-        rust = inputs.rust_shell.devShells.${system}.default;
-        web = inputs.web_shell.devShells.${system}.default;
-      };
-    });
+    // utils.mkHosts ./hosts
+    # load shells from `./shells` folder
+    // utils.mkShells ./shells;
 }

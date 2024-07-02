@@ -1,10 +1,11 @@
 {
+  host,
+  inputs,
+  ...
+}: {
   imports = [
-    ({host, ...}: {
-      imports = [
-        ../../hosts/${host}/system.nix # import host specific system configuration
-      ];
-    })
+    inputs.mac-app-util.darwinModules.default # link nix apps to darwin (fix spotlight, dock)
+    ../../hosts/${host}/system.nix # import host specific system configuration
     ./dock.nix # configure dock
     ./env.nix # configure environment (e.g default shell)
     ./finder.nix # configure finder

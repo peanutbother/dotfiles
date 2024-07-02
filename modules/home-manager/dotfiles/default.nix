@@ -16,5 +16,9 @@
       source = ./tmuxinator;
       recursive = true;
     };
+    ".config/direnv" = lib.mkIf config.programs.direnv.enable {
+      source = ./direnv;
+      recursive = true;
+    };
   };
 }

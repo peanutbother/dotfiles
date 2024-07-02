@@ -1,6 +1,7 @@
 {
   repo,
   user,
+  host,
   config,
   lib,
   pkgs,
@@ -56,4 +57,7 @@
       ./programs # install and configure applications using home-manager
     ];
   };
+  imports = [
+    ../../hosts/${host}/home.nix # host-specific home config
+  ];
 }
