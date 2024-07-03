@@ -6,7 +6,7 @@
   "nix.serverPath": "nixd",
   "nix.serverSettings": {
     "nixd": {
-      "formatting": { "command": "alejandra --quiet" }
+      "formatting": { "command": ["alejandra", "--quiet"] }
     }
   },
   "redhat.telemetry.enabled": false,
