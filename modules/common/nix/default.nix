@@ -9,8 +9,7 @@
     settings = {
       experimental-features = lib.mkDefault ["nix-command" "flakes"];
       # automatically hotlink duplicate files
-      # TODO do not automatically hotlink duplicate files (currently broken)[https://github.com/NixOS/nix/issues/1281]
-      auto-optimise-store = lib.mkDefault (!pkgs.stdenv.hostPlatform.isDarwin);
+      auto-optimise-store = lib.mkDefault true;
       # sandbox builds
       sandbox = lib.mkDefault true;
       # enable binary caches
