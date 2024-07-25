@@ -19,6 +19,8 @@
       # make sure brew is on the path for aarch64
       eval "$(/opt/homebrew/bin/brew shellenv)"
     '';
+
+    plugins = pkgs.callPackage ./plugins.nix {};
   };
 
   imports = [
