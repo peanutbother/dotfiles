@@ -1,13 +1,22 @@
 #!/bin/sh
-# this script bootstraps nix-darwin
-# but could be refactored to also bootstrap other systems like linux and nix os
+# this script bootstraps nix, using determinate systems installer which automatically also enables flakes and sane defaults which is very useful
 
 echo "installing nix"
-eval "$(curl -L https://nixos.org/nix/install)"
+curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
 
-echo "enabling flakes"
-mkdir -p ~/.config/nix
-echo "experimental-features = nix-command flakes" >>~/.config/nix/nix.conf
+FLAKE="$(dirname $(dirname $0))#"
 
-echo "configuring nix-darwin"
-nix run nix-darwin -- switch --flake /Volumes/Share/.nix
+case $(uname -a) in
+Linux*)
+	echo "configuring nix-os"
+	nixos-install --flake $FLAKE
+	;;
+Darwin*)
+	echo "configuring nix-darwin"
+	nix run nix-darwin -- switch --flake $FLAKE
+	;;
+*)
+	echo "unsupported OS detected"
+	exit 1
+	;;
+esac
