@@ -18,7 +18,7 @@ with inputs.nixpkgs; rec {
       if lib.hasSuffix "darwin" config.system
       then "darwin"
       else if lib.hasSuffix "linux" config.system
-      then "linux"
+      then "nixos"
       else throw "invalid system ${config.system}";
   in {
     ${system + "Configurations"}.${hostName} =
