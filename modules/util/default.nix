@@ -1,5 +1,4 @@
-inputs: stateVersion:
-with inputs.nixpkgs; let
+inputs: stateVersion: let
   args = {
     inherit inputs stateVersion;
     inherit (inputs.dotdev.lib.common) eachDefaultFolder filesInPath eachSystem eachSystemWithPkgs mkShell;
