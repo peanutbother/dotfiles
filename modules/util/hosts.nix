@@ -28,18 +28,18 @@ with inputs.nixpkgs; rec {
   };
 
   mkDarwinSystem = host: {
+    homebrewOptions ? {},
+    modules ? null,
+    repo,
     system,
     user,
-    repo,
-    modules ? null,
-    homebrewOptions ? {},
     ...
   }:
     inputs.nix-darwin.lib.darwinSystem {
       inherit system;
       modules = mkModules {inherit user host modules;} true;
       specialArgs = mkArgs {
-        inherit system user repo host homebrewOptions;
+        inherit homebrewOptions host repo system user;
         isDarwin = true;
       };
     };
@@ -63,9 +63,9 @@ with inputs.nixpkgs; rec {
 
   # generate list of default modules loaded in nix config for host
   mkModules = {
-    user,
     host,
     modules,
+    user,
   }: isDarwin: let
     home-manager = with inputs.home-manager;
       if isDarwin
@@ -89,19 +89,19 @@ with inputs.nixpkgs; rec {
 
   # used for global args in `pkgs.callPackage`
   mkArgs = {
+    homebrewOptions,
+    host,
+    isDarwin,
+    repo,
     system,
     user,
-    repo,
-    host,
-    homebrewOptions,
-    isDarwin,
   }: let
     home =
       if isDarwin
       then "/Users/${user}"
       else "/home/${user}";
   in {
-    inherit inputs system user repo stateVersion host home homebrewOptions isDarwin;
+    inherit inputs home homebrewOptions host isDarwin repo stateVersion system user;
     overlays = import ../../overlays inputs;
   };
 }
