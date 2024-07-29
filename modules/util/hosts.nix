@@ -85,7 +85,7 @@ with inputs.nixpkgs; rec {
       ../home-manager
       ../common/homebrew.nix
     ]
-    else modules {inherit inputs home-manager;};
+    else modules {inherit inputs home-manager user host;};
 
   # used for global args in `pkgs.callPackage`
   mkArgs = {
