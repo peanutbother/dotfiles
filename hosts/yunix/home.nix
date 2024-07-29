@@ -24,10 +24,6 @@
           source = ../../modules/home-manager/dotfiles/mpv;
           recursive = true;
         };
-        ".ssh" = {
-          source = ../../modules/home-manager/dotfiles/ssh;
-          recursive = true;
-        };
       };
 
       packages = with pkgs; [

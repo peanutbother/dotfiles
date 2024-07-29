@@ -10,12 +10,6 @@
 
   home-manager.users.${user} = {
     home = {
-      file = {
-        ".ssh" = {
-          source = ../../modules/home-manager/dotfiles/ssh;
-          recursive = true;
-        };
-      };
       shellAliases = {
         # code = "env VSCODE_CWD=\"$PWD\" open -n -b \"com.microsoft.VSCode\" --args $*"; # create a shell alias for vs code
       };

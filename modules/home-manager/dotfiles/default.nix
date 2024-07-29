@@ -20,5 +20,9 @@
       source = ./direnv;
       recursive = true;
     };
+    ".ssh" = lib.mkIf config.programs.ssh.dotfiles {
+      source = ./ssh;
+      recursive = true;
+    };
   };
 }
