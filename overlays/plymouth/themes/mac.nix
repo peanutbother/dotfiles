@@ -1,5 +1,4 @@
 {
-  fetchzip,
   lib,
   stdenv,
 }:

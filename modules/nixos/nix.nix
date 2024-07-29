@@ -1,4 +1,4 @@
-{lib, ...}: {
+{
   nix = {
     # enable garbage collection
     gc = {

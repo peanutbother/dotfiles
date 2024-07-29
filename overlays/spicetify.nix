@@ -1,4 +1,4 @@
-inputs: final: prev: {
+inputs: final: _: {
   spicetify = let
     spicetify = inputs.spicetify-nix.legacyPackages.${final.system};
   in

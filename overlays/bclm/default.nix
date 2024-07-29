@@ -1,4 +1,4 @@
 # adds `bclm` to nixpkgs
-final: prev: {
+final: _: {
   bclm = final.callPackage ./pkg.nix {};
 }

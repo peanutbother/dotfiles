@@ -1,6 +1,6 @@
-inputs: final: prev: {
+inputs: _: prev: {
   unstable = import inputs.nixpkgs-unstable ({
-      system = prev.system;
+      inherit (prev) system;
     }
     // import ../modules/common/nix/nixpkgs.nix);
 }
