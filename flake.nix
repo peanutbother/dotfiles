@@ -7,6 +7,7 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware";
     mac-app-util.url = "github:hraban/mac-app-util";
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
+    dotdev.url = "github:peanutbother/dotdev";
 
     nix-darwin = {
       url = "github:lnl7/nix-darwin";
@@ -59,12 +60,8 @@
   in
     {
       description = "A flake with utils, configurations and templates to build convenient environments";
-      formatter = inputs.nixpkgs.alejandra;
+      inherit (utils) checks devShells formatter lib;
     }
-    # export templates
-    // import ./templates
     # load host configurations from `./hosts` folder
-    // utils.mkHosts ./hosts
-    # load shells from `./shells` folder
-    // utils.mkShells ./shells;
+    // utils.mkHosts ./hosts;
 }
