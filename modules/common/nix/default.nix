@@ -26,8 +26,8 @@
     };
     # enable garbage collection
     gc = {
-      automatic = true;
-      options = "--delete-older-than 30d";
+      automatic = lib.mkDefault true;
+      options = lib.mkDefault "--delete-older-than 30d";
     };
   };
 
