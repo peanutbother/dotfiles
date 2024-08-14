@@ -1,6 +1,8 @@
 inputs: [
+  (import ./aldente.nix)
   (import ./bclm)
   (import ./cht-sh)
+  (import ./keka.nix)
   (import ./plymouth)
   (import ./sddm)
   (import ./spicetify.nix inputs)
