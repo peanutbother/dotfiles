@@ -5,6 +5,6 @@ inputs: stateVersion: let
   };
 in
   {
-    inherit (inputs.dotdev) checks devShells formatter lib;
+    inherit (inputs.dotdev) checks devShells formatter lib templates;
   }
   // (import ./hosts.nix args)

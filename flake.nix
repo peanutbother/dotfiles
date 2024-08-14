@@ -60,7 +60,7 @@
   in
     {
       description = "A flake with utils, configurations and templates to build convenient environments";
-      inherit (utils) checks devShells formatter lib;
+      inherit (utils) checks devShells formatter lib templates;
     }
     # load host configurations from `./hosts` folder
     // utils.mkHosts ./hosts;

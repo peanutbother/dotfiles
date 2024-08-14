@@ -12,7 +12,7 @@
         nix flake new --template "$1" $2 --show-trace && direnv allow
       }
       dotdev_init(){
-        nix flake init --template "github:peanutbother/dotdev#$1" --show-trace && git add . && direnv allow
+        nix flake init --template "${repo}#$1" --show-trace && git add . && direnv allow
       }
     '';
   };
