@@ -9,7 +9,7 @@
       SecondClickThreshold = lib.mkDefault 1; # force feedback
     };
     NSGlobalDomain = {
-      "com.apple.trackpad.scaling" = lib.mkDefault 2.0; # tracking speed
+      "com.apple.trackpad.scaling" = lib.mkDefault 1.0; # trackpad speed
       "com.apple.mouse.tapBehavior" = lib.mkDefault 1; # tap to click
     };
   };
