@@ -12,7 +12,6 @@
     ../common/fonts.nix # install fonts (e.g. NerdFonts)
     ./homebrew.nix # install homebrew apps and configure homebrew itsef
     ./keyboard.nix # settings for key repeat etc
-    ./launch-agents.nix # configure launch agents
     ./mouse.nix # configure mouse (acceleration, etc)
     ./networking.nix # configure networking (e.g. hostname, dns, etc)
     ./nix.nix # configure nix itself (use flakes, etc)
