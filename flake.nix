@@ -20,13 +20,18 @@
       inputs.nix-darwin.follows = "nix-darwin";
     };
 
-    homebrew-core = {
-      url = "github:homebrew/homebrew-core";
+    homebrew-cask = {
+      url = "github:homebrew/homebrew-cask";
       flake = false;
     };
 
-    homebrew-cask = {
-      url = "github:homebrew/homebrew-cask";
+    homebrew-bundle = {
+      url = "github:homebrew/homebrew-bundle";
+      flake = false;
+    };
+
+    homebrew-core = {
+      url = "github:homebrew/homebrew-core";
       flake = false;
     };
 
