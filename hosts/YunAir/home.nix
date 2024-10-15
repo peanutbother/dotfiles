@@ -12,9 +12,9 @@
       };
 
       packages = with pkgs; [
+        unstable.aldente
         unstable.raycast
         unstable.rectangle
-        aldente
         alt-tab-macos
         docker
         imagemagick
