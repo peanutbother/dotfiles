@@ -1,5 +1,4 @@
 inputs: [
-  (import ./aldente.nix)
   (import ./bclm)
   (import ./cht-sh)
   (import ./keka.nix)
