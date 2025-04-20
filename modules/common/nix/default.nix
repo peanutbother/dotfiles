@@ -1,17 +1,14 @@
 {
   lib,
-  pkgs,
   inputs,
   ...
 }: {
   nix = {
-    # enable flakes
     settings = {
+      # enable flakes
       experimental-features = lib.mkDefault ["nix-command" "flakes"];
-      # automatically hotlink duplicate files
-      auto-optimise-store = lib.mkDefault true;
       # sandbox builds
-      sandbox = lib.mkDefault true;
+      # sandbox = lib.mkDefault true;
       # enable binary caches
       substituters = [
         "https://nix-community.cachix.org"
@@ -24,11 +21,19 @@
         "@wheel"
       ];
     };
+
+    # automatically hotlink duplicate files
+    optimise.automatic = lib.mkDefault true;
     # enable garbage collection
     gc = {
       automatic = lib.mkDefault true;
       options = lib.mkDefault "--delete-older-than 30d";
     };
+    # copy flake inputs to channels
+    nixPath = lib.mkDefault [
+      "nixpkgs=${inputs.nixpkgs}"
+      "dotdev=${inputs.dotdev}"
+    ];
   };
 
   nixpkgs =

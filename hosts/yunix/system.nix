@@ -1,5 +1,5 @@
 {
-  config,
+  # config,
   inputs,
   pkgs,
   ...
@@ -20,7 +20,7 @@
 
     kernelPackages = pkgs.linuxPackages_latest;
     kernelModules = ["kvm-intel"];
-    extraModulePackages = with config.boot.kernelPackages; [];
+    # extraModulePackages = with config.boot.kernelPackages; [];
     extraModprobeConfig = ''
       options snd_hda_intel model=auto
       options hid_apple fnmode=2
@@ -48,7 +48,10 @@
     };
   };
 
-  imports = [
-    inputs.sops-nix.nixosModules.default
+  imports = with inputs; [
+    sops-nix.nixosModules.default
+    # quirks
+    nixos-hardware.nixosModules.apple-macbook-pro-12-1
+    nixos-hardware.nixosModules.common-hidpi
   ];
 }

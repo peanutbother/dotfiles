@@ -3,13 +3,10 @@
   user = "yuna";
   repo = "/mnt/share/.nix";
 
-  modules = inputs:
-    with inputs; [
-      # quirks
-      nixos-hardware.nixosModules.apple-macbook-pro-12-1
-      nixos-hardware.nixosModules.common-hidpi
+  modules = options:
+    with options; [
       ../../modules/nixos
-      home-manager # refers to the correct home-manager module
+      home-manager # refers to the correct home-manager module with preconfigured flake inputs
       ../../modules/home-manager
       ../../modules/common/homebrew.nix
     ];

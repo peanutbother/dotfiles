@@ -1,8 +1,9 @@
 {lib, ...}: {
   # sonoma: requires new groupid because of changes
   ids.gids.nixbld = 350;
-  
+
   nix = {
+    settings.sandbox = false;
     # cofigure nix to use build users
     configureBuildUsers = lib.mkDefault true;
     # enable garbage collection

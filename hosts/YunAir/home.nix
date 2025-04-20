@@ -12,14 +12,17 @@
       };
 
       packages = with pkgs; [
-        unstable.aldente
-        unstable.raycast
-        unstable.rectangle
+        aldente
+        raycast
+        rectangle
         alt-tab-macos
         docker
+        ice-bar
         imagemagick
         keka
         ntfs3g # required for mounty
+        testdisk
+        utm
       ];
     };
 
@@ -38,6 +41,7 @@
           IdentityFile ~/.ssh/dev_bricksoft
           IdentityFile ~/.ssh/dev_ravpower
           IdentityFile ~/.ssh/dev_homebridge
+          IdentityFile ~/.ssh/dev_yudeck
 
         Host *.github.com
           AddKeysToAgent yes
@@ -65,6 +69,10 @@
         };
         "ssh-keys/devs/YunAir" = {
           path = "${home}/.ssh/dev_yunair";
+          sopsFile = ../../secrets/YunAir.yaml;
+        };
+        "ssh-keys/devs/YuDeck" = {
+          path = "${home}/.ssh/dev_yudeck";
           sopsFile = ../../secrets/YunAir.yaml;
         };
       };
