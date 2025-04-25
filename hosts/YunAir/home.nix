@@ -21,6 +21,7 @@
         imagemagick
         keka
         ntfs3g # required for mounty
+        tailscale
         testdisk
         utm
       ];
