@@ -51,6 +51,11 @@
       '';
 
       zoxide.prefix = "cd";
+
+      nix-index = {
+        enable = true;
+        enableZshIntegration = true;
+      };
     };
 
     sops = {
