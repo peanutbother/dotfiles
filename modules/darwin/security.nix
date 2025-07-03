@@ -15,7 +15,7 @@ in {
     };
   };
   config = {
-    security.pam.enableSudoTouchIdAuth = lib.mkDefault cfg.useTouchId;
+    security.pam.services.sudo_local.touchIdAuth = lib.mkDefault cfg.useTouchId;
     environment.etc."pam.d/sudo_local".text =
       if cfg.useTouchId
       then ''

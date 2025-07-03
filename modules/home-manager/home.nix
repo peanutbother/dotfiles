@@ -42,7 +42,7 @@
       in {
         sudo = "sudo "; # allow aliases to be run with sudo
         nixclean = "sudo nix-collect-garbage --delete-old"; # delete old generations
-        nixswitch = "${nixcmd} switch --flake '${repo}/.#'"; # refresh nix env after config changes
+        nixswitch = "sudo ${nixcmd} switch --flake '${repo}/.#'"; # refresh nix env after config changes
         nixcheck = "${nixcmd} check --flake '${repo}/.#'"; # check nix config for errors
         nixup = "pushd ${repo}/; nix flake update; nixswitch; popd"; # update nix env and refresh
         cls = "clear"; # shorthand and alias to win's cls

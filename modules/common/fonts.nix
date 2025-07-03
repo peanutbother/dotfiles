@@ -3,14 +3,9 @@
   pkgs,
   ...
 }: {
-  fonts = {
-    packages = lib.mkDefault [
-      (pkgs.nerdfonts.override {
-        fonts = [
-          "FiraCode"
-          "FiraMono"
-        ];
-      })
+  fonts.packages = with pkgs.nerd-fonts;
+    lib.mkDefault [
+      fira-code
+      fira-mono
     ];
-  };
 }
