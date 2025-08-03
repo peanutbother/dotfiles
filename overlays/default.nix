@@ -3,7 +3,7 @@ inputs: [
   (import ./alt-tab-macos.nix)
   (import ./bclm)
   (import ./cht-sh)
-  (import ./keka.nix)
+  (import ./keka.nix inputs)
   (import ./plymouth)
   (import ./rectangle.nix)
   (import ./sddm)
