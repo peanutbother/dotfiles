@@ -1,10 +1,10 @@
 {
   imports = [
     ./alacritty.nix
+    ./atuin.nix
     ./btop.nix
     ./direnv.nix
     ./eza.nix
-    ./fzf.nix
     ./git.nix
     ./gpg
     ./sops.nix
