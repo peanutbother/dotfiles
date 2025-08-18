@@ -19,7 +19,6 @@
       "arduino-ide"
       "blackhole-2ch"
       "crossover"
-      "discord"
       "krita"
       "mounty"
       "notunes"

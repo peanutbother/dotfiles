@@ -20,6 +20,7 @@
         ice-bar
         imagemagick
         keka
+        moonlight
         ntfs3g # required for mounty
         tailscale
         testdisk

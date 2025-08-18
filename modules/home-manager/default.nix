@@ -25,6 +25,7 @@
     sharedModules = with inputs;
       [
         mac-app-util.homeManagerModules.default # link nix apps to darwin (fix spotlight, dock)
+        moonlight.homeModules.default
         sops-nix.homeManagerModule
         spicetify-nix.homeManagerModules.default
       ]

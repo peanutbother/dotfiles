@@ -4,6 +4,7 @@ inputs: [
   (import ./bclm)
   (import ./cht-sh)
   (import ./keka.nix inputs)
+  (import ./moonlight.nix inputs)
   (import ./plymouth)
   (import ./rectangle.nix)
   (import ./sddm)

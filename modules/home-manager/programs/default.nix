@@ -7,6 +7,7 @@
     ./eza.nix
     ./git.nix
     ./gpg
+    ./moonlight.nix
     ./nix-index.nix
     ./sops.nix
     ./spicetify.nix

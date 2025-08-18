@@ -7,6 +7,11 @@
     mac-app-util.url = "github:hraban/mac-app-util";
     dotdev.url = "github:peanutbother/dotdev";
 
+    moonlight = {
+      url = "github:moonlight-mod/moonlight";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
