@@ -19,6 +19,7 @@
         docker
         ice-bar
         imagemagick
+        istat-menus
         keka
         moonlight
         ntfs3g # required for mounty

@@ -9,7 +9,6 @@
   homebrew = {
     masApps = {
       WCHSerialPort = 1580700717;
-      iStatMenus = 1319778037;
     };
     brews = [
       "cliclick"
