@@ -1,7 +1,7 @@
 {lib, ...}: {
   jovian.steam = {
-    enable = true;
+    enable = lib.mkDefault true;
     autoStart = lib.mkDefault true;
-    updater.splash = "vendor";
+    updater.splash = lib.mkDefault "vendor";
   };
 }
