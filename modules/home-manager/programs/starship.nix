@@ -1,8 +1,12 @@
-{lib, ...}: {
+{
+  lib,
+  config,
+  ...
+}: {
   programs.starship = {
     enable = lib.mkDefault true;
-    enableZshIntegration = lib.mkDefault true;
-    enableBashIntegration = lib.mkDefault true;
+    enableZshIntegration = lib.mkDefault config.programs.zsh.enable;
+    enableBashIntegration = lib.mkDefault config.programs.bash.enable;
     settings = {
       format = "[](#9A348E)$os$username[](bg:#DA627D fg:#9A348E)$directory[](fg:#DA627D bg:#FCA17D)$git_branch$git_status[](fg:#FCA17D bg:#86BBD8)$c$elixir$elm$golang$gradle$haskell$java$julia$nodejs$nim$rust$scala[](fg:#86BBD8 bg:#06969A)$docker_context[](fg:#06969A bg:#33658A)$custom[ ](fg:#33658A)";
 
