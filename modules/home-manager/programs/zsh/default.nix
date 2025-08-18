@@ -21,6 +21,5 @@
 
   imports = [
     ./nix.nix
-    ./ytdlp.nix
   ];
 }
