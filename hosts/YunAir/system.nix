@@ -24,7 +24,6 @@
       "notunes"
       "paragon-extfs"
       "playcover-community"
-      "signal"
       "steam"
       "telegram"
       "ultimate-vocal-remover"

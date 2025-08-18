@@ -22,6 +22,7 @@
         keka
         moonlight
         ntfs3g # required for mounty
+        signal-desktop-bin
         tailscale
         testdisk
         utm
