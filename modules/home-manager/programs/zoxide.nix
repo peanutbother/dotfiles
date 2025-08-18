@@ -19,7 +19,7 @@ in {
       enable = mkDefault true;
       enableZshIntegration = mkDefault config.programs.zsh.enable;
       enableBashIntegration = mkDefault config.programs.bash.enable;
-      options = mkIf cfg.enableZshIntegration (mkDefault ["--cmd ${cfg.prefix}"]);
+      options = mkIf (cfg.enableZshIntegration || cfg.enableBashIntegration) (mkDefault ["--cmd ${cfg.prefix}"]);
     };
   };
 }
