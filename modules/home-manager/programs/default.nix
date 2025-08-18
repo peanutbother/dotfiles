@@ -3,6 +3,7 @@
     ./alacritty.nix
     ./atuin.nix
     ./btop.nix
+    ./comma.nix
     ./direnv.nix
     ./eza.nix
     ./git.nix
