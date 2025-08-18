@@ -63,7 +63,7 @@ in {
         # set status bar to top
         set-option -g status-position top
 
-        bind S run-shell "tmux popup -y 10 -w 100 -h 50 -E ${pkgs.cht-sh}/tmux.sh"
+        bind S run-shell "tmux popup -E ${pkgs.cht-sh}/tmux.sh"
 
         # sending panes back and forth (https://unix.stackexchange.com/a/14301/220900)
         bind-key < command-prompt -p "join pane from:"  "join-pane -s '%%'"

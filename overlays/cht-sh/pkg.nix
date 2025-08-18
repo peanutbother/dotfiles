@@ -3,7 +3,7 @@
   stdenv,
   pkgs,
 }:
-stdenv.mkDerivation rec {
+stdenv.mkDerivation {
   pname = "cht-sh";
   version = "0.0.4";
 
