@@ -15,7 +15,7 @@
       };
 
       packages = with pkgs; [
-        bclm
+        aldente
         imagemagick
       ];
     };

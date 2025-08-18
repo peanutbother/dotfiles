@@ -1,7 +1,6 @@
 inputs: [
   (import ./aldente.nix)
   (import ./alt-tab-macos.nix)
-  (import ./bclm)
   (import ./cht-sh)
   (import ./keka.nix inputs)
   (import ./moonlight.nix inputs)
