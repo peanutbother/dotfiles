@@ -24,6 +24,7 @@
         ntfs3g # required for mounty
         signal-desktop-bin
         tailscale
+        telegram-desktop
         testdisk
         utm
       ];

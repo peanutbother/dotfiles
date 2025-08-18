@@ -25,7 +25,6 @@
       "paragon-extfs"
       "playcover-community"
       "steam"
-      "telegram"
       "ultimate-vocal-remover"
       "upscayl"
       "vivaldi"
