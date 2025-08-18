@@ -7,6 +7,7 @@
     ./eza.nix
     ./git.nix
     ./gpg
+    ./nix-index.nix
     ./sops.nix
     ./spicetify.nix
     ./ssh.nix
