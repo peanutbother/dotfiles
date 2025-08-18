@@ -7,8 +7,6 @@
     settings = {
       # enable flakes
       experimental-features = lib.mkDefault ["nix-command" "flakes"];
-      # sandbox builds
-      # sandbox = lib.mkDefault true;
       # enable binary caches
       substituters = [
         "https://nix-community.cachix.org"
