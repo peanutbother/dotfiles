@@ -8,6 +8,7 @@ inputs: [
   (import ./plymouth)
   (import ./rectangle.nix)
   (import ./sddm)
+  (import ./signal.nix)
   (import ./spicetify.nix inputs)
   (import ./vivaldi.nix)
   inputs.vscode-extensions.overlays.default
