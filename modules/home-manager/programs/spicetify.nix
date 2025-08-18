@@ -5,8 +5,8 @@
 }: {
   programs.spicetify = with pkgs.spicetify; {
     enable = lib.mkDefault true;
-    theme = lib.mkDefault themes.dribbblish;
-    colorScheme = lib.mkDefault "rosepine";
+    theme = lib.mkDefault themes.ziro;
+    colorScheme = lib.mkDefault "purple-dark";
     enabledExtensions = with extensions;
       lib.mkDefault [
         fullAppDisplay
