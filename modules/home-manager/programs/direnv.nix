@@ -18,4 +18,7 @@
   programs.zsh.envExtra = lib.mkIf config.programs.zsh.enable ''
     export DIRENV_HIDE_DIFF=1;
   '';
+  programs.bash.envExtra = lib.mkIf config.programs.bash.enable ''
+    export DIRENV_HIDE_DIFF=1;
+  '';
 }
