@@ -43,7 +43,7 @@
         sudo = "sudo "; # allow aliases to be run with sudo
         nixclean = "sudo nix-collect-garbage --delete-old"; # delete old generations
         nixswitch = "sudo ${nixcmd} switch --flake '${repo}/.#'"; # refresh nix env after config changes
-        nixcheck = "${nixcmd} check --flake '${repo}/.#'"; # check nix config for errors
+        nixcheck = "sudo ${nixcmd} check --flake '${repo}/.#'"; # check nix config for errors
         nixup = "pushd ${repo}/; nix flake update; nixswitch; popd"; # update nix env and refresh
         cls = "clear"; # shorthand and alias to win's cls
         mux = lib.mkIf config.programs.tmux.enable "tmuxinator"; # create a shell alias for tmuxinator
