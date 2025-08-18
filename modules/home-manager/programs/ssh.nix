@@ -1,10 +1,4 @@
-{
-  lib,
-  config,
-  ...
-}: let
-  cfg = config.programs.ssh;
-in {
+{lib, ...}: {
   options = {
     programs.ssh.dotfiles = with lib;
       mkOption {
