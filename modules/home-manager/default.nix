@@ -10,7 +10,6 @@
   repo,
   ...
 }: {
-  programs.zsh.enable = lib.mkDefault true;
   users.users.${user} = {
     inherit home;
     name = user;
