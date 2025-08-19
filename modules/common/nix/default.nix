@@ -1,6 +1,8 @@
 {
   lib,
   inputs,
+  pkgs,
+  config,
   ...
 }: {
   nix = {
@@ -18,6 +20,7 @@
         "root"
         "@wheel"
       ];
+      nix-path = config.nix.nixPath;
     };
 
     # automatically hotlink duplicate files
@@ -29,8 +32,9 @@
     };
     # copy flake inputs to channels
     nixPath = lib.mkDefault [
-      "nixpkgs=${inputs.nixpkgs}"
-      "dotdev=${inputs.dotdev}"
+      "nixpkgs=${lib.cleanSource inputs.nixpkgs}"
+      "dotdev=${lib.cleanSource inputs.dotdev}"
+      "dotfiles=${lib.cleanSource pkgs.path}"
     ];
   };
 
