@@ -52,7 +52,7 @@ with inputs.nixpkgs; rec {
     homebrewOptions ? {},
     ...
   }:
-    inputs.nixpkgs.lib.nixosSystem {
+    lib.nixosSystem {
       inherit system;
       modules = mkModules {inherit user host modules;} false;
       specialArgs = mkArgs {
