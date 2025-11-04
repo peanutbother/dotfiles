@@ -16,4 +16,6 @@
     startAgent = true;
     enableAskPassword = true;
   };
+
+  nix.settings.sandbox = false;
 }
