@@ -2,7 +2,7 @@
   # config,
   ...
 }: {
-  system.stateVersion = "23.05";
+  system.stateVersion = "24.11";
 
   services.xserver.enable = false;
 
