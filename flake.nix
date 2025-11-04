@@ -18,7 +18,8 @@
 
     mac-app-util = {
       url = "github:hraban/mac-app-util";
-      inputs.nixpkgs.follows = "nixpkgs";
+      # TODO: override nixpkgs again when upstream is fixed
+      # inputs.nixpkgs.follows = "nixpkgs-darwin";
     };
 
     moonlight = {
