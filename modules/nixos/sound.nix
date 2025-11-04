@@ -1,4 +1,10 @@
-{lib, ...}: {
+{
+  config,
+  lib,
+  ...
+}:
+if config.sound.enable
+then {
   # Enable sound with pipewire.
   sound.enable = lib.mkDefault true;
   hardware.pulseaudio.enable = lib.mkDefault false;
@@ -15,3 +21,4 @@
     #media-session.enable = true;
   };
 }
+else {}
