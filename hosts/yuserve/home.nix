@@ -5,6 +5,11 @@
   user,
   ...
 }: {
+  users.users.${user} = {
+    isNormalUser = true;
+    group = "users";
+    extraGroups = ["wheel"];
+  };
   home-manager.users.${user} = {
     home = {
       packages = with pkgs; [
