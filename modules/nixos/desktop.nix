@@ -6,10 +6,7 @@
 }: let
   theme = pkgs.sddm-macventura-theme;
 in {
-  services.xserver = {
-    # Enable the X11 windowing system.
-    enable = lib.mkDefault true;
-
+  services.xserver = lib.mkIf config.services.xserver.enable {
     excludePackages = with pkgs; [
       plasma5Packages.plasma-browser-integration # currently incompatible with vivaldi
       xterm # exclude xterm (we have alacritty set up)
