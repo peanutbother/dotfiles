@@ -1,9 +1,6 @@
-# {lib, ...}:
-let
-  default_true = true;
-  default_false = false;
-  # default_true = lib.mkDefault true;
-  # default_false = lib.mkDefault false;
+{lib, ...}: let
+  default_true = lib.mkDefault true;
+  default_false = lib.mkDefault false;
 in {
   programs.moonlight = {
     enable = default_true;
