@@ -1,6 +1,6 @@
 {
-  pkgs,
   home,
+  pkgs,
   repo,
   user,
   ...
@@ -44,8 +44,9 @@
           UseKeychain yes
           AddKeysToAgent yes
           IdentityFile ~/.ssh/dev_bricksoft
-          IdentityFile ~/.ssh/dev_ravpower
           IdentityFile ~/.ssh/dev_homebridge
+          IdentityFile ~/.ssh/dev_lxc
+          IdentityFile ~/.ssh/dev_ravpower
           IdentityFile ~/.ssh/dev_yudeck
 
         Host *.github.com
@@ -66,11 +67,15 @@
         "ssh-keys/devs/bricksoft" = {
           path = "${home}/.ssh/dev_bricksoft";
         };
-        "ssh-keys/devs/ravpower" = {
-          path = "${home}/.ssh/dev_ravpower";
-        };
         "ssh-keys/devs/homebridge" = {
           path = "${home}/.ssh/dev_homebridge";
+        };
+        "ssh-keys/devs/lxc" = {
+          path = "${home}/.ssh/dev_lxc";
+          sopsFile = ../../secrets/YunAir.yaml;
+        };
+        "ssh-keys/devs/ravpower" = {
+          path = "${home}/.ssh/dev_ravpower";
         };
         "ssh-keys/devs/YunAir" = {
           path = "${home}/.ssh/dev_yunair";
