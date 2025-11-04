@@ -3,8 +3,8 @@
   lib,
   ...
 }:
-if config.sound.enable
-then {
+lib.mkIf config.sound.enable
+{
   # Enable sound with pipewire.
   sound.enable = lib.mkDefault true;
   hardware.pulseaudio.enable = lib.mkDefault false;
@@ -21,4 +21,3 @@ then {
     #media-session.enable = true;
   };
 }
-else {}
