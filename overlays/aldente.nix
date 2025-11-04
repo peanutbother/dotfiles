@@ -1,9 +1,9 @@
 final: prev: {
   aldente = prev.aldente.overrideAttrs (_: prev: rec {
-    version = "1.34.1";
+    version = "1.35.1";
     src = builtins.fetchurl {
       url = "https://github.com/davidwernhart/aldente-charge-limiter/releases/download/${version}/AlDente.dmg";
-      sha256 = "sha256:1x9h8pw8d500g5r54agcl1l92wndsa1x9473xdz8qrbyfxi4h2c7";
+      sha256 = "sha256:0iz1fsw16mj66kqy7i1zv35fbj3dxbgvx959fjvv4n98v17s6dis";
     };
   });
 }
