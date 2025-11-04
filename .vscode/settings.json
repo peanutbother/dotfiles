@@ -1,7 +1,5 @@
 {
   "editor.formatOnSave": true,
-  "nixEnvSelector.suggestion": true,
-  "nixEnvSelector.nixFile": "${workspaceRoot}/shells/nix/flake.nix",
   "nix.enableLanguageServer": true,
   "nix.serverPath": "nixd",
   "nix.serverSettings": {

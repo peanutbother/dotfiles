@@ -1,6 +1,6 @@
 {
   "recommendations": [
-    "arrterian.nix-env-selector",
+    // these will make sense in this repo
     "mkhl.direnv",
     "malmaud.tmux",
     "redhat.vscode-yaml"
