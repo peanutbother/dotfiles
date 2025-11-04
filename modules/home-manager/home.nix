@@ -1,6 +1,7 @@
 {
   repo,
   user,
+  home,
   host,
   config,
   lib,
@@ -25,6 +26,8 @@
         (lib.mkIf config.programs.tmux.enable tmuxinator)
         wget
       ];
+
+      sessionPath = [(home + "/.cargo/bin")];
 
       sessionVariables = {
         HOMEBREW_NO_ANALYTICS = lib.mkDefault 1; # disable homebrew analytics
