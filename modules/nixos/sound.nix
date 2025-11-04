@@ -1,23 +1,21 @@
-{
-  config,
-  lib,
-  ...
-}:
-lib.mkIf config.sound.enable
-{
-  # Enable sound with pipewire.
-  sound.enable = lib.mkDefault true;
-  hardware.pulseaudio.enable = lib.mkDefault false;
-  security.rtkit.enable = lib.mkDefault true;
-  services.pipewire = {
-    enable = lib.mkDefault true;
-    alsa.enable = lib.mkDefault true;
-    alsa.support32Bit = lib.mkDefault true;
-    pulse.enable = lib.mkDefault true;
-    jack.enable = lib.mkDefault true;
+{lib, ...}: {
+  options = {
+    sound = lib.mkOption {
+      type = lib.types.bool;
+      default = true;
+      description = "enable or disable sound stack with pipewire";
+    };
+  };
 
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
+  config = {
+    # Enable sound with pipewire.
+    security.rtkit.enable = lib.mkDefault true;
+    services.pipewire = {
+      enable = lib.mkDefault true;
+      alsa.enable = lib.mkDefault true;
+      alsa.support32Bit = lib.mkDefault true;
+      pulse.enable = lib.mkDefault true;
+      jack.enable = lib.mkDefault true;
+    };
   };
 }
