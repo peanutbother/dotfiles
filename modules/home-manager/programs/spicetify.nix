@@ -9,6 +9,7 @@
     colorScheme = lib.mkDefault "purple-dark";
     enabledExtensions = with extensions;
       lib.mkDefault [
+        adblock
         fullAppDisplay
         history
         lastfm
