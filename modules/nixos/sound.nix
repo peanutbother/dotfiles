@@ -1,13 +1,17 @@
-{lib, ...}: {
+{
+  config,
+  lib,
+  ...
+}: {
   options = {
-    sound = lib.mkOption {
+    sound.pipewire = lib.mkOption {
       type = lib.types.bool;
       default = true;
       description = "enable or disable sound stack with pipewire";
     };
   };
 
-  config = {
+  config = lib.mkIf config.sound.pipewire {
     # Enable sound with pipewire.
     security.rtkit.enable = lib.mkDefault true;
     services.pipewire = {
