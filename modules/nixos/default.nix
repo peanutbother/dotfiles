@@ -1,7 +1,5 @@
 {host, ...}: {
   imports = [
-    ../../hosts/${host}/hardware.nix # import host specific hardware configuration
-    ../../hosts/${host}/system.nix # import host specific system configuration
     ./boot.nix # configure boot settings
     ./console.nix # configure console layout, etc
     ./desktop.nix # configure desktop and window managers
@@ -12,5 +10,7 @@
     ./sound.nix # enable sound
     ./time.nix # configure timezone
     ./touchpad.nix # configure trackpad (e.g. force feedback)
+    ../../hosts/${host}/hardware.nix # import host specific hardware configuration
+    ../../hosts/${host}/system.nix # import host specific system configuration
   ];
 }
