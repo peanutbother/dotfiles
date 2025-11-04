@@ -31,6 +31,11 @@
       inputs.nixpkgs.follows = "nixpkgs-darwin";
     };
 
+    nix-auth = {
+      url = "github:numtide/nix-auth";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     homebrew-cask = {
       url = "github:homebrew/homebrew-cask";
       flake = false;

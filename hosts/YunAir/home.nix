@@ -22,6 +22,7 @@
         istat-menus
         keka
         moonlight
+        nix-auth
         ntfs3g # required for mounty
         signal-desktop-bin
         tailscale
