@@ -1,4 +1,5 @@
 {
+  config,
   lib,
   pkgs,
   ...
@@ -30,7 +31,7 @@ in {
     xkbVariant = lib.mkDefault "nodeadkeys";
   };
 
-  environment = {
+  environment = lib.mkIf config.services.xserver.enable {
     systemPackages = with pkgs; [
       libsForQt5.qtstyleplugin-kvantum
       sddm-kcm
