@@ -9,11 +9,11 @@ FLAKE="$(dirname $(dirname $0))#"
 case $(uname -a) in
 Linux*)
 	echo "configuring nix-os"
-	nixos-install --flake $FLAKE
+	sudo -i nixos-install --flake $FLAKE
 	;;
 Darwin*)
 	echo "configuring nix-darwin"
-	nix run nix-darwin -- switch --flake $FLAKE
+	sudo -i nix run nix-darwin -- switch --flake $FLAKE
 	;;
 *)
 	echo "unsupported OS detected"
