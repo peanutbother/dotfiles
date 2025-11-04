@@ -1,5 +1,4 @@
-{lib, ...}: let
-in {
+{
   boot.initrd.availableKernelModules = ["xen_blkfront"];
   boot.initrd.kernelModules = [];
   boot.kernelModules = [];
