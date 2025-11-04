@@ -14,6 +14,12 @@
     };
 
     programs = {
+      alacritty.enable = false;
+      moonlight.enable = false;
+      spicetify.enable = false;
+      vscode.enable = false;
+      yt-dlp.enable = false;
+
       git = {
         userName = "peanutbother";
         userEmail = "peanutbother@proton.me";
