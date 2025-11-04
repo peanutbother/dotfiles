@@ -5,7 +5,7 @@
   system.stateVersion = "24.11";
 
   services.xserver.enable = false;
-  sound = false;
+  sound.pipewire = false;
 
   system.autoUpgrade = {
     enable = true;
