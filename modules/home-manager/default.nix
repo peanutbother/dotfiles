@@ -23,13 +23,15 @@
     };
     sharedModules = with inputs;
       [
-        mac-app-util.homeManagerModules.default # link nix apps to darwin (fix spotlight, dock)
         moonlight.homeModules.default
         sops-nix.homeManagerModule
         spicetify-nix.homeManagerModules.default
       ]
       ++ (lib.optionals (!pkgs.stdenv.hostPlatform.isDarwin) [
-        inputs.plasma-manager.homeManagerModules.plasma-manager
+        inputs.plasma-manager.homeModules.plasma-manager
+      ])
+      ++ (lib.optionals (pkgs.stdenv.hostPlatform.isDarwin) [
+        mac-app-util.homeManagerModules.default # link nix apps to darwin (fix spotlight, dock)
       ]);
   };
 
