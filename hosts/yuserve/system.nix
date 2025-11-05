@@ -20,7 +20,6 @@
   boot.loader = {
     systemd-boot.enable = false;
     grub.enable = true;
-    grub.version = 2;
     grub.device = "/dev/xvda";
   };
 }
