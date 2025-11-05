@@ -1,8 +1,16 @@
 {
-  boot.initrd.availableKernelModules = ["xen_blkfront"];
-  boot.initrd.kernelModules = [];
-  boot.kernelModules = [];
-  boot.extraModulePackages = [];
+  boot = {
+    initrd = {
+      availableKernelModules = ["xen_blkfront"];
+      kernelModules = [];
+    };
+    kernelModules = [];
+    extraModulePackages = [];
+    loader = {
+      systemd-boot.enable = false;
+      grub.enable = false;
+    };
+  };
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/bf3f2590-e002-4fe0-9632-cba976824ad8";

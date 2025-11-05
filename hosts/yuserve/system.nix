@@ -16,10 +16,4 @@
     startAgent = true;
     enableAskPassword = true;
   };
-
-  boot.loader = {
-    systemd-boot.enable = false;
-    grub.enable = true;
-    grub.device = "/dev/xvda";
-  };
 }
