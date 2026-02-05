@@ -75,6 +75,10 @@
           path = "${home}/.ssh/dev_lxc";
           sopsFile = ../../secrets/YunAir.yaml;
         };
+        "ssh-keys/devs/pve" = {
+          path = "${home}/.ssh/dev_pve";
+          sopsFile = ../../secrets/YunAir.yaml;
+        };
         "ssh-keys/devs/ravpower" = {
           path = "${home}/.ssh/dev_ravpower";
         };
