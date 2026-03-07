@@ -30,7 +30,7 @@ in {
   config = {
     programs.git = {
       enable = lib.mkDefault true;
-      extraConfig = {
+      settings = {
         init.defaultBranch = lib.mkDefault "main";
 
         pull.rebase = lib.mkDefault false;

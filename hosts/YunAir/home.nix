@@ -33,9 +33,11 @@
     };
 
     programs = {
-      git = {
-        userName = "peanutbother";
-        userEmail = "peanutbother@proton.me";
+      git.settings = {
+        user = {
+          name = "peanutbother";
+          email = "peanutbother@proton.me";
+        };
       };
 
       vscode.enable = false;
