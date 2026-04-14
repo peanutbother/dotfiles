@@ -32,7 +32,6 @@
           AddKeysToAgent yes
           IdentityFile ~/.ssh/dev_bricksoft
           IdentityFile ~/.ssh/dev_ravpower
-          IdentityFile ~/.ssh/dev_homebridge
 
         Host *.github.com
           AddKeysToAgent yes

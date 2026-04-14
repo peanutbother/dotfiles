@@ -78,9 +78,6 @@
         "ssh-keys/devs/bricksoft" = {
           path = "${home}/.ssh/dev_bricksoft";
         };
-        "ssh-keys/devs/homebridge" = {
-          path = "${home}/.ssh/dev_homebridge";
-        };
         "ssh-keys/devs/lxc" = {
           path = "${home}/.ssh/dev_lxc";
           sopsFile = ../../secrets/YunAir.yaml;
