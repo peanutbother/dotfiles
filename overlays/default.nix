@@ -13,4 +13,5 @@ inputs: [
   (import ./spicetify.nix inputs)
   (import ./vivaldi.nix)
   inputs.vscode-extensions.overlays.default
+  inputs.nix-direnv.overlays.default
 ]

@@ -22,7 +22,7 @@
     };
 
     moonlight = {
-      url = "github:moonlight-mod/moonlight";
+      url = "github:moonlight-mod/moonlight/v2026.3.3";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -33,6 +33,11 @@
 
     nix-auth = {
       url = "github:numtide/nix-auth";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nix-direnv = {
+      url = "github:nix-community/nix-direnv";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
