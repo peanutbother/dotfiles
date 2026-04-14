@@ -48,7 +48,6 @@
           UseKeychain yes
           AddKeysToAgent yes
           IdentityFile ~/.ssh/dev_bricksoft
-          IdentityFile ~/.ssh/dev_homebridge
           IdentityFile ~/.ssh/dev_lxc
           IdentityFile ~/.ssh/dev_ravpower
           IdentityFile ~/.ssh/dev_yudeck
@@ -57,6 +56,14 @@
           AddKeysToAgent yes
           UseKeychain yes
           IdentityFile ~/.ssh/github_peanutbother
+
+        Host *.lab
+          IdentityFile ~/.ssh/dev_lxc
+          USER root
+
+        Host 10.95.0.*
+          IdentityFile ~/.ssh/dev_lxc
+          USER root
       '';
 
       zoxide.prefix = "cd";
