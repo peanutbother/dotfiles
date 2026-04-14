@@ -12,7 +12,7 @@
         adblock
         fullAppDisplay
         history
-        lastfm
+        # lastfm
         powerBar
         playNext
         savePlaylists
