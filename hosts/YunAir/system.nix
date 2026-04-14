@@ -6,9 +6,9 @@
   };
 
   homebrew = {
-    masApps = {
-      WCHSerialPort = 1580700717;
-    };
+    # masApps = {
+    #   WCHSerialPort = 1580700717;
+    # };
     brews = [
       "cliclick"
     ];
