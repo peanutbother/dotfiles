@@ -23,6 +23,7 @@
         keka
         moonlight
         nix-auth
+        nixd
         ntfs3g # required for mounty
         signal-desktop-bin
         tailscale
