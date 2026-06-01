@@ -14,4 +14,5 @@ inputs: [
   (import ./vivaldi.nix)
   inputs.vscode-extensions.overlays.default
   inputs.nix-direnv.overlays.default
+  inputs.nur.overlays.default
 ]
