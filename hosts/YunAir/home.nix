@@ -13,9 +13,9 @@
 
       packages = with pkgs; [
         aldente
+        dockdoor
         raycast
         rectangle
-        alt-tab-macos
         docker
         ice-bar
         imagemagick

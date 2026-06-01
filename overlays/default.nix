@@ -1,7 +1,7 @@
 inputs: [
   (import ./aldente.nix)
-  (import ./alt-tab-macos.nix)
   (import ./cht-sh)
+  (import ./dockdoor)
   (import ./istat-menus.nix inputs)
   (import ./keka.nix inputs)
   (import ./moonlight.nix inputs)

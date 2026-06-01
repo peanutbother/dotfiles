@@ -17,6 +17,7 @@
       "arduino-ide"
       "blackhole-2ch"
       "crossover"
+      "dockdoor"
       "krita"
       "mounty"
       "notunes"
