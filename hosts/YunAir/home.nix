@@ -12,6 +12,7 @@
       };
 
       packages = with pkgs; [
+        alcove
         aldente
         dockdoor
         raycast
