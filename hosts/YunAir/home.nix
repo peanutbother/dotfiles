@@ -22,7 +22,8 @@
         imagemagick
         istat-menus
         keka
-        moonlight
+        #moonlight
+        discord
         nix-auth
         nixd
         ntfs3g # required for mounty
@@ -31,6 +32,7 @@
         telegram-desktop
         testdisk
         utm
+        vlc-bin
       ];
     };
 

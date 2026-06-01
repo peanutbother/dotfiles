@@ -20,7 +20,6 @@
         curl
         less
         mc
-        neofetch
         progress
         sops
         (lib.mkIf config.programs.tmux.enable tmuxinator)
