@@ -18,6 +18,7 @@
         age
         asciinema
         curl
+        fastfetch
         less
         mc
         progress
