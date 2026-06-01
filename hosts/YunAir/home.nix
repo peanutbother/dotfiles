@@ -25,7 +25,7 @@
         nix-auth
         nixd
         ntfs3g # required for mounty
-        signal-desktop-bin
+        signal-desktop
         tailscale
         telegram-desktop
         testdisk

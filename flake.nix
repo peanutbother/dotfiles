@@ -1,8 +1,8 @@
 {
   description = "nix-conf";
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
-    nixpkgs-darwin.url = "github:NixOS/nixpkgs/nixpkgs-25.11-darwin";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    # nixpkgs-darwin.url = "github:NixOS/nixpkgs/nixpkgs-25.11-darwin";
     nixos-hardware.url = "github:NixOS/nixos-hardware";
     nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
 
@@ -16,19 +16,16 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    mac-app-util = {
-      url = "github:hraban/mac-app-util";
-      inputs.nixpkgs.follows = "nixpkgs-darwin";
-    };
+    mac-app-util.url = "github:hraban/mac-app-util";
 
     moonlight = {
-      url = "github:moonlight-mod/moonlight/v2026.3.3";
+      url = "github:moonlight-mod/moonlight/v2026.5.0";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     nix-darwin = {
-      url = "github:lnl7/nix-darwin/nix-darwin-25.11";
-      inputs.nixpkgs.follows = "nixpkgs-darwin";
+      url = "github:nix-darwin/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     nix-auth = {
@@ -38,6 +35,11 @@
 
     nix-direnv = {
       url = "github:nix-community/nix-direnv";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nur = {
+      url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -56,8 +58,13 @@
       flake = false;
     };
 
+    flux-markdown = {
+      url = "github:xykong/homebrew-tap";
+      flake = false;
+    };
+
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.11";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

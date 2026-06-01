@@ -78,7 +78,7 @@ with inputs.nixpkgs; rec {
         else "nixos"
       };
   in
-    if builtins.isNull modules
+    if isNull modules
     then [
       system-modules
       home-manager
