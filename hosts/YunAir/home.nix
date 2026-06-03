@@ -48,23 +48,32 @@
 
       ssh.extraConfig = ''
         Host *
-          UseKeychain yes
+          IgnoreUnknown UseKeychain
           AddKeysToAgent yes
+          UseKeychain yes
           IdentityFile ~/.ssh/dev_bricksoft
           IdentityFile ~/.ssh/dev_lxc
+          IdentityFile ~/.ssh/dev_pve
           IdentityFile ~/.ssh/dev_ravpower
           IdentityFile ~/.ssh/dev_yudeck
 
         Host *.github.com
+          IgnoreUnknown UseKeychain
           AddKeysToAgent yes
           UseKeychain yes
           IdentityFile ~/.ssh/github_peanutbother
 
         Host *.lab
+          IgnoreUnknown UseKeychain
+          AddKeysToAgent yes
+          UseKeychain yes
           IdentityFile ~/.ssh/dev_lxc
           USER root
 
         Host 10.95.0.*
+          IgnoreUnknown UseKeychain
+          AddKeysToAgent yes
+          UseKeychain yes
           IdentityFile ~/.ssh/dev_lxc
           USER root
       '';
