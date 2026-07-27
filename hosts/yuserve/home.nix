@@ -30,16 +30,11 @@
         userEmail = "peanutbother@proton.me";
       };
 
-      ssh.extraConfig = ''
-        Host *
-          UseKeychain yes
-          AddKeysToAgent yes
-
-        Host *.github.com
-          AddKeysToAgent yes
-          UseKeychain yes
-          IdentityFile ~/.ssh/github_peanutbother
-      '';
+      ssh = {
+        settings = {
+          "*.github.com".IdentityFile = "~/.ssh/github_peanutbother";
+        };
+      };
 
       zoxide.prefix = "cd";
     };

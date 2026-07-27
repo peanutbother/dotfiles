@@ -46,37 +46,26 @@
 
       vscode.enable = false;
 
-      ssh.extraConfig = ''
-        Host *
-          IgnoreUnknown UseKeychain
-          AddKeysToAgent yes
-          UseKeychain yes
-          IdentityFile ~/.ssh/dev_bricksoft
-          IdentityFile ~/.ssh/dev_lxc
-          IdentityFile ~/.ssh/dev_pve
-          IdentityFile ~/.ssh/dev_ravpower
-          IdentityFile ~/.ssh/dev_yudeck
-
-        Host *.github.com
-          IgnoreUnknown UseKeychain
-          AddKeysToAgent yes
-          UseKeychain yes
-          IdentityFile ~/.ssh/github_peanutbother
-
-        Host *.lab
-          IgnoreUnknown UseKeychain
-          AddKeysToAgent yes
-          UseKeychain yes
-          IdentityFile ~/.ssh/dev_lxc
-          USER root
-
-        Host 10.95.0.*
-          IgnoreUnknown UseKeychain
-          AddKeysToAgent yes
-          UseKeychain yes
-          IdentityFile ~/.ssh/dev_lxc
-          USER root
-      '';
+      ssh = {
+        settings = let
+          lxcConfig = {
+            IdentityFile = "~/.ssh/dev_lxc";
+            User = "root";
+          };
+        in {
+          "*".IdentityFile = [
+            "~/.ssh/dev_bricksoft"
+            "~/.ssh/dev_lxc"
+            "~/.ssh/dev_pve"
+            "~/.ssh/dev_ravpower"
+            "~/.ssh/dev_yumac"
+            "~/.ssh/dev_yudeck"
+          ];
+          "*.github.com".IdentityFile = "~/.ssh/github_peanutbother";
+          "*.lab" = lxcConfig;
+          "10.95.0.*" = lxcConfig;
+        };
+      };
 
       zoxide.prefix = "cd";
     };
@@ -100,6 +89,10 @@
         };
         "ssh-keys/devs/ravpower" = {
           path = "${home}/.ssh/dev_ravpower";
+        };
+        "ssh-keys/devs/YuMac" = {
+          path = "${home}/.ssh/dev_yumac";
+          sopsFile = ../../secrets/YunAir.yaml;
         };
         "ssh-keys/devs/YunAir" = {
           path = "${home}/.ssh/dev_yunair";
