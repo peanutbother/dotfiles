@@ -1,12 +1,7 @@
 keys:
-  - &yubook age1k6vvn5qlr7kc3h992t2fvnus4xg83r6d423dlufu820famn9z4cqfgrywh
   - &YunAir age1upak4x3s6v8j4dk2m52ad6phrf3sw59qtyyq7a9j2kjhtm3g9y3qm6f4tk
   - &YuMac age1upak4x3s6v8j4dk2m52ad6phrf3sw59qtyyq7a9j2kjhtm3g9y3qm6f4tk
 creation_rules:
-  - path_regex: secrets/yubook\.(yaml|json|env|ini)$
-    key_groups:
-      - age:
-          - *yubook
   - path_regex: secrets/YunAir\.(yaml|json|env|ini)$
     key_groups:
       - age:
@@ -18,6 +13,5 @@ creation_rules:
   - path_regex: secrets/common\.(yaml|json|env|ini)$
     key_groups:
       - age:
-          - *yubook
           - *YunAir
           - *YuMac
