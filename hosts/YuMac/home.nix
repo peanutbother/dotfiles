@@ -9,19 +9,24 @@
     home = {
       packages = with pkgs; [
         dockdoor
-        raycast
-        rectangle
         docker
+        ffmpeg
         imagemagick
         istat-menus
         keka
         nix-auth
         nixd
         ntfs3g # required for mounty
-        tailscale
-        testdisk
+        raycast
+        rectangle
         utm
       ];
+
+      sessionPath = [
+        "${home}/.local/bin"
+        "/opt/homebrew/bin"
+      ];
+      
     };
 
     programs = {
@@ -34,6 +39,8 @@
 
       yt-dlp.enable = false;
       vscode.enable = false;
+      spicetify.enable = false;
+      moonlight.enable = false;
 
       ssh = {
         settings = let
@@ -57,6 +64,9 @@
       };
 
       zoxide.prefix = "cd";
+      zsh.initContent = ''
+        source ~/.orbstack/shell/init.zsh 2>/dev/null || :
+      '';
     };
 
     sops = {
